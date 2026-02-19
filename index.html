@@ -18,6 +18,8 @@
 <body>
     <div class="noise-overlay" aria-hidden="true"></div>
 
+    <div class="menu-overlay" id="menu-overlay" aria-hidden="true"></div>
+
     <header class="header">
         <div class="container header-container">
             <div class="logo">
@@ -29,6 +31,10 @@
                     <a href="#programa">Programa</a>
                     <a href="#modalidad">Modalidad</a>
                     <a href="https://wa.me/525579076626" class="nav-cta" target="_blank" rel="noopener noreferrer">Inscribirme</a>
+                    <a href="alumnos.html" class="nav-alumnos">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        Alumnos
+                    </a>
                 </div>
                 <button id="theme-toggle" class="theme-toggle" title="Cambiar tema" aria-label="Cambiar tema">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -78,7 +84,16 @@
                     <a href="#programa" class="btn-primary">Ver Programa Completo</a>
                     <div class="hero-dates">
                         <span class="date-label">FECHAS</span>
-                        <span class="date-value">21 Feb · 7 Mar · 21 Mar 2025</span>
+                        <span class="date-value">21 Feb · 7 Mar · 21 Mar 2026</span>
+                    </div>
+                </div>
+                <div class="cupo-bar">
+                    <div class="cupo-info">
+                        <span class="cupo-label">CUPO PRESENCIAL</span>
+                        <span class="cupo-count">Solo quedan <strong>6 lugares</strong></span>
+                    </div>
+                    <div class="cupo-track">
+                        <div class="cupo-fill"></div>
                     </div>
                 </div>
             </div>
@@ -122,6 +137,32 @@
                 </div>
             </div>
         </section>
+
+        <!-- FUTURO STRIP -->
+        <div class="futuro-strip" aria-hidden="true">
+            <div class="futuro-marquee">
+                <span>TRANSFORMA LO QUE TE DETIENE</span>
+                <span class="futuro-dot">·</span>
+                <span>LIBERA LOS PATRONES QUE TE LIMITAN</span>
+                <span class="futuro-dot">·</span>
+                <span>RECONECTA CON TU INTELIGENCIA INNATA</span>
+                <span class="futuro-dot">·</span>
+                <span>CARTOGRAFÍA DEL CAMPO ENERGÉTICO</span>
+                <span class="futuro-dot">·</span>
+                <span>IMPRONTAS DE SUPERVIVENCIA</span>
+                <span class="futuro-dot">·</span>
+                <span>TRANSFORMA LO QUE TE DETIENE</span>
+                <span class="futuro-dot">·</span>
+                <span>LIBERA LOS PATRONES QUE TE LIMITAN</span>
+                <span class="futuro-dot">·</span>
+                <span>RECONECTA CON TU INTELIGENCIA INNATA</span>
+                <span class="futuro-dot">·</span>
+                <span>CARTOGRAFÍA DEL CAMPO ENERGÉTICO</span>
+                <span class="futuro-dot">·</span>
+                <span>IMPRONTAS DE SUPERVIVENCIA</span>
+                <span class="futuro-dot">·</span>
+            </div>
+        </div>
 
         <!-- SCHEDULE -->
         <section id="programa" class="schedule">
@@ -352,11 +393,35 @@
         <section id="contacto" class="cta-section">
             <div class="container">
                 <div class="cta-frame">
-                    <span class="cta-eyebrow">INICIO: FEBRERO 2025</span>
+                    <span class="cta-eyebrow">INICIO: FEBRERO 2026</span>
                     <h2 class="cta-title">Inicia tu Trayectoria<br><em>en Bioenergética V4</em></h2>
                     <p class="cta-author">Dr. Miguel Ojeda Rios · Instituto Centrobioenergetica</p>
+
+                    <div class="countdown" id="countdown">
+                        <div class="countdown-unit">
+                            <span class="countdown-num" id="cd-days">00</span>
+                            <span class="countdown-label">días</span>
+                        </div>
+                        <div class="countdown-sep">:</div>
+                        <div class="countdown-unit">
+                            <span class="countdown-num" id="cd-hours">00</span>
+                            <span class="countdown-label">horas</span>
+                        </div>
+                        <div class="countdown-sep">:</div>
+                        <div class="countdown-unit">
+                            <span class="countdown-num" id="cd-mins">00</span>
+                            <span class="countdown-label">min</span>
+                        </div>
+                        <div class="countdown-sep">:</div>
+                        <div class="countdown-unit">
+                            <span class="countdown-num" id="cd-secs">00</span>
+                            <span class="countdown-label">seg</span>
+                        </div>
+                    </div>
+
                     <a href="https://wa.me/525579076626"
                         class="btn-primary btn-large" target="_blank" rel="noopener noreferrer">Solicitar Inscripción por WhatsApp</a>
+                    <p class="cta-urgencia">Cupo limitado · Inscripciones abiertas</p>
                 </div>
             </div>
         </section>
@@ -372,6 +437,12 @@
             <span class="footer-legal">© 2025 Instituto Centrobioenergetica · Dr. Miguel Ojeda Rios</span>
         </div>
     </footer>
+
+    <button id="back-to-top" class="back-to-top" aria-label="Volver arriba" title="Volver arriba">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
 
     <script src="script.js"></script>
 </body>

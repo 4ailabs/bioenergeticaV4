@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Alumnos · Bioenergética V4</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500;1,700&family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* ---- TOKENS (mismos que el sitio principal) ---- */
+        :root {
+            --bg:          #060b12;
+            --bg-alt:      #09101c;
+            --bg-card:     #0d1521;
+            --jade:        #00c9a0;
+            --jade-dim:    rgba(0,201,160,0.07);
+            --jade-border: rgba(0,201,160,0.22);
+            --amber:       #d4834a;
+            --silver:      #dde8f0;
+            --silver-dim:  rgba(221,232,240,0.65);
+            --muted:       #99b0c0;
+            --line:        rgba(221,232,240,0.1);
+            --line-strong: rgba(221,232,240,0.18);
+            --font-display:'Playfair Display', Georgia, serif;
+            --font-mono:   'Space Mono', monospace;
+            --font-body:   'DM Sans', sans-serif;
+        }
+
+        [data-theme="light"] {
+            --bg:          #f4f1ec;
+            --bg-alt:      #ede8e0;
+            --bg-card:     #e8e3d9;
+            --jade:        #007d64;
+            --jade-dim:    rgba(0,125,100,0.06);
+            --jade-border: rgba(0,125,100,0.2);
+            --amber:       #a85520;
+            --silver:      #111827;
+            --silver-dim:  rgba(17,24,39,0.65);
+            --muted:       #4b5a6e;
+            --line:        rgba(17,24,39,0.1);
+            --line-strong: rgba(17,24,39,0.18);
+        }
+
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+        body {
+            background: var(--bg);
+            color: var(--silver);
+            font-family: var(--font-body);
+            font-weight: 400;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        /* ---- LOGIN GATE ---- */
+        .login-screen {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(0,201,160,0.06) 0%, transparent 70%),
+                        var(--bg);
+        }
+
+        .login-box {
+            width: 100%;
+            max-width: 400px;
+            border: 1px solid var(--line-strong);
+            padding: 3rem 2.5rem;
+            position: relative;
+        }
+
+        .login-box::before,
+        .login-box::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-color: var(--jade);
+            border-style: solid;
+        }
+        .login-box::before { top: -1px; left: -1px; border-width: 1px 0 0 1px; }
+        .login-box::after  { bottom: -1px; right: -1px; border-width: 0 1px 1px 0; }
+
+        .login-logo {
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+
+        .login-logo-prefix {
+            display: block;
+            font-family: var(--font-mono);
+            font-size: 0.58rem;
+            letter-spacing: 0.22em;
+            color: var(--muted);
+            margin-bottom: 0.3rem;
+        }
+
+        .login-logo-name {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 700;
+            font-style: italic;
+            color: var(--silver);
+            letter-spacing: -0.01em;
+        }
+
+        .login-logo-name em {
+            color: var(--jade);
+            font-style: normal;
+        }
+
+        .login-eyebrow {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            letter-spacing: 0.2em;
+            color: var(--muted);
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .login-label {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            letter-spacing: 0.16em;
+            color: var(--muted);
+            display: block;
+            margin-bottom: 0.6rem;
+        }
+
+        .login-input {
+            width: 100%;
+            background: var(--bg-alt);
+            border: 1px solid var(--line-strong);
+            color: var(--silver);
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            padding: 0.85rem 1rem;
+            outline: none;
+            transition: border-color 0.2s;
+            letter-spacing: 0.08em;
+        }
+
+        .login-input:focus {
+            border-color: var(--jade-border);
+        }
+
+        .login-btn {
+            width: 100%;
+            margin-top: 1.5rem;
+            padding: 0.9rem;
+            background: var(--jade);
+            color: var(--bg);
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .login-btn:hover {
+            background: transparent;
+            color: var(--jade);
+            outline: 1px solid var(--jade);
+        }
+
+        .login-error {
+            margin-top: 1rem;
+            font-family: var(--font-mono);
+            font-size: 0.62rem;
+            color: var(--amber);
+            letter-spacing: 0.1em;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .login-error.visible { opacity: 1; }
+
+        /* ---- PORTAL ---- */
+        .portal { display: none; }
+        .portal.active { display: block; }
+
+        /* Header */
+        .portal-header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(6,11,18,0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--line);
+            padding: 0 2rem;
+        }
+
+        .portal-header-inner {
+            max-width: 1160px;
+            margin: 0 auto;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .portal-brand {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .portal-badge {
+            font-family: var(--font-mono);
+            font-size: 0.55rem;
+            letter-spacing: 0.18em;
+            color: var(--jade);
+            border: 1px solid var(--jade-border);
+            padding: 0.2rem 0.6rem;
+            text-transform: uppercase;
+        }
+
+        .portal-title-small {
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            font-style: italic;
+            color: var(--silver);
+        }
+
+        .portal-header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .portal-user {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            letter-spacing: 0.12em;
+            color: var(--muted);
+        }
+
+        .btn-logout {
+            font-family: var(--font-mono);
+            font-size: 0.58rem;
+            letter-spacing: 0.14em;
+            color: var(--muted);
+            background: none;
+            border: 1px solid var(--line);
+            padding: 0.35rem 0.8rem;
+            cursor: pointer;
+            transition: color 0.2s, border-color 0.2s;
+            text-transform: uppercase;
+        }
+
+        .btn-logout:hover {
+            color: var(--silver);
+            border-color: var(--line-strong);
+        }
+
+        /* Main content */
+        .portal-main {
+            max-width: 1160px;
+            margin: 0 auto;
+            padding: 3rem 2rem 5rem;
+        }
+
+        .portal-welcome {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .portal-welcome-eyebrow {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            letter-spacing: 0.2em;
+            color: var(--jade);
+            margin-bottom: 0.8rem;
+        }
+
+        .portal-welcome-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.6rem, 3vw, 2.4rem);
+            font-style: italic;
+            color: var(--silver);
+            line-height: 1.2;
+        }
+
+        .portal-welcome-sub {
+            margin-top: 0.6rem;
+            font-size: 0.95rem;
+            color: var(--muted);
+        }
+
+        /* Section grid */
+        .portal-sections {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .portal-card {
+            background: var(--bg-card);
+            border: 1px solid var(--line);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            transition: border-color 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portal-card:hover {
+            border-color: var(--line-strong);
+        }
+
+        .portal-card-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--jade-border);
+            color: var(--jade);
+            flex-shrink: 0;
+        }
+
+        .portal-card-label {
+            font-family: var(--font-mono);
+            font-size: 0.58rem;
+            letter-spacing: 0.18em;
+            color: var(--muted);
+            text-transform: uppercase;
+        }
+
+        .portal-card-title {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--silver);
+            line-height: 1.3;
+        }
+
+        .portal-card-desc {
+            font-size: 0.88rem;
+            color: var(--muted);
+            line-height: 1.6;
+            flex: 1;
+        }
+
+        .portal-card-status {
+            font-family: var(--font-mono);
+            font-size: 0.58rem;
+            letter-spacing: 0.14em;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .status-dot.available  { background: var(--jade); }
+        .status-dot.soon       { background: var(--amber); }
+        .status-dot.locked     { background: var(--muted); opacity: 0.5; }
+
+        .portal-card-link {
+            font-family: var(--font-mono);
+            font-size: 0.62rem;
+            letter-spacing: 0.12em;
+            color: var(--jade);
+            text-decoration: none;
+            border: 1px solid var(--jade-border);
+            padding: 0.5rem 1rem;
+            text-align: center;
+            transition: background 0.2s;
+            text-transform: uppercase;
+        }
+
+        .portal-card-link:hover {
+            background: var(--jade-dim);
+        }
+
+        .portal-card-link.disabled {
+            color: var(--muted);
+            border-color: var(--line);
+            pointer-events: none;
+        }
+
+        /* Jornadas progress */
+        .portal-jornadas {
+            margin-top: 3rem;
+        }
+
+        .portal-section-eyebrow {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            letter-spacing: 0.2em;
+            color: var(--muted);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .jornada-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+            border: 1px solid var(--line);
+        }
+
+        .jornada-item {
+            display: grid;
+            grid-template-columns: 60px 1fr auto;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1.2rem 1.5rem;
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--line);
+            transition: background 0.2s;
+        }
+
+        .jornada-item:last-child { border-bottom: none; }
+        .jornada-item:hover { background: var(--bg-alt); }
+
+        .jornada-num {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            letter-spacing: 0.16em;
+            color: var(--jade);
+            text-align: center;
+        }
+
+        .jornada-info-title {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-style: italic;
+            color: var(--silver);
+        }
+
+        .jornada-info-date {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            letter-spacing: 0.1em;
+            color: var(--muted);
+            margin-top: 0.2rem;
+        }
+
+        .jornada-badge {
+            font-family: var(--font-mono);
+            font-size: 0.55rem;
+            letter-spacing: 0.14em;
+            padding: 0.25rem 0.65rem;
+            border-radius: 1px;
+            white-space: nowrap;
+        }
+
+        .jornada-badge.disponible { color: var(--jade);  border: 1px solid var(--jade-border);  }
+        .jornada-badge.proximo    { color: var(--amber); border: 1px solid rgba(212,131,74,0.3); }
+        .jornada-badge.pendiente  { color: var(--muted); border: 1px solid var(--line); }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===================== LOGIN GATE ===================== -->
+    <div class="login-screen" id="login-screen">
+        <div class="login-box">
+            <div class="login-logo">
+                <span class="login-logo-prefix">INSTITUTO</span>
+                <span class="login-logo-name">Bioenergética <em>V4</em></span>
+            </div>
+            <p class="login-eyebrow">PORTAL EXCLUSIVO · ALUMNOS</p>
+
+            <label class="login-label" for="password-input">CONTRASEÑA DE ACCESO</label>
+            <input
+                class="login-input"
+                id="password-input"
+                type="password"
+                placeholder="••••••••••••"
+                autocomplete="current-password"
+            >
+            <button class="login-btn" id="login-btn">Acceder al Portal</button>
+            <p class="login-error" id="login-error">Contraseña incorrecta. Verifica con tu instructor.</p>
+        </div>
+    </div>
+
+    <!-- ===================== PORTAL ===================== -->
+    <div class="portal" id="portal">
+
+        <header class="portal-header">
+            <div class="portal-header-inner">
+                <div class="portal-brand">
+                    <span class="portal-badge">Alumnos</span>
+                    <span class="portal-title-small">Bioenergética V4</span>
+                </div>
+                <div class="portal-header-actions">
+                    <span class="portal-user">ACCESO ALUMNO</span>
+                    <button class="btn-logout" id="logout-btn">Salir</button>
+                </div>
+            </div>
+        </header>
+
+        <main class="portal-main">
+
+            <div class="portal-welcome">
+                <p class="portal-welcome-eyebrow">BIENVENIDO · BIOENERGÉTICA V4</p>
+                <h1 class="portal-welcome-title">Tu espacio de<br>aprendizaje y práctica</h1>
+                <p class="portal-welcome-sub">Aquí encontrarás todo el material, protocolos y recursos del programa.</p>
+            </div>
+
+            <!-- Tarjetas de contenido -->
+            <div class="portal-sections">
+
+                <div class="portal-card">
+                    <div class="portal-card-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    </div>
+                    <span class="portal-card-label">Módulo 01</span>
+                    <h2 class="portal-card-title">Manual Bioenergética V4</h2>
+                    <p class="portal-card-desc">Manual completo del programa. Fundamentos, marcos conceptuales y guías de práctica.</p>
+                    <div class="portal-card-status">
+                        <span class="status-dot available"></span>
+                        <span style="color:var(--jade)">Disponible</span>
+                    </div>
+                    <a href="#" class="portal-card-link">Ver Manual</a>
+                </div>
+
+                <div class="portal-card">
+                    <div class="portal-card-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+                    </div>
+                    <span class="portal-card-label">Módulo 02</span>
+                    <h2 class="portal-card-title">Grabaciones de Sesiones</h2>
+                    <p class="portal-card-desc">Acceso a las grabaciones de las tres jornadas del programa para repasar a tu ritmo.</p>
+                    <div class="portal-card-status">
+                        <span class="status-dot soon"></span>
+                        <span style="color:var(--amber)">Próximamente</span>
+                    </div>
+                    <a href="#" class="portal-card-link disabled">No disponible aún</a>
+                </div>
+
+                <div class="portal-card">
+                    <div class="portal-card-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    </div>
+                    <span class="portal-card-label">Módulo 03</span>
+                    <h2 class="portal-card-title">Protocolos de Sesión</h2>
+                    <p class="portal-card-desc">Los 5 protocolos de sesión paso a paso. Apertura, identificación, rastreo temporal y frase de actualización.</p>
+                    <div class="portal-card-status">
+                        <span class="status-dot available"></span>
+                        <span style="color:var(--jade)">Disponible</span>
+                    </div>
+                    <a href="#" class="portal-card-link">Ver Protocolos</a>
+                </div>
+
+                <div class="portal-card">
+                    <div class="portal-card-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <span class="portal-card-label">Módulo 04</span>
+                    <h2 class="portal-card-title">Mapeo Relacional</h2>
+                    <p class="portal-card-desc">Guías para identificar figuras nucleares, extendidas y de autoridad. Dimensión transgeneracional.</p>
+                    <div class="portal-card-status">
+                        <span class="status-dot soon"></span>
+                        <span style="color:var(--amber)">En preparación</span>
+                    </div>
+                    <a href="#" class="portal-card-link disabled">No disponible aún</a>
+                </div>
+
+                <div class="portal-card">
+                    <div class="portal-card-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                    </div>
+                    <span class="portal-card-label">Módulo 05</span>
+                    <h2 class="portal-card-title">Las 7 Improntas de Supervivencia</h2>
+                    <p class="portal-card-desc">Fichas de referencia rápida para cada impronta: emoción central, correlato físico y momento de origen.</p>
+                    <div class="portal-card-status">
+                        <span class="status-dot available"></span>
+                        <span style="color:var(--jade)">Disponible</span>
+                    </div>
+                    <a href="#" class="portal-card-link">Ver Fichas</a>
+                </div>
+
+                <div class="portal-card">
+                    <div class="portal-card-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    </div>
+                    <span class="portal-card-label">Soporte</span>
+                    <h2 class="portal-card-title">Consultas al Instructor</h2>
+                    <p class="portal-card-desc">Canal directo con el Dr. Miguel Ojeda Rios para resolver dudas sobre el protocolo y las sesiones.</p>
+                    <div class="portal-card-status">
+                        <span class="status-dot available"></span>
+                        <span style="color:var(--jade)">Disponible</span>
+                    </div>
+                    <a href="https://wa.me/525579076626" class="portal-card-link" target="_blank" rel="noopener noreferrer">Contactar por WhatsApp</a>
+                </div>
+
+            </div>
+
+            <!-- Progreso del programa -->
+            <div class="portal-jornadas">
+                <p class="portal-section-eyebrow">PROGRESO DEL PROGRAMA</p>
+                <div class="jornada-list">
+                    <div class="jornada-item">
+                        <div class="jornada-num">JORNADA<br>01</div>
+                        <div>
+                            <div class="jornada-info-title">El Cuerpo como Sistema de Inteligencia Distribuida</div>
+                            <div class="jornada-info-date">Sábado 21 de febrero · 10:00 – 18:00 h</div>
+                        </div>
+                        <span class="jornada-badge disponible">Disponible</span>
+                    </div>
+                    <div class="jornada-item">
+                        <div class="jornada-num">JORNADA<br>02</div>
+                        <div>
+                            <div class="jornada-info-title">Improntas de Supervivencia</div>
+                            <div class="jornada-info-date">Sábado 7 de marzo · 10:00 – 18:00 h</div>
+                        </div>
+                        <span class="jornada-badge proximo">Próxima</span>
+                    </div>
+                    <div class="jornada-item">
+                        <div class="jornada-num">JORNADA<br>03</div>
+                        <div>
+                            <div class="jornada-info-title">Protocolo de Sesión e Integración</div>
+                            <div class="jornada-info-date">Sábado 21 de marzo · 10:00 – 18:00 h</div>
+                        </div>
+                        <span class="jornada-badge pendiente">Pendiente</span>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        // ── CONTRASEÑA ── Cambia este valor para actualizar el acceso
+        const ACCESS_PASSWORD = 'bioenergetica2026';
+
+        const loginScreen = document.getElementById('login-screen');
+        const portal      = document.getElementById('portal');
+        const loginBtn    = document.getElementById('login-btn');
+        const logoutBtn   = document.getElementById('logout-btn');
+        const input       = document.getElementById('password-input');
+        const errorMsg    = document.getElementById('login-error');
+
+        function showPortal() {
+            loginScreen.style.display = 'none';
+            portal.classList.add('active');
+            sessionStorage.setItem('bioV4_auth', '1');
+        }
+
+        function showLogin() {
+            portal.classList.remove('active');
+            loginScreen.style.display = 'flex';
+            sessionStorage.removeItem('bioV4_auth');
+            input.value = '';
+        }
+
+        function tryLogin() {
+            if (input.value === ACCESS_PASSWORD) {
+                errorMsg.classList.remove('visible');
+                showPortal();
+            } else {
+                errorMsg.classList.add('visible');
+                input.focus();
+            }
+        }
+
+        // Mantener sesión si ya estaba logueado
+        if (sessionStorage.getItem('bioV4_auth') === '1') {
+            showPortal();
+        }
+
+        loginBtn.addEventListener('click', tryLogin);
+        input.addEventListener('keydown', e => { if (e.key === 'Enter') tryLogin(); });
+        logoutBtn.addEventListener('click', showLogin);
+    </script>
+
+</body>
+</html>

@@ -83,23 +83,27 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mobile menu
     // ----------------------------------------------------------------
     const menuToggle = document.getElementById('mobile-menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
+    const navLinks   = document.querySelector('.nav-links');
     const navAnchors = document.querySelectorAll('.nav-links a');
+    const menuOverlay = document.getElementById('menu-overlay');
+
+    function closeMenu() {
+        menuToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+        menuOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
 
     if (menuToggle && navLinks) {
         menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('active');
-            navLinks.classList.toggle('active');
-            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+            const isOpen = navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('active', isOpen);
+            menuOverlay.classList.toggle('active', isOpen);
+            document.body.style.overflow = isOpen ? 'hidden' : '';
         });
 
-        navAnchors.forEach(anchor => {
-            anchor.addEventListener('click', () => {
-                menuToggle.classList.remove('active');
-                navLinks.classList.remove('active');
-                document.body.style.overflow = '';
-            });
-        });
+        menuOverlay.addEventListener('click', closeMenu);
+        navAnchors.forEach(anchor => anchor.addEventListener('click', closeMenu));
     }
 
     // ----------------------------------------------------------------
@@ -153,6 +157,70 @@ document.addEventListener('DOMContentLoaded', () => {
                 header.style.borderBottomColor = '';
             }
         }, { passive: true });
+    }
+
+    // ----------------------------------------------------------------
+    // Countdown timer — actualiza la fecha cuando tengas la próxima edición
+    // ----------------------------------------------------------------
+    const COURSE_DATE = new Date('2026-02-21T10:00:00');
+
+    function updateCountdown() {
+        const now = new Date();
+        const diff = COURSE_DATE - now;
+        const pad = n => String(n).padStart(2, '0');
+
+        if (diff <= 0) {
+            ['cd-days', 'cd-hours', 'cd-mins', 'cd-secs'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.textContent = '00';
+            });
+            return;
+        }
+
+        const days  = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const mins  = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const secs  = Math.floor((diff % (1000 * 60)) / 1000);
+
+        document.getElementById('cd-days').textContent  = pad(days);
+        document.getElementById('cd-hours').textContent = pad(hours);
+        document.getElementById('cd-mins').textContent  = pad(mins);
+        document.getElementById('cd-secs').textContent  = pad(secs);
+    }
+
+    if (document.getElementById('countdown')) {
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    }
+
+    // ----------------------------------------------------------------
+    // Cupo bar — animar al entrar en pantalla
+    // ----------------------------------------------------------------
+    const cupoFill = document.querySelector('.cupo-fill');
+    if (cupoFill) {
+        const cupoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    cupoFill.style.width = '70%';
+                    cupoObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        cupoObserver.observe(cupoFill.parentElement);
+    }
+
+    // ----------------------------------------------------------------
+    // Back to top button
+    // ----------------------------------------------------------------
+    const backToTop = document.getElementById('back-to-top');
+    if (backToTop) {
+        window.addEventListener('scroll', () => {
+            backToTop.classList.toggle('visible', window.scrollY > 400);
+        }, { passive: true });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
     }
 
 });

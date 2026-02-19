@@ -169,6 +169,21 @@ body {
     background: var(--jade-dim) !important;
 }
 
+.nav-alumnos {
+    display: flex !important;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--muted) !important;
+    border: 1px solid var(--line) !important;
+    border-radius: 2px;
+    transition: color 0.2s, border-color 0.2s !important;
+}
+
+.nav-alumnos:hover {
+    color: var(--silver) !important;
+    border-color: var(--line-strong) !important;
+}
+
 .theme-toggle {
     width: 34px;
     height: 34px;
@@ -413,14 +428,14 @@ body {
 
 .date-label {
     font-family: var(--font-mono);
-    font-size: 0.58rem;
+    font-size: 0.72rem;
     letter-spacing: 0.18em;
     color: var(--muted);
 }
 
 .date-value {
     font-family: var(--font-mono);
-    font-size: 0.72rem;
+    font-size: 1rem;
     color: var(--amber);
     letter-spacing: 0.06em;
 }
@@ -1043,6 +1058,8 @@ body {
 
     .mobile-menu-toggle {
         display: flex;
+        position: relative;
+        z-index: 1001;
     }
 
     .nav-links {
@@ -1066,6 +1083,23 @@ body {
 
     .nav-links.active {
         right: 0;
+    }
+
+    .menu-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(6, 11, 18, 0.6);
+        z-index: 999;
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .menu-overlay.active {
+        display: block;
+        opacity: 1;
     }
 
     .nav-links a {
@@ -1174,4 +1208,184 @@ body {
         width: 28px;
         height: 28px;
     }
+}
+
+/* ============================================================
+   BACK TO TOP
+   ============================================================ */
+
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 1000;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg);
+    color: var(--jade);
+    border: 1px solid var(--jade-border);
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(12px);
+    transition: opacity 0.3s ease, transform 0.3s ease, background 0.2s, color 0.2s;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background: var(--jade);
+    color: var(--bg);
+}
+
+/* ============================================================
+   CUPO LIMITADO
+   ============================================================ */
+
+.cupo-bar {
+    margin-top: 2rem;
+    max-width: 340px;
+}
+
+.cupo-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.5rem;
+}
+
+.cupo-label {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+}
+
+.cupo-count {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--silver-dim);
+}
+
+.cupo-count strong {
+    color: var(--amber);
+    font-weight: 700;
+}
+
+.cupo-track {
+    height: 3px;
+    background: var(--line-strong);
+    position: relative;
+    overflow: hidden;
+}
+
+.cupo-fill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, var(--jade), var(--amber));
+    transition: width 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ============================================================
+   FUTURO MARQUEE STRIP
+   ============================================================ */
+
+.futuro-strip {
+    overflow: hidden;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 0.9rem 0;
+    background: var(--bg-alt);
+}
+
+.futuro-marquee {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+    white-space: nowrap;
+    animation: marquee-scroll 22s linear infinite;
+    width: max-content;
+}
+
+.futuro-marquee span {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    text-transform: uppercase;
+}
+
+.futuro-dot {
+    color: var(--jade) !important;
+    font-size: 1rem !important;
+    letter-spacing: 0 !important;
+}
+
+@keyframes marquee-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+
+/* ============================================================
+   COUNTDOWN TIMER
+   ============================================================ */
+
+.countdown {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 2rem 0 2.5rem;
+}
+
+.countdown-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    min-width: 64px;
+}
+
+.countdown-num {
+    font-family: var(--font-mono);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--jade);
+    line-height: 1;
+    letter-spacing: 0.04em;
+}
+
+.countdown-label {
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    text-transform: uppercase;
+}
+
+.countdown-sep {
+    font-family: var(--font-mono);
+    font-size: 2rem;
+    color: var(--line-strong);
+    line-height: 1;
+    margin-bottom: 1.2rem;
+}
+
+.cta-urgencia {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.16em;
+    color: var(--amber);
+    text-transform: uppercase;
+    margin-top: 1.5rem;
 }
