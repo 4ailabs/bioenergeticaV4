@@ -110,11 +110,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Theme toggle
     // ----------------------------------------------------------------
     const themeToggle = document.getElementById('theme-toggle');
-    const savedTheme = localStorage.getItem('theme');
+    const savedTheme = localStorage.getItem('theme') || 'light';
 
-    if (savedTheme) {
-        document.documentElement.setAttribute('data-theme', savedTheme);
-    }
+    document.documentElement.setAttribute('data-theme', savedTheme);
 
     if (themeToggle) {
         themeToggle.addEventListener('click', () => {
