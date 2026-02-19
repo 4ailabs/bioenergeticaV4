@@ -103,36 +103,28 @@
             </div>
         </section>
 
-        <!-- INTRO -->
-        <section class="intro">
+        <!-- STATS -->
+        <section class="stats-strip">
             <div class="container">
-                <div class="intro-layout">
-                    <div class="intro-copy">
-                        <p class="intro-eyebrow">MARCO CONCEPTUAL</p>
-                        <h2 class="intro-heading">El Cuerpo como Sistema de <em>Inteligencia Distribuida</em></h2>
-                        <p class="intro-body">La Bioenergética V4.0 integra neurociencia aplicada y el marco TAME — una aproximación que comprende el cuerpo como sistema cognitivo distribuido — para cartografiar y transformar los patrones que organizan la experiencia.</p>
-                        <p class="intro-highlight">Un inicio absoluto. No se requiere conocimiento previo.</p>
+                <div class="stats-row">
+                    <div class="stat-block">
+                        <div class="stat-number-wrap">
+                            <span class="stat-number" data-count="19.5">0</span>
+                            <span class="stat-unit">hrs</span>
+                        </div>
+                        <span class="stat-desc">Horas de Formación</span>
                     </div>
-                    <div class="intro-data">
-                        <div class="stat-block">
-                            <div class="stat-number-wrap">
-                                <span class="stat-number" data-count="19.5">0</span>
-                                <span class="stat-unit">hrs</span>
-                            </div>
-                            <span class="stat-desc">Horas de Formación</span>
+                    <div class="stat-block">
+                        <div class="stat-number-wrap">
+                            <span class="stat-number" data-count="15">0</span>
                         </div>
-                        <div class="stat-block">
-                            <div class="stat-number-wrap">
-                                <span class="stat-number" data-count="15">0</span>
-                            </div>
-                            <span class="stat-desc">Módulos Técnicos</span>
+                        <span class="stat-desc">Módulos Técnicos</span>
+                    </div>
+                    <div class="stat-block">
+                        <div class="stat-number-wrap">
+                            <span class="stat-number" data-count="10">0</span>
                         </div>
-                        <div class="stat-block">
-                            <div class="stat-number-wrap">
-                                <span class="stat-number" data-count="10">0</span>
-                            </div>
-                            <span class="stat-desc">Fases de Sesión Clínica</span>
-                        </div>
+                        <span class="stat-desc">Fases de Sesión Clínica</span>
                     </div>
                 </div>
             </div>
@@ -170,32 +162,6 @@
             </div>
         </section>
 
-        <!-- FUTURO STRIP -->
-        <div class="futuro-strip" aria-hidden="true">
-            <div class="futuro-marquee">
-                <span>TRANSFORMA LO QUE TE DETIENE</span>
-                <span class="futuro-dot">·</span>
-                <span>LIBERA LOS PATRONES QUE TE LIMITAN</span>
-                <span class="futuro-dot">·</span>
-                <span>RECONECTA CON TU INTELIGENCIA INNATA</span>
-                <span class="futuro-dot">·</span>
-                <span>CARTOGRAFÍA DEL CAMPO ENERGÉTICO</span>
-                <span class="futuro-dot">·</span>
-                <span>IMPRONTAS DE SUPERVIVENCIA</span>
-                <span class="futuro-dot">·</span>
-                <span>TRANSFORMA LO QUE TE DETIENE</span>
-                <span class="futuro-dot">·</span>
-                <span>LIBERA LOS PATRONES QUE TE LIMITAN</span>
-                <span class="futuro-dot">·</span>
-                <span>RECONECTA CON TU INTELIGENCIA INNATA</span>
-                <span class="futuro-dot">·</span>
-                <span>CARTOGRAFÍA DEL CAMPO ENERGÉTICO</span>
-                <span class="futuro-dot">·</span>
-                <span>IMPRONTAS DE SUPERVIVENCIA</span>
-                <span class="futuro-dot">·</span>
-            </div>
-        </div>
-
         <!-- SCHEDULE -->
         <section id="programa" class="schedule">
             <div class="container">
@@ -208,14 +174,20 @@
                     </div>
                 </header>
 
-                <div class="jornadas">
-                    <article class="jornada">
-                        <div class="jornada-meta">
-                            <span class="jornada-num">01</span>
-                            <span class="jornada-date">21 FEBRERO</span>
-                        </div>
-                        <div class="jornada-body">
-                            <h3 class="jornada-title">El Cuerpo como Sistema de Inteligencia Distribuida</h3>
+                <div class="jornadas-accordion">
+
+                    <div class="jornada-ac">
+                        <button class="jornada-ac-hdr" aria-expanded="false">
+                            <div class="jornada-ac-left">
+                                <span class="jornada-num">01</span>
+                                <div class="jornada-ac-info">
+                                    <span class="jornada-date">21 FEBRERO</span>
+                                    <span class="jornada-ac-title">El Cuerpo como Sistema de Inteligencia Distribuida</span>
+                                </div>
+                            </div>
+                            <svg class="jornada-ac-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </button>
+                        <div class="jornada-ac-body">
                             <p class="jornada-plain">Aprende a leer las señales que tu cuerpo ya te está enviando</p>
                             <div class="jornada-sessions">
                                 <div class="session">
@@ -241,15 +213,20 @@
                                 </div>
                             </div>
                         </div>
-                    </article>
+                    </div>
 
-                    <article class="jornada">
-                        <div class="jornada-meta">
-                            <span class="jornada-num">02</span>
-                            <span class="jornada-date">7 MARZO</span>
-                        </div>
-                        <div class="jornada-body">
-                            <h3 class="jornada-title">Improntas de Supervivencia</h3>
+                    <div class="jornada-ac">
+                        <button class="jornada-ac-hdr" aria-expanded="false">
+                            <div class="jornada-ac-left">
+                                <span class="jornada-num">02</span>
+                                <div class="jornada-ac-info">
+                                    <span class="jornada-date">7 MARZO</span>
+                                    <span class="jornada-ac-title">Improntas de Supervivencia</span>
+                                </div>
+                            </div>
+                            <svg class="jornada-ac-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </button>
+                        <div class="jornada-ac-body">
                             <p class="jornada-plain">Identifica el patrón que más te frena en relaciones, decisiones y dinero</p>
                             <div class="jornada-sessions">
                                 <div class="session">
@@ -276,15 +253,20 @@
                                 </div>
                             </div>
                         </div>
-                    </article>
+                    </div>
 
-                    <article class="jornada">
-                        <div class="jornada-meta">
-                            <span class="jornada-num">03</span>
-                            <span class="jornada-date">21 MARZO</span>
-                        </div>
-                        <div class="jornada-body">
-                            <h3 class="jornada-title">Protocolo de Sesión e Integración</h3>
+                    <div class="jornada-ac">
+                        <button class="jornada-ac-hdr" aria-expanded="false">
+                            <div class="jornada-ac-left">
+                                <span class="jornada-num">03</span>
+                                <div class="jornada-ac-info">
+                                    <span class="jornada-date">21 MARZO</span>
+                                    <span class="jornada-ac-title">Protocolo de Sesión e Integración</span>
+                                </div>
+                            </div>
+                            <svg class="jornada-ac-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </button>
+                        <div class="jornada-ac-body">
                             <p class="jornada-plain">Conduce una sesión completa: del patrón identificado a la transformación</p>
                             <div class="jornada-sessions">
                                 <div class="session">
@@ -308,59 +290,8 @@
                                 </div>
                             </div>
                         </div>
-                    </article>
-                </div>
-            </div>
-        </section>
+                    </div>
 
-        <!-- HOLOGRAMS -->
-        <section class="holograms">
-            <div class="container">
-                <header class="section-head">
-                    <span class="section-index">02</span>
-                    <div>
-                        <h2 class="section-title">Cartografía de las Dinámicas</h2>
-                        <p class="section-sub">Comprender cómo las improntas de supervivencia organizan tu realidad es
-                            el primer paso hacia la transformación radical.</p>
-                    </div>
-                </header>
-
-                <div class="hologram-grid">
-                    <div class="hologram-row">
-                        <span class="h-code">H1</span>
-                        <span class="h-name">Supervivencia Defensiva</span>
-                        <span class="h-bar" aria-hidden="true"></span>
-                    </div>
-                    <div class="hologram-row">
-                        <span class="h-code">H2</span>
-                        <span class="h-name">Supervivencia Relacional</span>
-                        <span class="h-bar" aria-hidden="true"></span>
-                    </div>
-                    <div class="hologram-row">
-                        <span class="h-code">H3</span>
-                        <span class="h-name">Supervivencia por Insuficiencia</span>
-                        <span class="h-bar" aria-hidden="true"></span>
-                    </div>
-                    <div class="hologram-row">
-                        <span class="h-code">H4</span>
-                        <span class="h-name">Supervivencia Reactiva</span>
-                        <span class="h-bar" aria-hidden="true"></span>
-                    </div>
-                    <div class="hologram-row">
-                        <span class="h-code">H5</span>
-                        <span class="h-name">Supervivencia por Fractura</span>
-                        <span class="h-bar" aria-hidden="true"></span>
-                    </div>
-                    <div class="hologram-row">
-                        <span class="h-code">H6</span>
-                        <span class="h-name">Supervivencia por Rendición</span>
-                        <span class="h-bar" aria-hidden="true"></span>
-                    </div>
-                    <div class="hologram-row hologram-special">
-                        <span class="h-code">H7</span>
-                        <span class="h-name">Sistema de Inteligencia Distribuida</span>
-                        <span class="h-bar" aria-hidden="true"></span>
-                    </div>
                 </div>
             </div>
         </section>
@@ -399,66 +330,6 @@
             </div>
         </section>
 
-        <!-- AREAS -->
-        <section class="areas">
-            <div class="container">
-                <header class="section-head">
-                    <span class="section-index">04</span>
-                    <div>
-                        <h2 class="section-title">Áreas de Aplicación</h2>
-                        <p class="section-sub">Las improntas de supervivencia organizan la experiencia completa. El
-                            campo de aplicación se expande a cualquier área de la vida.</p>
-                    </div>
-                </header>
-
-                <div class="areas-list">
-                    <div class="area-tag">Relaciones y vínculos</div>
-                    <div class="area-tag">Decisiones y dirección de vida</div>
-                    <div class="area-tag">Patrones de dinero y abundancia</div>
-                    <div class="area-tag">Rendimiento y estados de flujo</div>
-                    <div class="area-tag">Creatividad y expresión</div>
-                    <div class="area-tag">Crianza y dinámicas familiares</div>
-                    <div class="area-tag">Liderazgo y presencia</div>
-                    <div class="area-tag">Bienestar y calidad de vida</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- YA TOMASTE EL CURSO -->
-        <section class="ya-alumno">
-            <div class="container">
-                <div class="ya-alumno-inner">
-                    <div class="ya-alumno-copy">
-                        <p class="ya-alumno-eyebrow">¿YA TOMASTE UNA VERSIÓN ANTERIOR?</p>
-                        <h2 class="ya-alumno-title">Esta es la versión <em>más completa</em> que existe del programa</h2>
-                        <p class="ya-alumno-body">La V4 no es una repetición. Incorpora el marco TAME, la cartografía de las 7 coordenadas de la vivencia y el protocolo de sesión en 5 fases — elementos que no existían en versiones previas. Si tomaste una versión anterior, esto consolida y amplía lo que ya aprendiste con una arquitectura nueva.</p>
-                    </div>
-                    <div class="ya-alumno-items">
-                        <div class="ya-item">
-                            <span class="ya-item-dot"></span>
-                            <span>Marco TAME integrado desde el primer bloque</span>
-                        </div>
-                        <div class="ya-item">
-                            <span class="ya-item-dot"></span>
-                            <span>Protocolo de sesión en 5 fases estructurado y replicable</span>
-                        </div>
-                        <div class="ya-item">
-                            <span class="ya-item-dot"></span>
-                            <span>Las 7 coordenadas de Cartografía de la Vivencia — nuevo en V4</span>
-                        </div>
-                        <div class="ya-item">
-                            <span class="ya-item-dot"></span>
-                            <span>Frase de actualización de la información — método actualizado</span>
-                        </div>
-                        <div class="ya-item">
-                            <span class="ya-item-dot"></span>
-                            <span>Manual V4 incluido con todo el contenido nuevo</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- FAQ -->
         <section class="faq-section">
             <div class="container">
@@ -490,15 +361,6 @@
                     </div>
                     <div class="faq-item">
                         <button class="faq-q" aria-expanded="false">
-                            ¿Qué voy a poder hacer después del curso?
-                            <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                        </button>
-                        <div class="faq-a">
-                            <p>Al finalizar tendrás el protocolo completo de sesión en 5 fases, la capacidad de identificar los 7 patrones de supervivencia, y las herramientas para aplicarlos contigo mismo o con otras personas.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-q" aria-expanded="false">
                             ¿Puedo tomar el curso desde otro país o ciudad?
                             <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
                         </button>
@@ -506,18 +368,35 @@
                             <p>Sí. Hay conexión online simultánea en tiempo real. No es una grabación: participas en vivo con el grupo presencial desde donde estés.</p>
                         </div>
                     </div>
-                    <div class="faq-item">
-                        <button class="faq-q" aria-expanded="false">
-                            Los términos suenan muy técnicos. ¿Voy a entender?
-                            <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                        </button>
-                        <div class="faq-a">
-                            <p>Es normal que el lenguaje se vea denso desde afuera. En el aula, cada término se explica con ejemplos cotidianos antes de usarse. La mayoría de participantes dicen que el programa es más claro de lo que parecía en el papel.</p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
+
+        <!-- FUTURO STRIP -->
+        <div class="futuro-strip" aria-hidden="true">
+            <div class="futuro-marquee">
+                <span>TRANSFORMA LO QUE TE DETIENE</span>
+                <span class="futuro-dot">·</span>
+                <span>LIBERA LOS PATRONES QUE TE LIMITAN</span>
+                <span class="futuro-dot">·</span>
+                <span>RECONECTA CON TU INTELIGENCIA INNATA</span>
+                <span class="futuro-dot">·</span>
+                <span>CARTOGRAFÍA DEL CAMPO ENERGÉTICO</span>
+                <span class="futuro-dot">·</span>
+                <span>IMPRONTAS DE SUPERVIVENCIA</span>
+                <span class="futuro-dot">·</span>
+                <span>TRANSFORMA LO QUE TE DETIENE</span>
+                <span class="futuro-dot">·</span>
+                <span>LIBERA LOS PATRONES QUE TE LIMITAN</span>
+                <span class="futuro-dot">·</span>
+                <span>RECONECTA CON TU INTELIGENCIA INNATA</span>
+                <span class="futuro-dot">·</span>
+                <span>CARTOGRAFÍA DEL CAMPO ENERGÉTICO</span>
+                <span class="futuro-dot">·</span>
+                <span>IMPRONTAS DE SUPERVIVENCIA</span>
+                <span class="futuro-dot">·</span>
+            </div>
+        </div>
 
         <!-- CTA -->
         <section id="contacto" class="cta-section">

@@ -7,8 +7,8 @@
 
 /* --- TOKENS --- */
 :root {
-    --bg: #060b12;
-    --bg-alt: #09101c;
+    --bg: #0d1520;
+    --bg-alt: #111d2e;
     --jade: #00c9a0;
     --jade-dim: rgba(0, 201, 160, 0.07);
     --jade-glow: rgba(0, 201, 160, 0.15);
@@ -475,63 +475,90 @@ body {
 }
 
 /* ============================================================
-   INTRO
+   MANIFIESTO
    ============================================================ */
 
-.intro {
-    padding: 9rem 0;
+.manifiesto {
+    padding: 7rem 0 6rem;
+    background: var(--bg-alt);
     border-bottom: 1px solid var(--line);
 }
 
-.intro-layout {
-    display: grid;
-    grid-template-columns: 1fr 280px;
-    gap: 6rem;
-    align-items: center;
+.manifiesto-body {
+    max-width: 680px;
 }
 
-.intro-eyebrow {
-    font-family: var(--font-mono);
-    font-size: 0.62rem;
-    letter-spacing: 0.22em;
-    color: var(--jade);
-    margin-bottom: 1.5rem;
-    display: block;
-}
-
-.intro-heading {
+.mani-open {
     font-family: var(--font-display);
-    font-size: clamp(1.75rem, 3.2vw, 2.7rem);
+    font-size: clamp(1.5rem, 2.8vw, 2.2rem);
     font-weight: 500;
-    line-height: 1.2;
-    margin-bottom: 2rem;
     color: var(--silver);
+    margin-bottom: 1.8rem;
+    line-height: 1.2;
 }
 
-.intro-heading em {
-    font-style: italic;
-    color: var(--amber);
-}
-
-.intro-body {
+.mani-desc {
     font-size: 1.05rem;
     color: var(--muted);
-    margin-bottom: 1.5rem;
-    max-width: 520px;
-    line-height: 1.8;
+    line-height: 1.85;
+    margin-bottom: 2.4rem;
 }
 
-.intro-highlight {
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
+.mani-focus {
+    font-family: var(--font-display);
+    font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+    font-style: italic;
     color: var(--jade);
-    letter-spacing: 0.05em;
+    margin-bottom: 2rem;
+    line-height: 1.35;
 }
 
-.intro-data {
+.mani-contrast {
+    margin-bottom: 2.2rem;
+    padding-left: 1.4rem;
+    border-left: 2px solid var(--line-strong);
+}
+
+.mani-contrast p {
+    font-family: var(--font-mono);
+    font-size: 0.88rem;
+    color: var(--muted);
+    letter-spacing: 0.02em;
+    line-height: 1.9;
+}
+
+.mani-turn {
+    color: var(--silver) !important;
+    margin-top: 0.3rem;
+}
+
+.mani-close {
+    font-size: 1rem;
+    color: var(--silver-dim);
+    line-height: 1.9;
+}
+
+.mani-close em {
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--jade);
+    font-size: 1.05em;
+}
+
+/* ============================================================
+   STATS STRIP
+   ============================================================ */
+
+.stats-strip {
+    padding: 4.5rem 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.stats-row {
     display: flex;
-    flex-direction: column;
-    gap: 2.5rem;
+    gap: 4rem;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .stat-block {
@@ -624,6 +651,69 @@ body {
     color: var(--muted);
     max-width: 580px;
     line-height: 1.65;
+}
+
+/* ============================================================
+   MATERIA AGENCIAL
+   ============================================================ */
+
+.agencial {
+    padding: 5.5rem 0;
+    background: var(--bg-alt);
+    border-top: 1px solid var(--jade-border);
+    border-bottom: 1px solid var(--jade-border);
+}
+
+.agencial-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 5rem;
+    align-items: center;
+}
+
+.agencial-statement {
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 3vw, 2.6rem);
+    font-weight: 500;
+    color: var(--silver);
+    line-height: 1.2;
+}
+
+.agencial-statement em {
+    font-style: italic;
+    color: var(--jade);
+}
+
+.agencial-text {
+    font-size: 1rem;
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+}
+
+.agencial-text strong {
+    color: var(--silver);
+    font-weight: 500;
+}
+
+.agencial-bridge {
+    padding: 1.1rem 1.4rem;
+    border-left: 2px solid var(--jade-border);
+    background: var(--jade-dim);
+    border-radius: 0 6px 6px 0;
+}
+
+.agencial-bridge-text {
+    font-size: 0.95rem;
+    color: var(--silver-dim);
+    line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+    .agencial-inner {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
 }
 
 /* ============================================================
@@ -739,6 +829,115 @@ body {
     left: 0;
     color: var(--jade);
     font-weight: 700;
+}
+
+/* Accordion */
+
+.jornadas-accordion {
+    border: 1px solid var(--line-strong);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.jornada-ac {
+    border-bottom: 1px solid var(--line);
+}
+
+.jornada-ac:last-child {
+    border-bottom: none;
+}
+
+.jornada-ac-hdr {
+    width: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 1.6rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    text-align: left;
+    transition: background 0.2s;
+    color: var(--silver);
+}
+
+.jornada-ac-hdr:hover {
+    background: var(--jade-dim);
+}
+
+.jornada-ac-left {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.jornada-ac-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.jornada-ac-info .jornada-date {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--amber);
+    letter-spacing: 0.12em;
+}
+
+.jornada-ac-title {
+    font-family: var(--font-display);
+    font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+    color: var(--silver);
+    font-weight: 500;
+}
+
+.jornada-ac-icon {
+    color: var(--muted);
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.jornada-ac-hdr[aria-expanded="true"] .jornada-ac-icon {
+    transform: rotate(180deg);
+}
+
+.jornada-ac-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s ease;
+    padding: 0 2rem;
+}
+
+.jornada-ac-body.open {
+    max-height: 2400px;
+    padding: 0.5rem 2rem 2.5rem;
+}
+
+.jornada-plain {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--jade);
+    letter-spacing: 0.06em;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 1.25rem;
+}
+
+@media (max-width: 640px) {
+    .jornada-ac-hdr {
+        padding: 1.25rem 1.25rem;
+    }
+    .jornada-ac-body.open {
+        padding: 0.5rem 1.25rem 2rem;
+    }
+    .jornada-ac-left {
+        gap: 1rem;
+    }
+    .session {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
 }
 
 /* ============================================================

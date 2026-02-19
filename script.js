@@ -26,16 +26,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.08 });
 
     const revealSelectors = [
-        '.jornada',
         '.stat-block',
         '.info-panel',
-        '.hologram-row',
-        '.area-tag',
         '.cta-frame',
         '.footer-quote',
-        '.intro-heading',
-        '.intro-body',
-        '.intro-highlight',
+        '.jornada-ac',
+        '.pq-card',
+        '.agencial-inner',
+        '.manifiesto-body',
     ];
 
     document.querySelectorAll(revealSelectors.join(', ')).forEach((el) => {
@@ -169,6 +167,27 @@ document.addEventListener('DOMContentLoaded', () => {
                 b.nextElementSibling.classList.remove('open');
             });
             // Abrir el clickeado si estaba cerrado
+            if (!expanded) {
+                btn.setAttribute('aria-expanded', 'true');
+                btn.nextElementSibling.classList.add('open');
+            }
+        });
+    });
+
+    // ----------------------------------------------------------------
+    // Jornadas accordion
+    // ----------------------------------------------------------------
+    const jornadaHeaders = document.querySelectorAll('.jornada-ac-hdr');
+
+    jornadaHeaders.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const expanded = btn.getAttribute('aria-expanded') === 'true';
+            // Close all
+            jornadaHeaders.forEach(b => {
+                b.setAttribute('aria-expanded', 'false');
+                b.nextElementSibling.classList.remove('open');
+            });
+            // Open if it was closed
             if (!expanded) {
                 btn.setAttribute('aria-expanded', 'true');
                 btn.nextElementSibling.classList.add('open');
