@@ -327,6 +327,7 @@ body {
     position: relative;
     z-index: 10;
     padding-top: 5rem;
+    padding-bottom: 4rem;
     text-align: left;
 }
 
@@ -1251,6 +1252,7 @@ body {
 
 .cupo-bar {
     margin-top: 2rem;
+    margin-bottom: 3rem;
     max-width: 340px;
 }
 
