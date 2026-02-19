@@ -1365,42 +1365,80 @@ body {
 }
 
 /* ============================================================
-   TESTIMONIOS
+   YA ALUMNO — versiones anteriores
    ============================================================ */
 
-.testimonios {
+.ya-alumno {
     padding: 6rem 0;
     border-top: 1px solid var(--line);
-}
-
-.testi-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2.5rem;
-}
-
-.testi-card {
-    border: 1px solid var(--line);
-    padding: 2rem;
+    border-bottom: 1px solid var(--line);
     background: var(--bg-alt);
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
 }
 
-.testi-text {
-    font-size: 0.97rem;
-    color: var(--silver-dim);
-    line-height: 1.7;
+.ya-alumno-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.ya-alumno-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    color: var(--amber);
+    margin-bottom: 1rem;
+}
+
+.ya-alumno-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    color: var(--silver);
+    line-height: 1.2;
+    margin-bottom: 1.2rem;
+}
+
+.ya-alumno-title em {
+    color: var(--jade);
     font-style: italic;
 }
 
-.testi-author {
-    font-family: var(--font-mono);
-    font-size: 0.6rem;
-    letter-spacing: 0.12em;
+.ya-alumno-body {
+    font-size: 0.95rem;
     color: var(--muted);
+    line-height: 1.75;
+}
+
+.ya-alumno-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-top: 0.5rem;
+}
+
+.ya-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.9rem;
+    font-size: 0.93rem;
+    color: var(--silver-dim);
+    line-height: 1.5;
+}
+
+.ya-item-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--jade);
+    flex-shrink: 0;
+    margin-top: 0.45rem;
+}
+
+@media (max-width: 720px) {
+    .ya-alumno-inner {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
 }
 
 /* ============================================================
