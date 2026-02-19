@@ -1,0 +1,13 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Vercel
+.vercel
+
+# Archivos de referencia (no son parte del sitio)
+content.txt
+Contenido
+programa_bioenergetica_v4_final.docx
+bioenergetica_hero.png
