@@ -158,6 +158,41 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ----------------------------------------------------------------
+    // FAQ accordion
+    // ----------------------------------------------------------------
+    document.querySelectorAll('.faq-q').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const expanded = btn.getAttribute('aria-expanded') === 'true';
+            // Cerrar todos
+            document.querySelectorAll('.faq-q').forEach(b => {
+                b.setAttribute('aria-expanded', 'false');
+                b.nextElementSibling.classList.remove('open');
+            });
+            // Abrir el clickeado si estaba cerrado
+            if (!expanded) {
+                btn.setAttribute('aria-expanded', 'true');
+                btn.nextElementSibling.classList.add('open');
+            }
+        });
+    });
+
+    // ----------------------------------------------------------------
+    // Tooltips — soporte táctil para móvil
+    // ----------------------------------------------------------------
+    document.querySelectorAll('.term').forEach(term => {
+        term.addEventListener('click', e => {
+            e.stopPropagation();
+            const isActive = term.classList.contains('tip-active');
+            document.querySelectorAll('.term').forEach(t => t.classList.remove('tip-active'));
+            if (!isActive) term.classList.add('tip-active');
+        });
+    });
+
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.term').forEach(t => t.classList.remove('tip-active'));
+    });
+
+    // ----------------------------------------------------------------
     // Countdown timer — actualiza la fecha cuando tengas la próxima edición
     // ----------------------------------------------------------------
     const COURSE_DATE = new Date('2026-02-21T10:00:00');

@@ -1247,6 +1247,253 @@ body {
 }
 
 /* ============================================================
+   JORNADA PLAIN SUBTITLE
+   ============================================================ */
+
+.jornada-plain {
+    font-size: 0.9rem;
+    color: var(--jade);
+    font-style: italic;
+    margin-top: 0.3rem;
+    margin-bottom: 1.5rem;
+}
+
+/* ============================================================
+   TOOLTIPS EN TÉRMINOS TÉCNICOS
+   ============================================================ */
+
+.term {
+    border-bottom: 1px dashed var(--jade-border);
+    cursor: help;
+    position: relative;
+    color: inherit;
+}
+
+.term::after {
+    content: attr(data-tip);
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg-alt);
+    border: 1px solid var(--jade-border);
+    color: var(--silver);
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 400;
+    line-height: 1.5;
+    padding: 0.6rem 0.9rem;
+    width: 240px;
+    text-align: left;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s;
+    z-index: 200;
+    white-space: normal;
+}
+
+.term::before {
+    content: '';
+    position: absolute;
+    bottom: calc(100% + 2px);
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: var(--jade-border);
+    opacity: 0;
+    transition: opacity 0.2s;
+    pointer-events: none;
+    z-index: 201;
+}
+
+.term:hover::after,
+.term:hover::before,
+.term.tip-active::after,
+.term.tip-active::before {
+    opacity: 1;
+}
+
+/* ============================================================
+   ¿PARA QUIÉN?
+   ============================================================ */
+
+.para-quien {
+    padding: 6rem 0;
+    background: var(--bg-alt);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+
+.pq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.pq-card {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 1.5rem;
+    border: 1px solid var(--line);
+    background: var(--bg);
+}
+
+.pq-icon {
+    color: var(--jade);
+    font-size: 1.2rem;
+    line-height: 1.6;
+    flex-shrink: 0;
+}
+
+.pq-text {
+    font-size: 0.95rem;
+    color: var(--silver-dim);
+    line-height: 1.65;
+}
+
+.pq-note {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    color: var(--jade);
+    border-left: 2px solid var(--jade-border);
+    padding-left: 1rem;
+    max-width: 560px;
+}
+
+/* ============================================================
+   TESTIMONIOS
+   ============================================================ */
+
+.testimonios {
+    padding: 6rem 0;
+    border-top: 1px solid var(--line);
+}
+
+.testi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+}
+
+.testi-card {
+    border: 1px solid var(--line);
+    padding: 2rem;
+    background: var(--bg-alt);
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.testi-text {
+    font-size: 0.97rem;
+    color: var(--silver-dim);
+    line-height: 1.7;
+    font-style: italic;
+}
+
+.testi-author {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+}
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+
+.faq-section {
+    padding: 6rem 0;
+    border-top: 1px solid var(--line);
+}
+
+.faq-list {
+    margin-top: 2.5rem;
+    border: 1px solid var(--line);
+}
+
+.faq-item {
+    border-bottom: 1px solid var(--line);
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+.faq-q {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.4rem 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--silver);
+    text-align: left;
+    transition: background 0.2s;
+}
+
+.faq-q:hover {
+    background: var(--bg-alt);
+}
+
+.faq-icon {
+    flex-shrink: 0;
+    color: var(--jade);
+    transition: transform 0.3s ease;
+}
+
+.faq-q[aria-expanded="true"] .faq-icon {
+    transform: rotate(180deg);
+}
+
+.faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.35s ease;
+    padding: 0 1.5rem;
+}
+
+.faq-a.open {
+    max-height: 300px;
+    padding: 0 1.5rem 1.4rem;
+}
+
+.faq-a p {
+    font-size: 0.95rem;
+    color: var(--muted);
+    line-height: 1.7;
+    border-left: 2px solid var(--jade-border);
+    padding-left: 1rem;
+}
+
+/* ============================================================
+   CTA MICROCOPY
+   ============================================================ */
+
+.cta-microcopy {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-top: 1.2rem;
+    line-height: 1.6;
+}
+
+.cta-microcopy a {
+    color: var(--jade);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* ============================================================
    CUPO LIMITADO
    ============================================================ */
 
