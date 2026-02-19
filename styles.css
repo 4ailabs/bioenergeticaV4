@@ -550,13 +550,13 @@ body {
    ============================================================ */
 
 .stats-strip {
-    padding: 4.5rem 0;
+    padding: 2.5rem 0;
     border-bottom: 1px solid var(--line);
 }
 
 .stats-row {
     display: flex;
-    gap: 4rem;
+    gap: 3rem;
     justify-content: center;
     flex-wrap: wrap;
 }
@@ -591,7 +591,7 @@ body {
 
 .stat-number {
     font-family: var(--font-mono);
-    font-size: 3.2rem;
+    font-size: 1.8rem;
     font-weight: 700;
     color: var(--jade);
     line-height: 1;
@@ -721,7 +721,7 @@ body {
    ============================================================ */
 
 .schedule {
-    padding: 8rem 0;
+    padding: 5rem 0;
 }
 
 .jornadas {
@@ -1025,7 +1025,8 @@ body {
    ============================================================ */
 
 .modalidad {
-    padding: 8rem 0;
+    padding: 5rem 0;
+    background: var(--bg-alt);
 }
 
 .info-triptych {
@@ -1517,7 +1518,7 @@ body {
    ============================================================ */
 
 .para-quien {
-    padding: 6rem 0;
+    padding: 4rem 0;
     background: var(--bg-alt);
     border-top: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
@@ -1645,7 +1646,7 @@ body {
    ============================================================ */
 
 .faq-section {
-    padding: 6rem 0;
+    padding: 4rem 0;
     border-top: 1px solid var(--line);
 }
 
