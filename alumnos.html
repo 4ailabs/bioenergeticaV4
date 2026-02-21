@@ -6,22 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal Alumnos · Bioenergética V4</title>
     <script>
-        // Aplica el tema antes de renderizar para evitar flash
         document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'light');
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500;1,700&family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        /* ---- TOKENS (mismos que el sitio principal) ---- */
+        /* ---- TOKENS ---- */
         :root {
-            --bg:          #060b12;
-            --bg-alt:      #09101c;
-            --bg-card:     #0d1521;
+            --bg:          #0d1520;
+            --bg-alt:      #111d2e;
+            --bg-card:     #162236;
+            --bg-inner:    #1a2940;
             --jade:        #00c9a0;
             --jade-dim:    rgba(0,201,160,0.07);
             --jade-border: rgba(0,201,160,0.22);
             --amber:       #d4834a;
+            --amber-dim:   rgba(212,131,74,0.07);
+            --amber-border:rgba(212,131,74,0.3);
+            --violet:      #8b6fcc;
+            --violet-dim:  rgba(139,111,204,0.07);
+            --violet-border:rgba(139,111,204,0.28);
             --silver:      #dde8f0;
             --silver-dim:  rgba(221,232,240,0.65);
             --muted:       #99b0c0;
@@ -36,10 +41,16 @@
             --bg:          #f4f1ec;
             --bg-alt:      #ede8e0;
             --bg-card:     #e8e3d9;
+            --bg-inner:    #ddd8cf;
             --jade:        #007d64;
             --jade-dim:    rgba(0,125,100,0.06);
             --jade-border: rgba(0,125,100,0.2);
             --amber:       #a85520;
+            --amber-dim:   rgba(168,85,32,0.06);
+            --amber-border:rgba(168,85,32,0.2);
+            --violet:      #6148a8;
+            --violet-dim:  rgba(97,72,168,0.06);
+            --violet-border:rgba(97,72,168,0.22);
             --silver:      #111827;
             --silver-dim:  rgba(17,24,39,0.65);
             --muted:       #4b5a6e;
@@ -77,618 +88,1588 @@
             position: relative;
         }
 
-        .login-box::before,
-        .login-box::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            border-color: var(--jade);
-            border-style: solid;
+        .login-box::before, .login-box::after {
+            content: ''; position: absolute;
+            width: 20px; height: 20px;
+            border-color: var(--jade); border-style: solid;
         }
-        .login-box::before { top: -1px; left: -1px; border-width: 1px 0 0 1px; }
-        .login-box::after  { bottom: -1px; right: -1px; border-width: 0 1px 1px 0; }
+        .login-box::before { top:-1px; left:-1px; border-width:1px 0 0 1px; }
+        .login-box::after  { bottom:-1px; right:-1px; border-width:0 1px 1px 0; }
 
-        .login-logo {
-            margin-bottom: 2.5rem;
-            text-align: center;
-        }
-
+        .login-logo { margin-bottom:2.5rem; text-align:center; }
         .login-logo-prefix {
-            display: block;
             font-family: var(--font-mono);
-            font-size: 0.58rem;
-            letter-spacing: 0.22em;
-            color: var(--muted);
-            margin-bottom: 0.3rem;
+            font-size:.65rem;
+            letter-spacing:.15em;
+            text-transform:uppercase;
+            color:var(--jade);
+            display:block;
+            margin-bottom:.5rem;
         }
-
-        .login-logo-name {
+        .login-logo-main {
             font-family: var(--font-display);
-            font-size: 1.3rem;
-            font-weight: 700;
-            font-style: italic;
-            color: var(--silver);
-            letter-spacing: -0.01em;
+            font-size:1.6rem;
+            font-weight:500;
+            color:var(--silver);
         }
-
-        .login-logo-name em {
-            color: var(--jade);
-            font-style: normal;
+        .login-form label {
+            font-size:.7rem;
+            letter-spacing:.12em;
+            text-transform:uppercase;
+            color:var(--muted);
+            display:block;
+            margin-bottom:.5rem;
         }
-
-        .login-eyebrow {
-            font-family: var(--font-mono);
-            font-size: 0.6rem;
-            letter-spacing: 0.2em;
-            color: var(--muted);
-            text-align: center;
-            margin-bottom: 2rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid var(--line);
-        }
-
-        .login-label {
-            font-family: var(--font-mono);
-            font-size: 0.6rem;
-            letter-spacing: 0.16em;
-            color: var(--muted);
-            display: block;
-            margin-bottom: 0.6rem;
-        }
-
-        .login-input {
-            width: 100%;
+        .login-form input {
+            width:100%;
             background: var(--bg-alt);
             border: 1px solid var(--line-strong);
             color: var(--silver);
             font-family: var(--font-mono);
-            font-size: 0.9rem;
-            padding: 0.85rem 1rem;
-            outline: none;
-            transition: border-color 0.2s;
-            letter-spacing: 0.08em;
+            font-size:.9rem;
+            padding:.75rem 1rem;
+            outline:none;
+            transition: border-color .2s;
         }
-
-        .login-input:focus {
-            border-color: var(--jade-border);
-        }
-
+        .login-form input:focus { border-color: var(--jade); }
         .login-btn {
-            width: 100%;
-            margin-top: 1.5rem;
-            padding: 0.9rem;
+            width:100%;
+            margin-top:1.5rem;
             background: var(--jade);
             color: var(--bg);
+            border:none;
             font-family: var(--font-mono);
-            font-size: 0.68rem;
-            font-weight: 700;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            border: none;
-            cursor: pointer;
-            transition: background 0.2s, color 0.2s;
+            font-size:.8rem;
+            letter-spacing:.1em;
+            text-transform:uppercase;
+            padding:.85rem;
+            cursor:pointer;
+            transition: opacity .2s;
         }
-
-        .login-btn:hover {
-            background: transparent;
-            color: var(--jade);
-            outline: 1px solid var(--jade);
-        }
-
+        .login-btn:hover { opacity:.85; }
         .login-error {
-            margin-top: 1rem;
-            font-family: var(--font-mono);
-            font-size: 0.62rem;
+            margin-top:1rem;
+            text-align:center;
+            font-size:.8rem;
             color: var(--amber);
-            letter-spacing: 0.1em;
-            text-align: center;
-            opacity: 0;
-            transition: opacity 0.3s;
+            display:none;
+        }
+        .login-note {
+            margin-top:2rem;
+            text-align:center;
+            font-size:.75rem;
+            color:var(--muted);
         }
 
-        .login-error.visible { opacity: 1; }
+        /* ---- PORTAL HEADER ---- */
+        .portal-wrap { display:none; }
 
-        /* ---- PORTAL ---- */
-        .portal { display: none; }
-        .portal.active { display: block; }
-
-        /* Header */
-        .portal-header {
+        .site-header {
             position: sticky;
             top: 0;
             z-index: 100;
-            background: rgba(6,11,18,0.92);
-            backdrop-filter: blur(12px);
+            background: var(--bg);
             border-bottom: 1px solid var(--line);
-            padding: 0 2rem;
-        }
-
-        .portal-header-inner {
-            max-width: 1160px;
-            margin: 0 auto;
-            height: 60px;
+            padding: 1rem 2rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
 
-        .portal-brand {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
+        [data-theme="light"] .site-header { background: var(--bg); }
 
-        .portal-badge {
-            font-family: var(--font-mono);
-            font-size: 0.55rem;
-            letter-spacing: 0.18em;
-            color: var(--jade);
-            border: 1px solid var(--jade-border);
-            padding: 0.2rem 0.6rem;
-            text-transform: uppercase;
+        .header-brand {
+            display:flex; align-items:center; gap:1rem;
         }
-
-        .portal-title-small {
-            font-family: var(--font-display);
-            font-size: 0.95rem;
-            font-style: italic;
-            color: var(--silver);
+        .header-badge {
+            font-family:var(--font-mono);
+            font-size:.6rem;
+            letter-spacing:.14em;
+            text-transform:uppercase;
+            color:var(--jade);
+            border:1px solid var(--jade-border);
+            padding:.25rem .6rem;
         }
-
-        .portal-header-actions {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
+        .header-title {
+            font-family:var(--font-display);
+            font-size:1.1rem;
+            font-weight:500;
+            color:var(--silver);
         }
-
-        .portal-user {
-            font-family: var(--font-mono);
-            font-size: 0.6rem;
-            letter-spacing: 0.12em;
-            color: var(--muted);
+        .header-actions { display:flex; align-items:center; gap:1rem; }
+        .theme-btn {
+            background:none;
+            border:1px solid var(--line-strong);
+            color:var(--muted);
+            font-size:.75rem;
+            padding:.35rem .75rem;
+            cursor:pointer;
+            font-family:var(--font-mono);
+            transition: color .2s, border-color .2s;
         }
-
-        .btn-logout {
-            font-family: var(--font-mono);
-            font-size: 0.58rem;
-            letter-spacing: 0.14em;
-            color: var(--muted);
-            background: none;
-            border: 1px solid var(--line);
-            padding: 0.35rem 0.8rem;
-            cursor: pointer;
-            transition: color 0.2s, border-color 0.2s;
-            text-transform: uppercase;
+        .theme-btn:hover { color:var(--silver); border-color:var(--jade-border); }
+        .logout-btn {
+            background:none;
+            border:none;
+            color:var(--muted);
+            font-size:.75rem;
+            cursor:pointer;
+            font-family:var(--font-mono);
+            text-transform:uppercase;
+            letter-spacing:.08em;
         }
+        .logout-btn:hover { color:var(--silver); }
 
-        .btn-logout:hover {
-            color: var(--silver);
-            border-color: var(--line-strong);
-        }
-
-        /* Main content */
-        .portal-main {
-            max-width: 1160px;
+        /* ---- PORTAL CONTENT ---- */
+        .portal-content {
+            max-width: 900px;
             margin: 0 auto;
-            padding: 3rem 2rem 5rem;
+            padding: 3rem 2rem 6rem;
         }
 
-        .portal-welcome {
-            margin-bottom: 3rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid var(--line);
+        /* ---- WELCOME ---- */
+        .welcome-section {
+            margin-bottom: 3.5rem;
+            padding: 2rem 2.5rem;
+            border-left: 2px solid var(--jade);
+            background: var(--jade-dim);
         }
-
-        .portal-welcome-eyebrow {
-            font-family: var(--font-mono);
-            font-size: 0.6rem;
-            letter-spacing: 0.2em;
-            color: var(--jade);
-            margin-bottom: 0.8rem;
-        }
-
-        .portal-welcome-title {
+        .welcome-section h1 {
             font-family: var(--font-display);
-            font-size: clamp(1.6rem, 3vw, 2.4rem);
-            font-style: italic;
-            color: var(--silver);
-            line-height: 1.2;
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: .6rem;
+        }
+        .welcome-section p {
+            color: var(--silver-dim);
+            font-size: .95rem;
+        }
+        .welcome-tag {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: .6rem;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--jade);
+            margin-bottom: .75rem;
         }
 
-        .portal-welcome-sub {
-            margin-top: 0.6rem;
-            font-size: 0.95rem;
-            color: var(--muted);
+        /* ---- JORNADA SECTION ---- */
+        .jornada-section {
+            margin-bottom: 2rem;
         }
-
-        /* Section grid */
-        .portal-sections {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .portal-card {
-            background: var(--bg-card);
-            border: 1px solid var(--line);
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            transition: border-color 0.2s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .portal-card:hover {
-            border-color: var(--line-strong);
-        }
-
-        .portal-card-icon {
-            width: 40px;
-            height: 40px;
+        .jornada-header {
             display: flex;
             align-items: center;
-            justify-content: center;
-            border: 1px solid var(--jade-border);
-            color: var(--jade);
-            flex-shrink: 0;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 1.25rem 1.75rem;
+            background: var(--bg-card);
+            border: 1px solid var(--line-strong);
+            cursor: pointer;
+            user-select: none;
+            transition: border-color .2s;
         }
-
-        .portal-card-label {
+        .jornada-header:hover { border-color: var(--jade-border); }
+        .jornada-header-left { display:flex; align-items:center; gap:1rem; }
+        .jornada-num {
             font-family: var(--font-mono);
-            font-size: 0.58rem;
-            letter-spacing: 0.18em;
-            color: var(--muted);
+            font-size: .6rem;
+            letter-spacing: .14em;
             text-transform: uppercase;
+            color: var(--jade);
+            border: 1px solid var(--jade-border);
+            padding: .25rem .6rem;
+            white-space: nowrap;
         }
-
-        .portal-card-title {
+        .jornada-title {
             font-family: var(--font-display);
             font-size: 1.1rem;
+            font-weight: 500;
+        }
+        .jornada-date {
+            font-family: var(--font-mono);
+            font-size: .65rem;
+            color: var(--muted);
+        }
+        .jornada-chevron {
+            color: var(--muted);
+            font-size: 1rem;
+            transition: transform .3s;
+        }
+        .jornada-section.open .jornada-chevron { transform: rotate(180deg); }
+        .jornada-body {
+            display: none;
+            padding: 1.5rem 0 0;
+        }
+        .jornada-section.open .jornada-body { display: block; }
+
+        /* ---- LOCKED JORNADA ---- */
+        .locked-section .jornada-header { cursor: default; opacity: .65; }
+        .locked-section .jornada-header:hover { border-color: var(--line-strong); }
+        .locked-msg {
+            padding: 2rem;
+            text-align: center;
+            color: var(--muted);
+            font-size: .88rem;
+            border: 1px solid var(--line);
+            border-top: none;
             font-style: italic;
+        }
+
+        /* ---- BLOQUE ITEM ---- */
+        .bloque-item {
+            margin-bottom: 1rem;
+            border: 1px solid var(--line);
+            background: var(--bg-card);
+            transition: border-color .2s;
+        }
+        .bloque-item:hover { border-color: var(--jade-border); }
+        .bloque-item.tame-item { border-color: var(--amber-border); }
+        .bloque-item.tame-item:hover { border-color: var(--amber); }
+
+        .bloque-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.1rem 1.5rem;
+            cursor: pointer;
+            user-select: none;
+        }
+        .bloque-num {
+            font-family: var(--font-mono);
+            font-size: .6rem;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--jade);
+            min-width: 3.5rem;
+            text-align: center;
+            border: 1px solid var(--jade-border);
+            padding: .2rem .5rem;
+        }
+        .tame-item .bloque-num { color: var(--amber); border-color: var(--amber-border); }
+
+        .bloque-header-text { flex: 1; }
+        .bloque-titulo {
+            font-size: .95rem;
+            font-weight: 500;
             color: var(--silver);
             line-height: 1.3;
         }
-
-        .portal-card-desc {
-            font-size: 0.88rem;
+        .bloque-subtitulo {
+            font-size: .78rem;
             color: var(--muted);
-            line-height: 1.6;
-            flex: 1;
+            margin-top: .1rem;
+            font-style: italic;
         }
-
-        .portal-card-status {
-            font-family: var(--font-mono);
-            font-size: 0.58rem;
-            letter-spacing: 0.14em;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .status-dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
+        .bloque-chevron {
+            color: var(--muted);
+            font-size: .85rem;
+            transition: transform .3s;
             flex-shrink: 0;
         }
+        .bloque-item.open .bloque-chevron { transform: rotate(180deg); }
 
-        .status-dot.available  { background: var(--jade); }
-        .status-dot.soon       { background: var(--amber); }
-        .status-dot.locked     { background: var(--muted); opacity: 0.5; }
+        /* ---- BLOQUE CONTENT ---- */
+        .bloque-content {
+            display: none;
+            padding: 0 1.5rem 1.5rem;
+            border-top: 1px solid var(--line);
+        }
+        .bloque-item.open .bloque-content { display: block; }
 
-        .portal-card-link {
-            font-family: var(--font-mono);
-            font-size: 0.62rem;
-            letter-spacing: 0.12em;
-            color: var(--jade);
-            text-decoration: none;
-            border: 1px solid var(--jade-border);
-            padding: 0.5rem 1rem;
-            text-align: center;
-            transition: background 0.2s;
-            text-transform: uppercase;
+        .content-section {
+            margin-top: 1.25rem;
         }
 
-        .portal-card-link:hover {
+        /* Idea central */
+        .idea-central {
             background: var(--jade-dim);
+            border-left: 3px solid var(--jade);
+            padding: 1rem 1.25rem;
+            margin-bottom: 1.25rem;
+            border-radius: 0 2px 2px 0;
         }
-
-        .portal-card-link.disabled {
-            color: var(--muted);
-            border-color: var(--line);
-            pointer-events: none;
+        .tame-item .idea-central {
+            background: var(--amber-dim);
+            border-left-color: var(--amber);
         }
-
-        /* Jornadas progress */
-        .portal-jornadas {
-            margin-top: 3rem;
-        }
-
-        .portal-section-eyebrow {
+        .idea-central-label {
             font-family: var(--font-mono);
-            font-size: 0.6rem;
-            letter-spacing: 0.2em;
-            color: var(--muted);
-            margin-bottom: 1.5rem;
+            font-size: .58rem;
+            letter-spacing: .12em;
             text-transform: uppercase;
-        }
-
-        .jornada-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1px;
-            border: 1px solid var(--line);
-        }
-
-        .jornada-item {
-            display: grid;
-            grid-template-columns: 60px 1fr auto;
-            align-items: center;
-            gap: 1.5rem;
-            padding: 1.2rem 1.5rem;
-            background: var(--bg-card);
-            border-bottom: 1px solid var(--line);
-            transition: background 0.2s;
-        }
-
-        .jornada-item:last-child { border-bottom: none; }
-        .jornada-item:hover { background: var(--bg-alt); }
-
-        .jornada-num {
-            font-family: var(--font-mono);
-            font-size: 0.6rem;
-            letter-spacing: 0.16em;
             color: var(--jade);
-            text-align: center;
+            margin-bottom: .4rem;
+            display: block;
         }
-
-        .jornada-info-title {
-            font-family: var(--font-display);
-            font-size: 1rem;
-            font-style: italic;
+        .tame-item .idea-central-label { color: var(--amber); }
+        .idea-central p {
+            font-size: .9rem;
             color: var(--silver);
+            line-height: 1.65;
         }
 
-        .jornada-info-date {
+        /* Section heading */
+        .section-heading {
             font-family: var(--font-mono);
-            font-size: 0.6rem;
-            letter-spacing: 0.1em;
+            font-size: .62rem;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--jade);
+            margin-bottom: .8rem;
+            display: block;
+        }
+        .tame-item .section-heading { color: var(--amber); }
+        .violet-heading { color: var(--violet) !important; }
+
+        /* Concept grid */
+        .concepto-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: .75rem;
+            margin-bottom: 1.25rem;
+        }
+        @media (max-width: 600px) { .concepto-grid { grid-template-columns: 1fr; } }
+
+        .concepto-card {
+            background: var(--bg-inner);
+            border: 1px solid var(--line);
+            padding: .9rem 1rem;
+        }
+        .concepto-card-title {
+            font-size: .78rem;
+            font-weight: 500;
+            color: var(--jade);
+            margin-bottom: .3rem;
+        }
+        .tame-item .concepto-card-title { color: var(--amber); }
+        .concepto-card p {
+            font-size: .82rem;
+            color: var(--silver-dim);
+            line-height: 1.65;
+        }
+
+        /* Concepto 1 col */
+        .concepto-list { margin-bottom: 1.25rem; }
+        .concepto-list-item {
+            background: var(--bg-inner);
+            border: 1px solid var(--line);
+            border-left: 3px solid var(--jade-border);
+            padding: .75rem 1rem;
+            margin-bottom: .5rem;
+        }
+        .tame-item .concepto-list-item { border-left-color: var(--amber-border); }
+        .concepto-list-item strong {
+            display: block;
+            font-size: .8rem;
+            color: var(--silver);
+            margin-bottom: .2rem;
+        }
+        .concepto-list-item span {
+            font-size: .82rem;
+            color: var(--silver-dim);
+        }
+
+        /* Reflexión */
+        .reflexion-box {
+            background: var(--violet-dim);
+            border: 1px solid var(--violet-border);
+            padding: 1rem 1.25rem;
+            margin-bottom: 1rem;
+        }
+        .reflexion-box .section-heading { color: var(--violet); }
+        .reflexion-box ol {
+            list-style: decimal;
+            padding-left: 1.2rem;
+            font-size: .86rem;
+            color: var(--silver-dim);
+            line-height: 1.6;
+        }
+        .reflexion-box ol li { margin-bottom: .4rem; }
+        .reflexion-box p {
+            font-size: .86rem;
+            color: var(--silver-dim);
+            line-height: 1.6;
+        }
+
+        /* Mini-experiencia */
+        .experiencia-box {
+            background: var(--amber-dim);
+            border: 1px solid var(--amber-border);
+            padding: 1rem 1.25rem;
+            margin-bottom: 1rem;
+        }
+        .experiencia-box .section-heading { color: var(--amber); }
+        .experiencia-box ol {
+            list-style: decimal;
+            padding-left: 1.2rem;
+            font-size: .86rem;
+            color: var(--silver-dim);
+            line-height: 1.6;
+        }
+        .experiencia-box ol li { margin-bottom: .3rem; }
+        .experiencia-box p {
+            font-size: .86rem;
+            color: var(--silver-dim);
+            line-height: 1.6;
+        }
+
+        /* Quote */
+        .frase-clave {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: .95rem;
+            color: var(--silver-dim);
+            border-left: 2px solid var(--jade-border);
+            padding-left: 1rem;
+            margin: 1rem 0;
+            line-height: 1.6;
+        }
+        .tame-item .frase-clave { border-left-color: var(--amber-border); }
+
+        /* Frases list */
+        .frases-list {
+            list-style: none;
+            margin-bottom: 1rem;
+        }
+        .frases-list li {
+            font-style: italic;
+            font-family: var(--font-display);
+            font-size: .88rem;
+            color: var(--silver-dim);
+            padding: .4rem 0;
+            border-bottom: 1px solid var(--line);
+            line-height: 1.65;
+        }
+        .frases-list li:last-child { border-bottom: none; }
+
+        /* Tarea semanal */
+        .tarea-box {
+            background: var(--jade-dim);
+            border: 1px solid var(--jade-border);
+            padding: 1rem 1.25rem;
+            margin-bottom: 1rem;
+        }
+        .tarea-box .section-heading { color: var(--jade); }
+        .tarea-box p {
+            font-size: .86rem;
+            color: var(--silver-dim);
+            line-height: 1.6;
+        }
+
+        /* Anticipo */
+        .anticipo-box {
+            background: var(--bg-inner);
+            border: 1px solid var(--line);
+            padding: .9rem 1.1rem;
+            font-size: .84rem;
             color: var(--muted);
-            margin-top: 0.2rem;
+        }
+        .anticipo-box strong { color: var(--silver-dim); display: block; margin-bottom: .3rem; }
+
+        /* Pilar */
+        .pilar-card {
+            background: var(--bg-inner);
+            border: 1px solid var(--amber-border);
+            padding: .85rem 1rem;
+            margin-bottom: .6rem;
+        }
+        .pilar-card-num {
+            font-family: var(--font-mono);
+            font-size: .58rem;
+            color: var(--amber);
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            margin-bottom: .25rem;
+        }
+        .pilar-card-title {
+            font-size: .85rem;
+            font-weight: 500;
+            color: var(--silver);
+            margin-bottom: .3rem;
+        }
+        .pilar-card p {
+            font-size: .8rem;
+            color: var(--silver-dim);
+            line-height: 1.6;
         }
 
-        .jornada-badge {
+        /* Niveles table */
+        .niveles-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: .6rem;
+            margin-bottom: 1.25rem;
+        }
+        @media (max-width: 600px) { .niveles-grid { grid-template-columns: 1fr; } }
+        .nivel-card {
+            background: var(--bg-inner);
+            border: 1px solid var(--line);
+            padding: .8rem 1rem;
+        }
+        .nivel-card-num {
             font-family: var(--font-mono);
-            font-size: 0.55rem;
-            letter-spacing: 0.14em;
-            padding: 0.25rem 0.65rem;
-            border-radius: 1px;
+            font-size: .58rem;
+            color: var(--jade);
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            margin-bottom: .2rem;
+        }
+        .nivel-card-title {
+            font-size: .82rem;
+            font-weight: 500;
+            color: var(--silver);
+            margin-bottom: .25rem;
+        }
+        .nivel-card p { font-size: .78rem; color: var(--silver-dim); line-height: 1.6; }
+
+        /* Canal */
+        .canal-card {
+            background: var(--bg-inner);
+            border: 1px solid var(--line);
+            padding: .85rem 1rem;
+            margin-bottom: .6rem;
+            border-left: 3px solid var(--jade-border);
+        }
+        .canal-card-title {
+            font-size: .85rem;
+            font-weight: 500;
+            color: var(--silver);
+            margin-bottom: .3rem;
+        }
+        .canal-card p { font-size: .8rem; color: var(--silver-dim); line-height: 1.6; }
+
+        /* ---- RESOURCES ---- */
+        .recursos-section {
+            margin-top: 3.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--line);
+        }
+        .recursos-title {
+            font-family: var(--font-mono);
+            font-size: .65rem;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 1.25rem;
+        }
+        .recursos-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+        @media (max-width: 600px) { .recursos-grid { grid-template-columns: 1fr; } }
+        .recurso-card {
+            background: var(--bg-card);
+            border: 1px solid var(--line);
+            padding: 1.25rem;
+            text-decoration: none;
+            color: inherit;
+            transition: border-color .2s;
+        }
+        .recurso-card:hover { border-color: var(--jade-border); }
+        .recurso-icon { font-size: 1.1rem; margin-bottom: .5rem; display: block; }
+        .recurso-name {
+            font-size: .85rem;
+            font-weight: 500;
+            color: var(--silver);
+            margin-bottom: .2rem;
+        }
+        .recurso-desc { font-size: .75rem; color: var(--muted); }
+
+        /* ---- SESSION DIVIDER ---- */
+        .session-divider {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 2rem 0 1.5rem;
+            padding: 1rem 0;
+        }
+        .session-divider-line {
+            flex: 1;
+            height: 1px;
+            background: var(--amber-border);
+        }
+        .session-divider-label {
+            font-family: var(--font-mono);
+            font-size: .62rem;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--amber);
             white-space: nowrap;
         }
 
-        .jornada-badge.disponible { color: var(--jade);  border: 1px solid var(--jade-border);  }
-        .jornada-badge.proximo    { color: var(--amber); border: 1px solid rgba(212,131,74,0.3); }
-        .jornada-badge.pendiente  { color: var(--muted); border: 1px solid var(--line); }
+        /* ---- PROGRESS BAR ---- */
+        .progress-bar {
+            display: flex;
+            align-items: center;
+            gap: .75rem;
+            margin-bottom: 2rem;
+            padding: 1rem 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--line);
+        }
+        .progress-label {
+            font-family: var(--font-mono);
+            font-size: .62rem;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--muted);
+            white-space: nowrap;
+        }
+        .progress-track {
+            flex: 1;
+            height: 4px;
+            background: var(--line-strong);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            background: var(--jade);
+            border-radius: 2px;
+            transition: width .4s ease;
+            width: 0%;
+        }
+        .progress-count {
+            font-family: var(--font-mono);
+            font-size: .7rem;
+            color: var(--jade);
+            white-space: nowrap;
+        }
+
+        /* ---- BLOQUE CHECK ---- */
+        .bloque-check {
+            background: none;
+            border: 1px solid var(--line-strong);
+            color: var(--muted);
+            font-family: var(--font-mono);
+            font-size: .6rem;
+            letter-spacing: .08em;
+            padding: .3rem .7rem;
+            cursor: pointer;
+            transition: all .2s;
+            margin-top: 1rem;
+        }
+        .bloque-check:hover { border-color: var(--jade-border); color: var(--jade); }
+        .bloque-check.done {
+            background: var(--jade-dim);
+            border-color: var(--jade-border);
+            color: var(--jade);
+        }
+
+        /* ---- BACK TO TOP ---- */
+        .back-to-top-link {
+            display: inline-block;
+            margin-top: .75rem;
+            font-size: .7rem;
+            color: var(--jade);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            letter-spacing: .08em;
+        }
+        .back-to-top-link:hover { text-decoration: underline; }
+
+        /* ---- FOOTER ---- */
+        .portal-footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--line);
+            text-align: center;
+            font-size: .72rem;
+            color: var(--muted);
+            font-family: var(--font-mono);
+        }
     </style>
 </head>
 
 <body>
 
-    <!-- ===================== LOGIN GATE ===================== -->
-    <div class="login-screen" id="login-screen">
-        <div class="login-box">
-            <div class="login-logo">
-                <span class="login-logo-prefix">INSTITUTO</span>
-                <span class="login-logo-name">Bioenergética <em>V4</em></span>
-            </div>
-            <p class="login-eyebrow">PORTAL EXCLUSIVO · ALUMNOS</p>
-
-            <label class="login-label" for="password-input">CONTRASEÑA DE ACCESO</label>
-            <input
-                class="login-input"
-                id="password-input"
-                type="password"
-                placeholder="••••••••••••"
-                autocomplete="current-password"
-            >
-            <button class="login-btn" id="login-btn">Acceder al Portal</button>
-            <p class="login-error" id="login-error">Contraseña incorrecta. Verifica con tu instructor.</p>
+<!-- ═══════════════════════════ LOGIN GATE ═══════════════════════════ -->
+<div class="login-screen" id="loginScreen">
+    <div class="login-box">
+        <div class="login-logo">
+            <span class="login-logo-prefix">Instituto CentroBioenergética</span>
+            <span class="login-logo-main">Bioenergética V4</span>
         </div>
+        <form class="login-form" onsubmit="doLogin(event)">
+            <label for="pw">Contraseña de acceso</label>
+            <input type="password" id="pw" autocomplete="current-password" placeholder="••••••••••••" autofocus>
+            <button type="submit" class="login-btn">Entrar al portal</button>
+            <p class="login-error" id="loginError">Contraseña incorrecta. Inténtalo de nuevo.</p>
+        </form>
+        <p class="login-note">Acceso exclusivo para alumnos del programa.</p>
     </div>
+</div>
 
-    <!-- ===================== PORTAL ===================== -->
-    <div class="portal" id="portal">
+<!-- ═══════════════════════════ PORTAL ═══════════════════════════ -->
+<div class="portal-wrap" id="portalWrap">
 
-        <header class="portal-header">
-            <div class="portal-header-inner">
-                <div class="portal-brand">
-                    <span class="portal-badge">Alumnos</span>
-                    <span class="portal-title-small">Bioenergética V4</span>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-brand">
+            <span class="header-badge">Portal Alumnos</span>
+            <span class="header-title">Bioenergética V4</span>
+        </div>
+        <div class="header-actions">
+            <button class="theme-btn" onclick="toggleTheme()" id="themeBtn">☀ Claro</button>
+            <button class="logout-btn" onclick="doLogout()">Salir</button>
+        </div>
+    </header>
+
+    <!-- Content -->
+    <main class="portal-content">
+
+        <!-- Welcome -->
+        <div class="welcome-section">
+            <span class="welcome-tag">Módulo 1 · Jornada 01 · 21 Feb 2026</span>
+            <h1>El Cuerpo como Sistema</h1>
+            <p>Bienvenido al portal de contenidos. Aquí encontrarás el material completo de cada bloque. Haz clic en cualquier bloque para expandir su contenido directamente en la página.</p>
+        </div>
+
+        <!-- ═══════════ JORNADA 01 ═══════════ -->
+        <div class="jornada-section open" id="jornada01">
+            <div class="jornada-header" onclick="toggleJornada('jornada01')">
+                <div class="jornada-header-left">
+                    <span class="jornada-num">Jornada 01</span>
+                    <span class="jornada-title">El Cuerpo como Sistema</span>
                 </div>
-                <div class="portal-header-actions">
-                    <span class="portal-user">ACCESO ALUMNO</span>
-                    <button class="btn-logout" id="logout-btn">Salir</button>
+                <div style="display:flex;align-items:center;gap:.75rem;">
+                    <span class="jornada-date">21 Feb 2026</span>
+                    <span class="jornada-chevron">▾</span>
                 </div>
             </div>
-        </header>
+            <div class="jornada-body">
 
-        <main class="portal-main">
-
-            <div class="portal-welcome">
-                <p class="portal-welcome-eyebrow">BIENVENIDO · BIOENERGÉTICA V4</p>
-                <h1 class="portal-welcome-title">Tu espacio de<br>aprendizaje y práctica</h1>
-                <p class="portal-welcome-sub">Aquí encontrarás todo el material, protocolos y recursos del programa.</p>
-            </div>
-
-            <!-- Tarjetas de contenido -->
-            <div class="portal-sections">
-
-                <div class="portal-card">
-                    <div class="portal-card-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-                    </div>
-                    <span class="portal-card-label">Módulo 01</span>
-                    <h2 class="portal-card-title">Manual Bioenergética V4</h2>
-                    <p class="portal-card-desc">Manual completo del programa. Fundamentos, marcos conceptuales y guías de práctica.</p>
-                    <div class="portal-card-status">
-                        <span class="status-dot available"></span>
-                        <span style="color:var(--jade)">Disponible</span>
-                    </div>
-                    <a href="#" class="portal-card-link">Ver Manual</a>
+                <!-- Progress -->
+                <div class="progress-bar" id="progressBar">
+                    <span class="progress-label">Progreso</span>
+                    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+                    <span class="progress-count" id="progressCount">0 / 9</span>
                 </div>
 
-                <div class="portal-card">
-                    <div class="portal-card-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
-                    </div>
-                    <span class="portal-card-label">Módulo 02</span>
-                    <h2 class="portal-card-title">Grabaciones de Sesiones</h2>
-                    <p class="portal-card-desc">Acceso a las grabaciones de las tres jornadas del programa para repasar a tu ritmo.</p>
-                    <div class="portal-card-status">
-                        <span class="status-dot soon"></span>
-                        <span style="color:var(--amber)">Próximamente</span>
-                    </div>
-                    <a href="#" class="portal-card-link disabled">No disponible aún</a>
-                </div>
-
-                <div class="portal-card">
-                    <div class="portal-card-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-                    </div>
-                    <span class="portal-card-label">Módulo 03</span>
-                    <h2 class="portal-card-title">Protocolos de Sesión</h2>
-                    <p class="portal-card-desc">Los 5 protocolos de sesión paso a paso. Apertura, identificación, rastreo temporal y frase de actualización.</p>
-                    <div class="portal-card-status">
-                        <span class="status-dot available"></span>
-                        <span style="color:var(--jade)">Disponible</span>
-                    </div>
-                    <a href="#" class="portal-card-link">Ver Protocolos</a>
-                </div>
-
-                <div class="portal-card">
-                    <div class="portal-card-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                    </div>
-                    <span class="portal-card-label">Módulo 04</span>
-                    <h2 class="portal-card-title">Mapeo Relacional</h2>
-                    <p class="portal-card-desc">Guías para identificar figuras nucleares, extendidas y de autoridad. Dimensión transgeneracional.</p>
-                    <div class="portal-card-status">
-                        <span class="status-dot soon"></span>
-                        <span style="color:var(--amber)">En preparación</span>
-                    </div>
-                    <a href="#" class="portal-card-link disabled">No disponible aún</a>
-                </div>
-
-                <div class="portal-card">
-                    <div class="portal-card-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-                    </div>
-                    <span class="portal-card-label">Módulo 05</span>
-                    <h2 class="portal-card-title">Las 7 Improntas de Supervivencia</h2>
-                    <p class="portal-card-desc">Fichas de referencia rápida para cada impronta: emoción central, correlato físico y momento de origen.</p>
-                    <div class="portal-card-status">
-                        <span class="status-dot available"></span>
-                        <span style="color:var(--jade)">Disponible</span>
-                    </div>
-                    <a href="#" class="portal-card-link">Ver Fichas</a>
-                </div>
-
-                <div class="portal-card">
-                    <div class="portal-card-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                    </div>
-                    <span class="portal-card-label">Soporte</span>
-                    <h2 class="portal-card-title">Consultas al Instructor</h2>
-                    <p class="portal-card-desc">Canal directo con el Dr. Miguel Ojeda Rios para resolver dudas sobre el protocolo y las sesiones.</p>
-                    <div class="portal-card-status">
-                        <span class="status-dot available"></span>
-                        <span style="color:var(--jade)">Disponible</span>
-                    </div>
-                    <a href="https://wa.me/525579076626" class="portal-card-link" target="_blank" rel="noopener noreferrer">Contactar por WhatsApp</a>
-                </div>
-
-            </div>
-
-            <!-- Progreso del programa -->
-            <div class="portal-jornadas">
-                <p class="portal-section-eyebrow">PROGRESO DEL PROGRAMA</p>
-                <div class="jornada-list">
-                    <div class="jornada-item">
-                        <div class="jornada-num">JORNADA<br>01</div>
-                        <div>
-                            <div class="jornada-info-title">El Cuerpo como Sistema de Inteligencia Distribuida</div>
-                            <div class="jornada-info-date">Sábado 21 de febrero · 10:00 – 18:00 h</div>
+                <!-- ─── TAME ─── -->
+                <div class="bloque-item tame-item" id="bloque-tame">
+                    <div class="bloque-header" onclick="toggleBloque('bloque-tame')">
+                        <span class="bloque-num">TAME</span>
+                        <div class="bloque-header-text">
+                            <div class="bloque-titulo">Marco Científico Fundacional</div>
+                            <div class="bloque-subtitulo">Technological Approach to Mind Everywhere — Michael Levin, Tufts University</div>
                         </div>
-                        <span class="jornada-badge disponible">Disponible</span>
+                        <span class="bloque-chevron">▾</span>
                     </div>
-                    <div class="jornada-item">
-                        <div class="jornada-num">JORNADA<br>02</div>
-                        <div>
-                            <div class="jornada-info-title">Improntas de Supervivencia</div>
-                            <div class="jornada-info-date">Sábado 7 de marzo · 10:00 – 18:00 h</div>
+                    <div class="bloque-content">
+
+                        <div class="idea-central">
+                            <span class="idea-central-label">Tesis Central</span>
+                            <p>"Toda inteligencia es inteligencia colectiva. Todo agente cognitivo está compuesto por partes que son, a su vez, agentes cognitivos." Las capacidades cognitivas no son exclusivas de los cerebros — existen en un continuo desde moléculas y células hasta organismos completos.</p>
                         </div>
-                        <span class="jornada-badge proximo">Próxima</span>
-                    </div>
-                    <div class="jornada-item">
-                        <div class="jornada-num">JORNADA<br>03</div>
-                        <div>
-                            <div class="jornada-info-title">Protocolo de Sesión e Integración</div>
-                            <div class="jornada-info-date">Sábado 21 de marzo · 10:00 – 18:00 h</div>
+
+                        <div class="content-section">
+                            <span class="section-heading">Los tres pilares de TAME</span>
+                            <div class="pilar-card">
+                                <div class="pilar-card-num">Pilar 1</div>
+                                <div class="pilar-card-title">Gradualismo</div>
+                                <p>No hay una línea brillante que separe "cognición verdadera" de "simple física". Las capacidades cognitivas existen en un continuo suave. Cualquier línea que tracemos será arbitraria.</p>
+                            </div>
+                            <div class="pilar-card">
+                                <div class="pilar-card-num">Pilar 2</div>
+                                <div class="pilar-card-title">Sin sustrato privilegiado</div>
+                                <p>No existe un material especial requerido para constituir un Self. La capacidad de agencia no depende del sustrato (neuronas, células, circuitos) sino de la arquitectura funcional del sistema.</p>
+                            </div>
+                            <div class="pilar-card">
+                                <div class="pilar-card-num">Pilar 3</div>
+                                <div class="pilar-card-title">Enfoque empírico</div>
+                                <p>La presencia de agencia no se determina por debate filosófico sino por experimentación: ¿Responde este sistema a señales persuasivas? ¿Modifica su comportamiento? ¿Tiene metas que persigue activamente?</p>
+                            </div>
                         </div>
-                        <span class="jornada-badge pendiente">Pendiente</span>
+
+                        <div class="content-section">
+                            <span class="section-heading">Eje de persuadabilidad</span>
+                            <div class="concepto-card" style="margin-bottom:.75rem;">
+                                <div class="concepto-card-title">¿Qué es el eje de persuadabilidad?</div>
+                                <p>Clasifica a los agentes según la sofisticación de las señales necesarias para modificar su comportamiento. En un extremo: circuitos eléctricos (responden a voltaje). En el otro: humanos (responden a narrativa, argumento, emoción).</p>
+                            </div>
+                            <div class="concepto-card">
+                                <div class="concepto-card-title">Implicación terapéutica directa</div>
+                                <p>Los patrones somato-emocionales (Nivel 3 en BV4) están en la "zona inferior" del eje — son circuitos homeostáticos, no agentes racionales. No se pueden persuadir con argumentos. Se requiere intervenir con señales del mismo nivel: corporales, bioeléctricas, somáticas.</p>
+                            </div>
+                        </div>
+
+                        <div class="content-section">
+                            <span class="section-heading">Bioelectricidad no-neuronal</span>
+                            <div class="concepto-grid">
+                                <div class="concepto-card">
+                                    <div class="concepto-card-title">Voltaje de membrana (Vmem)</div>
+                                    <p>Integra las contribuciones de múltiples canales iónicos en un solo valor. Entre −40 mV y −70 mV en células normales. Es el "resumen ejecutivo" del estado de la célula.</p>
+                                </div>
+                                <div class="concepto-card">
+                                    <div class="concepto-card-title">Gap junctions</div>
+                                    <p>Conectan células eléctricamente, permitiendo compartir voltaje e iones pequeños. Son el equivalente no-neuronal de las sinapsis. Al conectarse, el Self individual escala hacia un Self colectivo.</p>
+                                </div>
+                                <div class="concepto-card">
+                                    <div class="concepto-card-title">Pre-patrones bioeléctricos</div>
+                                    <p>Los patrones de voltaje se establecen ANTES de que se activen los genes y ANTES de que exista estructura anatómica visible. Son los "planos" dinámicos que las células leen para saber qué hacer.</p>
+                                </div>
+                                <div class="concepto-card">
+                                    <div class="concepto-card-title">Cáncer como contracción del Self</div>
+                                    <p>Cuando las gap junctions se interrumpen, la célula pierde acceso al campo colectivo y revierte a un estado unicelular ancestral (proliferación egoísta). Reabrir las gap junctions puede revertir el fenotipo maligno.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="content-section">
+                            <span class="section-heading">Evidencia: planaria y memoria bioeléctrica</span>
+                            <div class="concepto-list">
+                                <div class="concepto-list-item">
+                                    <strong>Memoria de forma bioeléctrica</strong>
+                                    <span>Cada fragmento de planaria "recuerda" la anatomía correcta del organismo completo. La información no está en el ADN (idéntico en todos los fragmentos) sino en el patrón bioeléctrico del tejido.</span>
+                                </div>
+                                <div class="concepto-list-item">
+                                    <strong>Reprogramación del patrón</strong>
+                                    <span>Manipulando el voltaje de membrana, se puede hacer que una planaria regenere DOS cabezas. Esa planaria de dos cabezas, si se corta, sigue regenerando dos cabezas — el patrón fue reescrito permanentemente sin alterar el ADN.</span>
+                                </div>
+                                <div class="concepto-list-item">
+                                    <strong>Conexión a BV4</strong>
+                                    <span>Si los patrones emocionales están inscritos en el campo bioeléctrico de los tejidos (Nivel 3), no pueden ser reorganizados por la razón (Nivel 4). Se requiere intervenir al nivel donde el patrón está instalado.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <blockquote class="frase-clave">"TAME no es una teoría que deba ser aceptada o rechazada. Es un marco de trabajo que permite formular preguntas empíricas sobre la mente en todos sus posibles sustratos."</blockquote>
+
                     </div>
                 </div>
+
+                <!-- ─── B1 ─── -->
+                <div class="bloque-item" id="bloque-b1">
+                    <div class="bloque-header" onclick="toggleBloque('bloque-b1')">
+                        <span class="bloque-num">B01</span>
+                        <div class="bloque-header-text">
+                            <div class="bloque-titulo">Apertura, Encuadre y TAME</div>
+                            <div class="bloque-subtitulo">Qué es BV4 · Los 4 niveles de organización · El problema de los patrones</div>
+                        </div>
+                        <span class="bloque-chevron">▾</span>
+                    </div>
+                    <div class="bloque-content">
+
+                        <div class="idea-central">
+                            <span class="idea-central-label">Idea central</span>
+                            <p>La Bioenergética V4 es un sistema para identificar, mapear y actualizar los patrones de supervivencia inscritos en el cuerpo. Integra la ciencia de la bioelectricidad con técnicas de acceso al inconsciente corporal. El cerebro es UN nivel de procesamiento — hay al menos tres más por debajo.</p>
+                        </div>
+
+                        <div class="content-section">
+                            <span class="section-heading">Qué es la Bioenergética V4</span>
+                            <div class="concepto-card" style="margin-bottom:.75rem;">
+                                <div class="concepto-card-title">Definición</div>
+                                <p>Sistema para identificar, mapear y actualizar patrones de supervivencia inscritos en el cuerpo. Integra la ciencia de la bioelectricidad con técnicas de acceso al inconsciente corporal. Aplicable a cualquier área donde se repitan patrones: relaciones, decisiones, dinero, salud, crianza, liderazgo.</p>
+                            </div>
+                        </div>
+
+                        <div class="content-section">
+                            <span class="section-heading">Los 4 niveles de organización</span>
+                            <div class="niveles-grid">
+                                <div class="nivel-card">
+                                    <div class="nivel-card-num">Nivel 1</div>
+                                    <div class="nivel-card-title">Físico / Celular</div>
+                                    <p>Células individuales. Cada una procesa información, mantiene voltaje de membrana y toma decisiones locales.</p>
+                                </div>
+                                <div class="nivel-card">
+                                    <div class="nivel-card-num">Nivel 2</div>
+                                    <div class="nivel-card-title">Homeostático (Tejido/Órgano)</div>
+                                    <p>Grupos de células organizadas en tejidos y órganos. Tienen su propia memoria e inteligencia. Mantenimiento del equilibrio dinámico.</p>
+                                </div>
+                                <div class="nivel-card">
+                                    <div class="nivel-card-num">Nivel 3</div>
+                                    <div class="nivel-card-title">Sistemas Emocionales</div>
+                                    <p>Sistema límbico, SNA, respuestas de supervivencia. PREVIO a la conciencia racional. Aquí viven las improntas de supervivencia.</p>
+                                </div>
+                                <div class="nivel-card">
+                                    <div class="nivel-card-num">Nivel 4</div>
+                                    <div class="nivel-card-title">Consciente Racional</div>
+                                    <p>Neocórtex, lenguaje, planificación, identidad narrativa. Poderoso para analizar, pero NO puede reorganizar directamente los niveles inferiores.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="content-section">
+                            <span class="section-heading">La pregunta inicial</span>
+                            <div class="concepto-list">
+                                <div class="concepto-list-item">
+                                    <strong>En relaciones</strong>
+                                    <span>Elegir siempre el mismo tipo de pareja, repetir dinámicas de abandono, control o distancia emocional.</span>
+                                </div>
+                                <div class="concepto-list-item">
+                                    <strong>En dinero</strong>
+                                    <span>Ganar y perder cíclicamente, autosabotaje cuando las cosas van bien, incapacidad de cobrar lo que vales.</span>
+                                </div>
+                                <div class="concepto-list-item">
+                                    <strong>En decisiones</strong>
+                                    <span>Procrastinar sistemáticamente, elegir siempre lo seguro aunque duela, paralizarse ante oportunidades.</span>
+                                </div>
+                                <div class="concepto-list-item">
+                                    <strong>En el cuerpo</strong>
+                                    <span>Dolor crónico sin causa médica clara, tensión que nunca se suelta, síntomas que aparecen en momentos específicos.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="content-section">
+                            <span class="section-heading">Evidencia de inteligencia no-cerebral</span>
+                            <div class="concepto-grid">
+                                <div class="concepto-card">
+                                    <div class="concepto-card-title">Memoria del transplantado</div>
+                                    <p>Receptores de órganos reportan recuerdos y preferencias del donante. El corazón transplantado llegó sin conexión neuronal — la información estaba en el tejido.</p>
+                                </div>
+                                <div class="concepto-card">
+                                    <div class="concepto-card-title">Coordinación embrionaria</div>
+                                    <p>Sin sistema nervioso, las células saben dónde ir y qué formar. La coordinación viene del campo bioeléctrico colectivo, no de un director central.</p>
+                                </div>
+                                <div class="concepto-card">
+                                    <div class="concepto-card-title">Regeneración en planaria</div>
+                                    <p>Una planaria cortada en pedazos regenera la cabeza correcta en cada fragmento. La información de forma está en el campo bioeléctrico, no en el ADN.</p>
+                                </div>
+                                <div class="concepto-card">
+                                    <div class="concepto-card-title">Sistema inmune cognitivo</div>
+                                    <p>Toma decisiones, tiene memoria, aprende y puede equivocarse. Es un sistema cognitivo completo sin participación cerebral.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="content-section">
+                            <span class="section-heading">Frases clave del bloque</span>
+                            <ul class="frases-list">
+                                <li>"Si la inteligencia está distribuida en todo el cuerpo, tus patrones emocionales no son solo 'mentales'."</li>
+                                <li>"El cerebro es UN nivel de procesamiento, pero hay al menos tres más por debajo."</li>
+                                <li>"Si quieres cambiar un patrón que no vive en el cerebro, necesitas herramientas que operen en el nivel donde sí vive."</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- ─── B2 ─── -->
+                <div class="bloque-item" id="bloque-b2">
+                    <div class="bloque-header" onclick="toggleBloque('bloque-b2')">
+                        <span class="bloque-num">B02</span>
+                        <div class="bloque-header-text">
+                            <div class="bloque-titulo">La Inteligencia No Vive Solo en el Cerebro</div>
+                            <div class="bloque-subtitulo">Tres fenómenos que el modelo convencional no puede explicar</div>
+                        </div>
+                        <span class="bloque-chevron">▾</span>
+                    </div>
+                    <div class="bloque-content">
+
+                        <div class="idea-central">
+                            <span class="idea-central-label">Pregunta central del bloque</span>
+                            <p>¿Puede un órgano tener memoria sin participación del cerebro? ¿Puede un grupo de células tomar decisiones inteligentes sin un sistema nervioso? Si la respuesta es sí, entonces la inteligencia NO vive solo en el cerebro.</p>
+                        </div>
+
+                        <div class="content-section">
+                            <span class="section-heading">Tres fenómenos que el modelo convencional no puede explicar</span>
+                            <div class="concepto-list">
+                                <div class="concepto-list-item">
+                                    <strong>Fenómeno 1 — Memoria del transplantado</strong>
+                                    <span>Receptores de corazón transplantado reportan recuerdos, preferencias alimentarias, habilidades y reacciones emocionales del donante, sin conexión neuronal. El corazón almacena información de forma independiente al sistema nervioso central.</span>
+                                </div>
+                                <div class="concepto-list-item">
+                                    <strong>Fenómeno 2 — Coordinación embrionaria</strong>
+                                    <span>En un embrión de 3-4 días no existe sistema nervioso. Sin embargo, las células ya saben hacia dónde migrar, qué tejido van a formar, y cómo coordinarse para construir un organismo complejo. La coordinación viene del campo bioeléctrico colectivo.</span>
+                                </div>
+                                <div class="concepto-list-item">
+                                    <strong>Fenómeno 3 — Planaria: regeneración sin instrucción central</strong>
+                                    <span>Manipulando los voltajes de membrana se puede hacer que una planaria regenere una cabeza donde debería ir una cola. La información de forma NO está en el ADN — está en el campo bioeléctrico.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="experiencia-box">
+                            <span class="section-heading">🔬 Mini-Experiencia: Escucha tu corazón</span>
+                            <ol>
+                                <li>Coloca tu mano sobre el pecho. Siente el latido.</li>
+                                <li>Piensa en una persona que amas. Nota qué cambia en el latido.</li>
+                                <li>Piensa en una situación de conflicto. Nota el cambio.</li>
+                            </ol>
+                            <p style="margin-top:.5rem;">Tu corazón no "reacciona" al cerebro. Tiene su propia respuesta.</p>
+                        </div>
+
+                        <div class="content-section">
+                            <span class="section-heading">El corazón como órgano inteligente</span>
+                            <div class="concepto-grid">
+                                <div class="concepto-card">
+                                    <div class="concepto-card-title">Cerebro cardíaco</div>
+                                    <p>El corazón tiene su propio sistema nervioso: ~40.000 neuronas que forman un "cerebro cardíaco". Puede sentir, recordar y tomar decisiones de forma autónoma.</p>
+                                </div>
+                                <div class="concepto-card">
+                                    <div class="concepto-card-title">Campo electromagnético</div>
+                                    <p>El campo del corazón es 5.000 veces más potente que el del cerebro. Se puede medir a varios metros de distancia. No solo bombea sangre — emite una señal que influye en todo el organismo.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="content-section">
+                            <span class="section-heading">Aislamiento bioeléctrico — la metáfora celular</span>
+                            <div class="concepto-card" style="margin-bottom:.75rem;">
+                                <div class="concepto-card-title">Cognición sin neuronas</div>
+                                <p>La cognición no requiere neuronas. Requiere procesamiento de información, memoria y capacidad de respuesta adaptativa. El sistema inmune, el sistema endocrino y el campo bioeléctrico son sistemas cognitivos completos.</p>
+                            </div>
+                            <div class="concepto-card">
+                                <div class="concepto-card-title">Cuando la célula pierde el campo</div>
+                                <p>Cuando una célula se desconecta del campo bioeléctrico colectivo, pierde contexto. Sin contexto, toma decisiones egoístas (proliferación descontrolada). Esto es análogo a lo que ocurre cuando una persona se desconecta emocionalmente: pierde perspectiva y repite patrones de supervivencia.</p>
+                            </div>
+                        </div>
+
+                        <div class="content-section">
+                            <span class="section-heading">El problema central de la terapia convencional</span>
+                            <div class="concepto-card">
+                                <div class="concepto-card-title">Por qué "saber" no cambia el patrón</div>
+                                <p>El Nivel 4 (consciente racional) NO puede reorganizar directamente el Nivel 3 (emocional). Por eso "saber" que un patrón es disfuncional no lo cambia. Por eso la frase "ya sé que no debería sentir esto" no sirve. La reorganización requiere intervenir al nivel donde el patrón está instalado.</p>
+                            </div>
+                        </div>
+
+                        <div class="content-section">
+                            <span class="section-heading">Frases clave del bloque</span>
+                            <ul class="frases-list">
+                                <li>"Si un corazón transplantado puede recordar, la memoria no es exclusiva del cerebro."</li>
+                                <li>"El cerebro no es el director — es un miembro más de la orquesta."</li>
+                                <li>"Una célula cancerosa es una célula que dejó de escuchar al campo."</li>
+                                <li>"No es que no puedas cambiar. Es que estás intentando cambiar desde el nivel equivocado."</li>
+                                <li>"Tu cuerpo lleva la cuenta de cada vivencia, aunque tu mente la haya olvidado."</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- ─── B3 ─── -->
+                <div class="bloque-item" id="bloque-b3">
+                    <div class="bloque-header" onclick="toggleBloque('bloque-b3')">
+                        <span class="bloque-num">B03</span>
+                        <div class="bloque-header-text">
+                            <div class="bloque-titulo">Bioelectricidad: El Lenguaje Eléctrico del Cuerpo</div>
+                            <div class="bloque-subtitulo">Voltaje de membrana · Pre-patrones · Emociones como campo eléctrico</div>
+                        </div>
+                        <span class="bloque-chevron">▾</span>
+                    </div>
+                    <div class="bloque-content">
+
+                        <div class="idea-central">
+                            <span class="idea-central-label">Idea central del bloque</span>
+                            <p>Cada célula de tu cuerpo tiene voltaje y se comunica eléctricamente. El cuerpo entero es un campo de información eléctrica. Las emociones alteran este campo. Un trauma se inscribe como un patrón bioeléctrico alterado en el tejido.</p>
+                        </div>
+
+                        <div class="content-section">
+                            <span class="section-heading">Conceptos clave</span>
+                            <div class="concepto-list">
+                                <div class="concepto-list-item">
+                                    <strong>Voltaje de membrana</strong>
+                                    <span>Cada célula mantiene un potencial eléctrico entre −40 mV y −70 mV. No es exclusivo de las neuronas — TODAS las células lo tienen. Este voltaje funciona como un "resumen ejecutivo" del estado de la célula.</span>
+                                </div>
+                                <div class="concepto-list-item">
+                                    <strong>Los tres componentes</strong>
+                                    <span>Canales iónicos (transistores biológicos que amplifican y procesan señales), gap junctions (sinapsis eléctricas no-neuronales que conectan células vecinas), y Vmem (el parámetro de grano grueso que integra todo).</span>
+                                </div>
+                                <div class="concepto-list-item">
+                                    <strong>Pre-patrones bioeléctricos</strong>
+                                    <span>Los patrones de voltaje se establecen ANTES de que se activen los genes. El mapa existe antes que el territorio. Demostrado con pre-patrones faciales, de extremidades y cerebrales.</span>
+                                </div>
+                                <div class="concepto-list-item">
+                                    <strong>Bioelectricidad y experiencia emocional</strong>
+                                    <span>Si cada célula tiene voltaje, el cuerpo es un campo de información eléctrica. Las emociones alteran este campo. Un trauma se inscribe como un patrón bioeléctrico alterado. La memoria no vive solo en el cerebro — vive distribuida en el campo bioeléctrico del cuerpo entero.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="concepto-card" style="margin-bottom:1.25rem;">
+                            <div class="concepto-card-title">Implicación práctica</div>
+                            <p>Las palabras (Nivel 4) no modifican voltaje de membrana. Por eso necesitamos herramientas que operen en Nivel 3. El cambio terapéutico en BV4 se dirige al nivel donde el patrón está instalado — no al nivel donde se describe.</p>
+                        </div>
+
+                        <div class="reflexion-box">
+                            <span class="section-heading violet-heading">Espacio de reflexión</span>
+                            <ol>
+                                <li>¿Alguna vez has sentido que "entiendes" un problema pero tu cuerpo sigue reaccionando igual? ¿Dónde en tu cuerpo aparece esa reacción?</li>
+                                <li>Si las emociones alteran el campo bioeléctrico del cuerpo, ¿qué emoción crees que ha dejado una "huella" más fuerte en tu propio campo?</li>
+                                <li>¿Qué implicaciones tiene para tu práctica terapéutica saber que los patrones están inscritos en el campo bioeléctrico y no solo en la mente racional?</li>
+                            </ol>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- ─── B4 ─── -->
+                <div class="bloque-item" id="bloque-b4">
+                    <div class="bloque-header" onclick="toggleBloque('bloque-b4')">
+                        <span class="bloque-num">B04</span>
+                        <div class="bloque-header-text">
+                            <div class="bloque-titulo">El Campo Bioeléctrico Colectivo</div>
+                            <div class="bloque-subtitulo">Del individuo al sistema · La inteligencia distribuida del tejido</div>
+                        </div>
+                        <span class="bloque-chevron">▾</span>
+                    </div>
+                    <div class="bloque-content">
+
+                        <div class="idea-central">
+                            <span class="idea-central-label">Idea central del bloque</span>
+                            <p>Una célula sola tiene información limitada. Conectada al campo bioeléctrico del tejido, tiene acceso a la inteligencia del sistema completo. Cómo millones de células conectadas forman un campo de inteligencia distribuida donde viven los patrones emocionales.</p>
+                        </div>
+
+                        <div class="content-section">
+                            <span class="section-heading">Del mecanismo individual al fenómeno colectivo</span>
+                            <div class="concepto-grid">
+                                <div class="concepto-card">
+                                    <div class="concepto-card-title">Célula sola</div>
+                                    <p>Procesa información local. Toma decisiones basándose en señales de su entorno inmediato. Su "inteligencia" está limitada al radio de sensado individual.</p>
+                                </div>
+                                <div class="concepto-card">
+                                    <div class="concepto-card-title">Célula conectada al campo</div>
+                                    <p>Accede a la información del sistema completo a través de gap junctions. Comparte voltaje, comparte identidad. Su "inteligencia" se multiplica con la del tejido entero.</p>
+                                </div>
+                                <div class="concepto-card">
+                                    <div class="concepto-card-title">El campo como memoria</div>
+                                    <p>El campo bioeléctrico colectivo almacena patrones de información que ninguna célula individual podría contener. Aquí viven los patrones emocionales — distribuidos en el tejido, no localizados en el cerebro.</p>
+                                </div>
+                                <div class="concepto-card">
+                                    <div class="concepto-card-title">Gap junctions y el Self colectivo</div>
+                                    <p>"Las gap junctions son el mecanismo por el cual las células individuales escalan hacia un Self colectivo. Al compartir voltaje, comparten identidad." (Levin, TAME)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="experiencia-box">
+                            <span class="section-heading">🔬 Mini-Experiencia: Niveles 1 y 2 en tu cuerpo</span>
+                            <ol>
+                                <li>Cierra los ojos. Lleva tu atención al hígado (lado derecho, debajo de las costillas).</li>
+                                <li>Ahora al estómago (centro, debajo del esternón).</li>
+                                <li>Ahora a la garganta.</li>
+                            </ol>
+                            <p style="margin-top:.5rem;">Nota: cada zona tiene su propia "presencia", su propia densidad, temperatura, sensación. Eso es el campo bioeléctrico del tejido. Cada órgano tiene uno diferente.</p>
+                        </div>
+
+                        <div class="reflexion-box">
+                            <span class="section-heading violet-heading">Espacio de reflexión</span>
+                            <p>Después del ejercicio de localización corporal: ¿En qué zona de tu cuerpo sientes mayor "presencia" o actividad? ¿Qué historia tiene esa zona para ti?</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- ─── B5 ─── -->
+                <div class="bloque-item" id="bloque-b5">
+                    <div class="bloque-header" onclick="toggleBloque('bloque-b5')">
+                        <span class="bloque-num">B05</span>
+                        <div class="bloque-header-text">
+                            <div class="bloque-titulo">Aislamiento Bioeléctrico</div>
+                            <div class="bloque-subtitulo">El mecanismo central de los patrones de supervivencia</div>
+                        </div>
+                        <span class="bloque-chevron">▾</span>
+                    </div>
+                    <div class="bloque-content">
+
+                        <div class="idea-central">
+                            <span class="idea-central-label">Idea central del bloque</span>
+                            <p>Cuando el campo bioeléctrico se fragmenta por trauma, la zona aislada mantiene la información del evento original. Esto es un patrón de supervivencia. Este bloque cierra la sesión teórica de la mañana explicando el mecanismo central de toda la terapéutica de Bioenergética V4.</p>
+                        </div>
+
+                        <div class="content-section">
+                            <span class="section-heading">El mecanismo del aislamiento</span>
+                            <div class="concepto-list">
+                                <div class="concepto-list-item">
+                                    <strong>Fragmentación del campo</strong>
+                                    <span>Ante un evento de alto impacto emocional, el campo bioeléctrico puede fragmentarse. La zona afectada se "aisla" del resto del sistema, cerrando las gap junctions que la conectaban al campo colectivo.</span>
+                                </div>
+                                <div class="concepto-list-item">
+                                    <strong>La zona aislada "congela" el momento</strong>
+                                    <span>Sin acceso al campo colectivo, la zona aislada mantiene el patrón bioeléctrico del momento del trauma. Opera con la información de ese instante — sin actualizarse con las experiencias posteriores. Es un patrón de supervivencia: sirvió en ese momento, pero persiste cuando ya no es necesario.</span>
+                                </div>
+                                <div class="concepto-list-item">
+                                    <strong>Por qué la terapia convencional tiene límites aquí</strong>
+                                    <span>Una zona aislada bioeléctrica no responde a la razón (Nivel 4) porque está desconectada del sistema de comunicación del cuerpo. Para actualizar su información, necesitas herramientas que lleguen al nivel donde está — Nivel 3, somático y relacional.</span>
+                                </div>
+                                <div class="concepto-list-item">
+                                    <strong>La lógica del patrón</strong>
+                                    <span>Todo patrón de supervivencia tiene su propia lógica. No es un error del sistema — fue la respuesta más inteligente posible en ese momento. El trabajo terapéutico no es eliminar el patrón sino actualizarlo: darle al sistema la información de que el peligro original ya pasó.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="concepto-card" style="margin-bottom:1.25rem;">
+                            <div class="concepto-card-title">Analogía celular</div>
+                            <p>Una célula cancerosa es una célula que perdió contacto con el campo colectivo y revirtió a un estado de supervivencia unicelular. Un patrón emocional crónico es análogo: una zona del sistema que perdió contexto y opera con información antigua.</p>
+                        </div>
+
+                        <div class="reflexion-box">
+                            <span class="section-heading violet-heading">Espacio de reflexión</span>
+                            <p>Después de la explicación del aislamiento bioeléctrico: ¿Puedes identificar un patrón en tu vida que tenga la estructura de "zona aislada"? Un área donde, sin importar cuánto lo pienses, algo sigue reaccionando igual. ¿Dónde lo sientes en el cuerpo?</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- ─── DIVIDER ─── -->
+                <div class="session-divider">
+                    <span class="session-divider-line"></span>
+                    <span class="session-divider-label">Sesión de la Tarde — Herramientas Prácticas</span>
+                    <span class="session-divider-line"></span>
+                </div>
+
+                <!-- ─── B6 ─── -->
+                <div class="bloque-item" id="bloque-b6">
+                    <div class="bloque-header" onclick="toggleBloque('bloque-b6')">
+                        <span class="bloque-num">B06</span>
+                        <div class="bloque-header-text">
+                            <div class="bloque-titulo">El Test Muscular como Herramienta Clínica</div>
+                            <div class="bloque-subtitulo">Comunicación directa con el sistema nervioso · Protocolo en parejas</div>
+                        </div>
+                        <span class="bloque-chevron">▾</span>
+                    </div>
+                    <div class="bloque-content">
+
+                        <div class="idea-central">
+                            <span class="idea-central-label">Idea central del bloque</span>
+                            <p>El test muscular es una herramienta de comunicación directa con el sistema nervioso. No mide fuerza — lee información. Pasamos de la teoría (cómo funciona el campo bioeléctrico) a la práctica: cómo nos comunicamos con ese campo usando la respuesta ideomotora neuromuscular.</p>
+                        </div>
+
+                        <div class="content-section">
+                            <span class="section-heading">Qué es y qué no es el test muscular</span>
+                            <div class="concepto-grid">
+                                <div class="concepto-card">
+                                    <div class="concepto-card-title">Lo que ES</div>
+                                    <p>Una forma de acceder a la respuesta ideomotora neuromuscular. El cuerpo responde a estímulos (mentales, verbales, físicos) con cambios en el tono muscular que son anteriores a la decisión consciente. Es una ventana al Nivel 3.</p>
+                                </div>
+                                <div class="concepto-card">
+                                    <div class="concepto-card-title">Lo que NO ES</div>
+                                    <p>No es una prueba de fuerza física. No es un oráculo ni una técnica "espiritual". Es un protocolo somático que utiliza la respuesta neuromuscular como canal de comunicación con el campo bioeléctrico.</p>
+                                </div>
+                                <div class="concepto-card">
+                                    <div class="concepto-card-title">Por qué funciona</div>
+                                    <p>El sistema nervioso autónomo responde a estímulos antes de que el neocórtex los procese. Este intervalo es la ventana de acceso: el cuerpo "sabe" algo que la mente consciente aún no ha formulado.</p>
+                                </div>
+                                <div class="concepto-card">
+                                    <div class="concepto-card-title">En el contexto de BV4</div>
+                                    <p>El test muscular es la primera herramienta formal de comunicación con el campo bioeléctrico. Abre la sesión práctica de la tarde y sienta las bases para el Bloque 7 (tres canales de acceso).</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="experiencia-box">
+                            <span class="section-heading">🔬 Protocolo de práctica en parejas</span>
+                            <ol>
+                                <li>Una persona extiende el brazo horizontalmente (facilitador y consultante).</li>
+                                <li>El facilitador aplica una presión suave y constante sobre la muñeca.</li>
+                                <li>El consultante dice su nombre real. Nota la respuesta del músculo.</li>
+                                <li>El consultante dice un nombre falso. Nota el cambio en la respuesta.</li>
+                                <li>Repetir con afirmaciones simples: verdaderas y falsas.</li>
+                            </ol>
+                            <p style="margin-top:.5rem;">Objetivo: aprender a distinguir las dos respuestas básicas. Esto es calibración.</p>
+                        </div>
+
+                        <div class="reflexion-box">
+                            <span class="section-heading violet-heading">Espacio de reflexión</span>
+                            <p>Después de la práctica en parejas: ¿Pudiste distinguir las dos respuestas? ¿Qué fue lo más sorprendente del ejercicio? ¿Cómo podría esta herramienta cambiar tu forma de hacer preguntas en una sesión clínica?</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- ─── B7 ─── -->
+                <div class="bloque-item" id="bloque-b7">
+                    <div class="bloque-header" onclick="toggleBloque('bloque-b7')">
+                        <span class="bloque-num">B07</span>
+                        <div class="bloque-header-text">
+                            <div class="bloque-titulo">Tres Canales de Acceso al Inconsciente Corporal</div>
+                            <div class="bloque-subtitulo">Canal verbal · Canal somático · Canal relacional · Protocolo integrado</div>
+                        </div>
+                        <span class="bloque-chevron">▾</span>
+                    </div>
+                    <div class="bloque-content">
+
+                        <div class="idea-central">
+                            <span class="idea-central-label">Idea central del bloque</span>
+                            <p>El test muscular es la puerta de entrada, pero no es la única herramienta. Hay tres canales de acceso al Nivel 3 — y un protocolo que los integra. Del canal único pasamos al mapa completo de acceso al campo bioeléctrico.</p>
+                        </div>
+
+                        <div class="content-section">
+                            <span class="section-heading">Los tres canales</span>
+                            <div class="canal-card">
+                                <div class="canal-card-title">Canal Verbal</div>
+                                <p>Palabras, afirmaciones, preguntas directas al sistema. El lenguaje como estímulo para la respuesta ideomotora. Útil para localizar el patrón narrativo del sistema. Limitado: solo alcanza el borde exterior del Nivel 3.</p>
+                            </div>
+                            <div class="canal-card">
+                                <div class="canal-card-title">Canal Somático</div>
+                                <p>Sensaciones corporales, localización física, temperatura, presión. El cuerpo habla directamente desde el Nivel 2 y Nivel 3. Es el canal más directo al campo bioeléctrico. La zona del cuerpo donde aparece la sensación es información diagnóstica.</p>
+                            </div>
+                            <div class="canal-card">
+                                <div class="canal-card-title">Canal Relacional</div>
+                                <p>El campo entre el facilitador y el consultante. El sistema nervioso del consultante responde al campo del facilitador antes de cualquier intervención verbal. Requiere que el facilitador esté en un estado coherente. Es el canal más sutil y más poderoso.</p>
+                            </div>
+                        </div>
+
+                        <div class="experiencia-box">
+                            <span class="section-heading">🔬 Protocolo básico de exploración — Secuencia integrada</span>
+                            <ol>
+                                <li><strong>Canal verbal:</strong> Identifica una frase que el consultante usa para describir su patrón. Testea con el test muscular.</li>
+                                <li><strong>Canal somático:</strong> ¿Dónde lo siente en el cuerpo? ¿Qué forma, temperatura, textura tiene la sensación?</li>
+                                <li><strong>Canal relacional:</strong> El facilitador sintoniza con el campo del consultante. ¿Qué siente el facilitador en su propio cuerpo?</li>
+                                <li>Integración: Los tres canales señalando la misma zona = localización confirmada.</li>
+                            </ol>
+                        </div>
+
+                        <div class="reflexion-box">
+                            <span class="section-heading violet-heading">Espacio de reflexión</span>
+                            <p>Después de la demostración: ¿Con cuál de los tres canales te sientes más cómodo naturalmente? ¿Cuál te resulta más desafiante? ¿Por qué podría ser útil para un facilitador desarrollar los tres?</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- ─── B8 ─── -->
+                <div class="bloque-item" id="bloque-b8">
+                    <div class="bloque-header" onclick="toggleBloque('bloque-b8')">
+                        <span class="bloque-num">B08</span>
+                        <div class="bloque-header-text">
+                            <div class="bloque-titulo">Cartografía de las Dinámicas de una Vivencia</div>
+                            <div class="bloque-subtitulo">El mapa completo · Integración del día · Tarea para la semana</div>
+                        </div>
+                        <span class="bloque-chevron">▾</span>
+                    </div>
+                    <div class="bloque-content">
+
+                        <div class="idea-central">
+                            <span class="idea-central-label">Idea central del bloque</span>
+                            <p>La cartografía es el mapa completo de un patrón de supervivencia. Todo lo que aprendiste hoy converge aquí: el test muscular del Bloque 6, los tres canales del Bloque 7, y ahora el rastreo temporal. Juntos, dan un mapa de la zona aislada.</p>
+                        </div>
+
+                        <div class="content-section">
+                            <span class="section-heading">Qué es la cartografía</span>
+                            <div class="concepto-list">
+                                <div class="concepto-list-item">
+                                    <strong>El mapa completo del patrón</strong>
+                                    <span>La cartografía integra tres dimensiones: el dónde somático (localización corporal), el cuándo temporal (rastreo del origen), y el cómo relacional (la dinámica con el otro). Juntas, dibujan el mapa de la zona aislada.</span>
+                                </div>
+                                <div class="concepto-list-item">
+                                    <strong>La secuencia lógica del día</strong>
+                                    <span>Primero entendemos el sistema (TAME, bloques 1-3), después entendemos el mecanismo del problema (campo colectivo y aislamiento, bloques 4-5), y finalmente aprendemos a comunicarnos con él y a mapearlo (test muscular, canales, cartografía, bloques 6-8).</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="experiencia-box">
+                            <span class="section-heading">🔬 Protocolo de práctica — cartografía básica en parejas</span>
+                            <ol>
+                                <li>Identifica un patrón que se repite (el consultante lo elige).</li>
+                                <li><strong>Localización somática:</strong> ¿Dónde en el cuerpo? ¿Qué forma, temperatura, color tendría?</li>
+                                <li><strong>Rastreo temporal:</strong> "¿Cuándo es la primera vez que recuerdas esta sensación?" Usa el test muscular para navegar el tiempo.</li>
+                                <li><strong>Dinámica relacional:</strong> En ese momento original, ¿había alguien más? ¿Qué rol ocupaba cada uno?</li>
+                                <li>Registra el mapa: localización + tiempo + dinámica. Este es el mapa de la zona aislada.</li>
+                            </ol>
+                        </div>
+
+                        <div class="reflexion-box">
+                            <span class="section-heading violet-heading">Espacio de reflexión — Recapitulación del día</span>
+                            <p>Repasa los 8 bloques de hoy. ¿Cuál fue el concepto que más te impactó? ¿Qué cambia en tu forma de ver el trabajo terapéutico después de este día? ¿Qué preguntas te llevas?</p>
+                        </div>
+
+                        <div class="tarea-box">
+                            <span class="section-heading">Tarea para la semana</span>
+                            <p>Durante los próximos 7 días, <strong>solo observar</strong>. Nota momentos en que aparece una reacción desproporcionada: enojo excesivo, tristeza repentina, tensión sin causa aparente.</p>
+                            <p style="margin-top:.5rem;">Para cada momento: ¿dónde lo siento en el cuerpo? ¿Qué forma tiene? <strong>No intentar cambiar nada. Solo observar.</strong></p>
+                        </div>
+
+                        <div class="anticipo-box">
+                            <strong>Anticipo — Módulo 2 (7 Mar)</strong>
+                            El próximo sábado: los 7 patrones de supervivencia. Ahí es donde todo lo que aprendieron hoy cobra sentido clínico. Los patrones tienen nombre, estructura y lógica — y las herramientas de hoy son las que permiten identificarlos.
+                        </div>
+
+                    </div>
+                </div>
+
+            </div><!-- /.jornada-body -->
+        </div><!-- /.jornada-section -->
+
+        <!-- ═══════════ JORNADA 02 ═══════════ -->
+        <div class="jornada-section locked-section" id="jornada02">
+            <div class="jornada-header">
+                <div class="jornada-header-left">
+                    <span class="jornada-num">Jornada 02</span>
+                    <span class="jornada-title">Improntas de Supervivencia</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:.75rem;">
+                    <span class="jornada-date">7 Mar 2026</span>
+                    <span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted);">🔒 BLOQUEADO</span>
+                </div>
             </div>
+            <div class="locked-msg">Este contenido estará disponible a partir del 7 de marzo de 2026.</div>
+        </div>
 
-        </main>
-    </div>
+        <!-- ═══════════ JORNADA 03 ═══════════ -->
+        <div class="jornada-section locked-section" id="jornada03">
+            <div class="jornada-header">
+                <div class="jornada-header-left">
+                    <span class="jornada-num">Jornada 03</span>
+                    <span class="jornada-title">Protocolo e Integración</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:.75rem;">
+                    <span class="jornada-date">21 Mar 2026</span>
+                    <span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted);">🔒 BLOQUEADO</span>
+                </div>
+            </div>
+            <div class="locked-msg">Este contenido estará disponible a partir del 21 de marzo de 2026.</div>
+        </div>
 
-    <script>
-        // ── CONTRASEÑA ── Cambia este valor para actualizar el acceso
-        const ACCESS_PASSWORD = 'bioenergetica2026';
+        <!-- ═══════════ RECURSOS ═══════════ -->
+        <div class="recursos-section">
+            <div class="recursos-title">Recursos del programa</div>
+            <div class="recursos-grid">
+                <a href="https://wa.me/525579076626" target="_blank" class="recurso-card">
+                    <span class="recurso-icon">💬</span>
+                    <div class="recurso-name">Consultas WhatsApp</div>
+                    <div class="recurso-desc">Dudas entre sesiones con el Dr. Miguel Ojeda Rios</div>
+                </a>
+                <div class="recurso-card" style="cursor:default;opacity:.6;">
+                    <span class="recurso-icon">🎥</span>
+                    <div class="recurso-name">Grabaciones</div>
+                    <div class="recurso-desc">Disponibles 48h después de cada jornada</div>
+                </div>
+                <div class="recurso-card" style="cursor:default;opacity:.6;">
+                    <span class="recurso-icon">🤖</span>
+                    <div class="recurso-name">Arquitecto de Presentaciones</div>
+                    <div class="recurso-desc">Asistente IA del programa — próximamente</div>
+                </div>
+            </div>
+        </div>
 
-        const loginScreen = document.getElementById('login-screen');
-        const portal      = document.getElementById('portal');
-        const loginBtn    = document.getElementById('login-btn');
-        const logoutBtn   = document.getElementById('logout-btn');
-        const input       = document.getElementById('password-input');
-        const errorMsg    = document.getElementById('login-error');
+        <!-- Footer -->
+        <div class="portal-footer">
+            © Instituto CentroBioenergética · Bioenergética V4 · Uso exclusivo para alumnos del programa
+            <br><a href="#" class="back-to-top-link" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ Volver al inicio</a>
+        </div>
 
-        function showPortal() {
-            loginScreen.style.display = 'none';
-            portal.classList.add('active');
-            sessionStorage.setItem('bioV4_auth', '1');
-        }
+    </main>
+</div>
 
-        function showLogin() {
-            portal.classList.remove('active');
-            loginScreen.style.display = 'flex';
-            sessionStorage.removeItem('bioV4_auth');
-            input.value = '';
-        }
+<script>
+    /* ---- AUTH ---- */
+    const PASS = 'bioenergetica2026';
+    const KEY  = 'bioV4_auth';
 
-        function tryLogin() {
-            if (input.value === ACCESS_PASSWORD) {
-                errorMsg.classList.remove('visible');
-                showPortal();
-            } else {
-                errorMsg.classList.add('visible');
-                input.focus();
-            }
-        }
-
-        // Mantener sesión si ya estaba logueado
-        if (sessionStorage.getItem('bioV4_auth') === '1') {
+    function checkAuth() {
+        if (sessionStorage.getItem(KEY) === 'ok') {
             showPortal();
         }
+    }
 
-        loginBtn.addEventListener('click', tryLogin);
-        input.addEventListener('keydown', e => { if (e.key === 'Enter') tryLogin(); });
-        logoutBtn.addEventListener('click', showLogin);
-    </script>
+    function doLogin(e) {
+        e.preventDefault();
+        const pw = document.getElementById('pw').value.trim();
+        if (pw === PASS) {
+            sessionStorage.setItem(KEY, 'ok');
+            showPortal();
+        } else {
+            document.getElementById('loginError').style.display = 'block';
+        }
+    }
+
+    function doLogout() {
+        sessionStorage.removeItem(KEY);
+        location.reload();
+    }
+
+    function showPortal() {
+        document.getElementById('loginScreen').style.display  = 'none';
+        document.getElementById('portalWrap').style.display   = 'block';
+        updateThemeBtn();
+    }
+
+    /* ---- THEME ---- */
+    function toggleTheme() {
+        const current = document.documentElement.getAttribute('data-theme');
+        const next    = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        updateThemeBtn();
+    }
+
+    function updateThemeBtn() {
+        const theme = document.documentElement.getAttribute('data-theme');
+        const btn   = document.getElementById('themeBtn');
+        if (btn) btn.textContent = theme === 'dark' ? '☀ Claro' : '🌙 Oscuro';
+    }
+
+    /* ---- ACCORDIONS ---- */
+    function toggleJornada(id) {
+        const el = document.getElementById(id);
+        if (el.classList.contains('locked-section')) return;
+        el.classList.toggle('open');
+    }
+
+    function toggleBloque(id) {
+        const el = document.getElementById(id);
+        el.classList.toggle('open');
+    }
+
+    /* ---- PROGRESS ---- */
+    const PROGRESS_KEY = 'bioV4_progress';
+    const bloqueIds = ['bloque-tame','bloque-b1','bloque-b2','bloque-b3','bloque-b4','bloque-b5','bloque-b6','bloque-b7','bloque-b8'];
+
+    function getProgress() {
+        try { return JSON.parse(localStorage.getItem(PROGRESS_KEY)) || []; }
+        catch { return []; }
+    }
+
+    function saveProgress(arr) {
+        localStorage.setItem(PROGRESS_KEY, JSON.stringify(arr));
+    }
+
+    function updateProgressBar() {
+        const done = getProgress();
+        const count = done.length;
+        const total = bloqueIds.length;
+        const fill = document.getElementById('progressFill');
+        const label = document.getElementById('progressCount');
+        if (fill) fill.style.width = Math.round((count / total) * 100) + '%';
+        if (label) label.textContent = count + ' / ' + total;
+    }
+
+    function toggleProgress(id) {
+        let done = getProgress();
+        if (done.includes(id)) {
+            done = done.filter(d => d !== id);
+        } else {
+            done.push(id);
+        }
+        saveProgress(done);
+        updateProgressBar();
+        renderCheckButtons();
+    }
+
+    function renderCheckButtons() {
+        const done = getProgress();
+        bloqueIds.forEach(id => {
+            const el = document.getElementById(id);
+            if (!el) return;
+            const content = el.querySelector('.bloque-content');
+            if (!content) return;
+            let btn = content.querySelector('.bloque-check');
+            if (!btn) {
+                btn = document.createElement('button');
+                btn.className = 'bloque-check';
+                btn.onclick = function(e) { e.stopPropagation(); toggleProgress(id); };
+                content.appendChild(btn);
+            }
+            const isDone = done.includes(id);
+            btn.textContent = isDone ? '✓ Leído' : 'Marcar como leído';
+            btn.classList.toggle('done', isDone);
+        });
+    }
+
+    /* ---- INIT ---- */
+    checkAuth();
+    updateThemeBtn();
+    renderCheckButtons();
+    updateProgressBar();
+</script>
 
 </body>
 </html>
