@@ -1,0 +1,30 @@
+.futuroStrip {
+  overflow: hidden;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 0.9rem 0;
+  background: var(--bg-alt);
+}
+
+.futuroMarquee {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+  white-space: nowrap;
+  animation: marquee-scroll 22s linear infinite;
+  width: max-content;
+}
+
+.futuroMarquee span {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.futuroDot {
+  color: var(--jade) !important;
+  font-size: 1rem !important;
+  letter-spacing: 0 !important;
+}

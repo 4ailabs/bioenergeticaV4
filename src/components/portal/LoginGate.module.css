@@ -1,0 +1,18 @@
+.loginScreen { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 2rem; background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(0,201,160,0.06) 0%, transparent 70%), var(--bg); }
+.loginBox { width: 100%; max-width: 400px; border: 1px solid var(--line-strong); padding: 3rem 2.5rem; position: relative; }
+.loginBox::before, .loginBox::after { content: ''; position: absolute; width: 20px; height: 20px; border-color: var(--jade); border-style: solid; }
+.loginBox::before { top: -1px; left: -1px; border-width: 1px 0 0 1px; }
+.loginBox::after { bottom: -1px; right: -1px; border-width: 0 1px 1px 0; }
+.loginLogo { margin-bottom: 2.5rem; text-align: center; }
+.loginLogoPrefix { font-family: var(--font-mono); font-size: .65rem; letter-spacing: .15em; text-transform: uppercase; color: var(--jade); display: block; margin-bottom: .5rem; }
+.loginLogoMain { font-family: var(--font-display); font-size: 1.6rem; font-weight: 500; color: var(--silver); }
+.loginForm label { font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: .5rem; }
+.loginForm input { width: 100%; background: var(--bg-alt); border: 1px solid var(--line-strong); color: var(--silver); font-family: var(--font-mono); font-size: .9rem; padding: .75rem 2.5rem .75rem 1rem; outline: none; transition: border-color .2s; }
+.loginForm input:focus { border-color: var(--jade); }
+.pwWrap { position: relative; }
+.pwToggle { position: absolute; right: 0.75rem; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--muted); cursor: pointer; padding: 0.25rem; display: flex; align-items: center; transition: color 0.2s; }
+.pwToggle:hover { color: var(--silver); }
+.loginBtn { width: 100%; margin-top: 1.5rem; background: var(--jade); color: var(--bg); border: none; font-family: var(--font-mono); font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; padding: .85rem; cursor: pointer; transition: opacity .2s; }
+.loginBtn:hover { opacity: .85; }
+.loginError { margin-top: 1rem; text-align: center; font-size: .8rem; color: var(--amber); }
+.loginNote { margin-top: 2rem; text-align: center; font-size: .75rem; color: var(--muted); }

@@ -1,0 +1,26 @@
+.siteFooter {
+  padding: 5rem 0;
+  border-top: 1px solid var(--line);
+  text-align: center;
+}
+
+.footerQuote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.1rem, 2.2vw, 1.45rem);
+  font-weight: 400;
+  color: var(--amber);
+  max-width: 720px;
+  margin: 0 auto 2rem;
+  line-height: 1.7;
+  opacity: 0.75;
+}
+
+.footerLegal {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  text-transform: uppercase;
+}

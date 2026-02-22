@@ -1,0 +1,262 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: url('/images/bioenergetica-v4.png') no-repeat center center / cover;
+  overflow: hidden;
+}
+
+.heroImageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    140deg,
+    rgba(6, 11, 18, 0.91) 0%,
+    rgba(6, 11, 18, 0.62) 45%,
+    rgba(6, 11, 18, 0.93) 100%
+  );
+  z-index: 1;
+}
+
+[data-theme="light"] .heroImageOverlay {
+  background: linear-gradient(
+    140deg,
+    rgba(244, 241, 236, 0.93) 0%,
+    rgba(244, 241, 236, 0.7) 45%,
+    rgba(244, 241, 236, 0.95) 100%
+  );
+}
+
+.heroBg {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.heroRings {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 201, 160, 0.28);
+  animation: expand-ring 8s ease-out infinite;
+}
+
+.ring1 {
+  animation-delay: 0s;
+}
+
+.ring2 {
+  animation-delay: 1.6s;
+}
+
+.ring3 {
+  animation-delay: 3.2s;
+}
+
+.ring4 {
+  animation-delay: 4.8s;
+}
+
+.ring5 {
+  animation-delay: 6.4s;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 10;
+  padding-top: 5rem;
+  padding-bottom: 4rem;
+  text-align: left;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
+.heroMeta {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.protocolTag {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  padding: 0.35rem 0.9rem;
+  border: 1px solid var(--line-strong);
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.heroTitle {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  line-height: 1.1;
+  margin-bottom: 2.5rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.5em;
+  flex-wrap: wrap;
+}
+
+.heroWord {
+  font-size: clamp(2.6rem, 5.5vw, 4.8rem);
+  color: var(--silver);
+  letter-spacing: -0.02em;
+}
+
+.heroVersion {
+  font-family: var(--font-mono);
+  font-style: normal;
+  font-size: clamp(2.6rem, 5.5vw, 4.8rem);
+  font-weight: 700;
+  color: var(--jade);
+  letter-spacing: 0.1em;
+}
+
+.heroSubtitle {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  color: var(--silver-dim);
+  margin-bottom: 3.5rem;
+  max-width: 560px;
+  line-height: 1.65;
+}
+
+.heroActions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.heroDates {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.dateLabel {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+}
+
+.dateValue {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  color: var(--amber);
+  letter-spacing: 0.06em;
+}
+
+/* Cupo Bar */
+.cupoBar {
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  max-width: 340px;
+}
+
+.cupoInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+}
+
+.cupoLabel {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.16em;
+  color: var(--muted);
+}
+
+.cupoCount {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--silver-dim);
+}
+
+.cupoCount strong {
+  color: var(--amber);
+  font-weight: 700;
+}
+
+.cupoTrack {
+  height: 3px;
+  background: var(--line-strong);
+  position: relative;
+  overflow: hidden;
+}
+
+.cupoFill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--jade), var(--amber));
+  transition: width 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Scroll Hint */
+.heroScrollHint {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.heroScrollHint span {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.scrollLine {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, var(--muted), transparent);
+  animation: scroll-drip 2.4s ease-in-out infinite;
+  transform-origin: top;
+}
+
+/* --- Responsive --- */
+@media (max-width: 968px) {
+  .heroActions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroContent {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}

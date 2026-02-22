@@ -1,0 +1,170 @@
+.ctaSection {
+  padding: 10rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.ctaSection::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 900px 700px at 50% 50%,
+    rgba(0, 201, 160, 0.05),
+    transparent
+  );
+  pointer-events: none;
+}
+
+.ctaFrame {
+  text-align: center;
+  max-width: 660px;
+  margin: 0 auto;
+  padding: 5rem 4rem;
+  border: 1px solid var(--line-strong);
+  position: relative;
+}
+
+.ctaFrame::before,
+.ctaFrame::after {
+  content: '';
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  border-style: solid;
+}
+
+.ctaFrame::before {
+  top: -1px;
+  left: -1px;
+  border-width: 1px 0 0 1px;
+  border-color: var(--jade);
+}
+
+.ctaFrame::after {
+  bottom: -1px;
+  right: -1px;
+  border-width: 0 1px 1px 0;
+  border-color: var(--jade);
+}
+
+.ctaEyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  color: var(--jade);
+  display: block;
+  margin-bottom: 2rem;
+}
+
+.ctaTitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 3.8vw, 3rem);
+  font-weight: 500;
+  color: var(--silver);
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+.ctaTitle em {
+  font-style: italic;
+  color: var(--jade);
+}
+
+.ctaAuthor {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin-bottom: 3rem;
+  display: block;
+}
+
+/* Countdown */
+.countdown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 2rem 0 2.5rem;
+}
+
+.countdownUnit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  min-width: 64px;
+}
+
+.countdownNum {
+  font-family: var(--font-mono);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--jade);
+  line-height: 1;
+  letter-spacing: 0.04em;
+}
+
+.countdownLabel {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.16em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.countdownSep {
+  font-family: var(--font-mono);
+  font-size: 2rem;
+  color: var(--line-strong);
+  line-height: 1;
+  margin-bottom: 1.2rem;
+}
+
+.btnLarge {
+  font-size: 0.72rem;
+  padding: 1.15rem 3.5rem;
+  letter-spacing: 0.16em;
+}
+
+.ctaUrgencia {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  color: var(--amber);
+  text-transform: uppercase;
+  margin-top: 1.5rem;
+}
+
+.ctaMicrocopy {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 1.2rem;
+  line-height: 1.6;
+}
+
+.ctaMicrocopy a {
+  color: var(--jade);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* --- Responsive --- */
+@media (max-width: 968px) {
+  .ctaFrame {
+    padding: 3rem 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .ctaSection {
+    padding: 6rem 0;
+  }
+
+  .ctaFrame::before,
+  .ctaFrame::after {
+    width: 28px;
+    height: 28px;
+  }
+}

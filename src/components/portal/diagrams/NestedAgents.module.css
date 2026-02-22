@@ -1,0 +1,18 @@
+.nestedDiagram { margin: 1.5rem 0; padding: 1.5rem; background: var(--bg-inner); border: 1px solid var(--line); position: relative; z-index: 1; }
+.nestedDiagramTitle { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--amber); margin-bottom: 0.75rem; text-align: center; }
+.nestedRings { display: flex; justify-content: center; align-items: center; padding: 0.5rem 0; }
+.nestedRing { border-radius: 50%; display: flex; align-items: center; justify-content: center; position: relative; transition: all 0.3s; }
+.nestedRing:hover { box-shadow: 0 0 20px rgba(0, 201, 160, 0.12); }
+.r5 { width: 210px; height: 210px; border: 1.5px solid var(--violet-border); background: var(--violet-dim); }
+.r4 { width: 168px; height: 168px; border: 1.5px solid var(--jade-border); background: var(--jade-dim); }
+.r3 { width: 126px; height: 126px; border: 1.5px solid var(--amber-border); background: var(--amber-dim); }
+.r2 { width: 84px; height: 84px; border: 1.5px solid var(--jade-border); background: var(--jade-dim); }
+.r1 { width: 42px; height: 42px; border: 1.5px solid var(--muted); background: var(--bg-card); }
+.nestedRingLabel { position: absolute; top: 6px; left: 50%; transform: translateX(-50%); font-family: var(--font-mono); font-size: 0.48rem; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; }
+.r5 > .nestedRingLabel { color: var(--violet); }
+.r4 > .nestedRingLabel { color: var(--jade); }
+.r3 > .nestedRingLabel { color: var(--amber); }
+.r2 > .nestedRingLabel { color: var(--jade); font-size: 0.42rem; }
+.r1 > .nestedRingLabel { color: var(--muted); font-size: 0.42rem; position: static; transform: none; }
+.nestedCaption { text-align: center; font-size: 0.7rem; color: var(--muted); font-style: italic; margin-top: 0.35rem; }
+@media (max-width: 400px) { .r5 { width: 170px; height: 170px; } .r4 { width: 136px; height: 136px; } .r3 { width: 102px; height: 102px; } .r2 { width: 68px; height: 68px; } .r1 { width: 34px; height: 34px; } }

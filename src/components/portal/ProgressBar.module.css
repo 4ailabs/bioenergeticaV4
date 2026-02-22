@@ -1,0 +1,5 @@
+.progressBar { display: flex; align-items: center; gap: .75rem; margin-bottom: 2rem; padding: 1rem 1.5rem; background: var(--bg-card); border: 1px solid var(--line); }
+.progressLabel { font-family: var(--font-mono); font-size: .62rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+.progressTrack { flex: 1; height: 4px; background: var(--line-strong); border-radius: 2px; overflow: hidden; }
+.progressFill { height: 100%; background: var(--jade); border-radius: 2px; transition: width .4s ease; }
+.progressCount { font-family: var(--font-mono); font-size: .7rem; color: var(--jade); white-space: nowrap; }

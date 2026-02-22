@@ -1,0 +1,12 @@
+.isolationFlow { margin: 1.5rem 0; padding: 1.5rem; background: var(--bg-inner); border: 1px solid var(--line); position: relative; z-index: 1; }
+.isolationFlowTitle { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--amber); margin-bottom: 1.25rem; text-align: center; }
+.flowSteps { display: flex; align-items: flex-start; gap: 0; }
+.flowStep { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 0.4rem; padding: 0.5rem; text-align: center; transition: transform 0.25s; }
+.flowStep:hover { transform: translateY(-2px); }
+.flowStepIcon { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; background: var(--jade-dim); border: 1.5px solid var(--jade-border); }
+.flowStepIconAmber { background: var(--amber-dim); border-color: var(--amber-border); }
+.flowStepIconViolet { background: var(--violet-dim); border-color: var(--violet-border); }
+.flowStepTitle { font-size: 0.72rem; font-weight: 500; color: var(--silver); }
+.flowStepDesc { font-size: 0.65rem; color: var(--muted); line-height: 1.45; max-width: 140px; }
+.flowArrow { display: flex; align-items: center; color: var(--muted); font-size: 0.85rem; padding-top: 1rem; flex-shrink: 0; }
+@media (max-width: 600px) { .flowSteps { flex-direction: column; align-items: center; } .flowArrow { transform: rotate(90deg); padding: 0.15rem 0; } }

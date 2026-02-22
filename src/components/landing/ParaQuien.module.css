@@ -1,0 +1,46 @@
+.paraQuien {
+  padding: 4rem 0;
+  background: var(--bg-alt);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.pqGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.pqCard {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1.5rem;
+  border: 1px solid var(--line);
+  background: var(--bg);
+}
+
+.pqIcon {
+  color: var(--jade);
+  font-size: 1.2rem;
+  line-height: 1.6;
+  flex-shrink: 0;
+}
+
+.pqText {
+  font-size: 0.95rem;
+  color: var(--silver-dim);
+  line-height: 1.65;
+}
+
+.pqNote {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  color: var(--jade);
+  border-left: 2px solid var(--jade-border);
+  padding-left: 1rem;
+  max-width: 560px;
+}

@@ -1,0 +1,14 @@
+.levelsTower { display: flex; flex-direction: column; gap: 0; margin-bottom: 1.25rem; position: relative; z-index: 1; }
+.levelRow { display: flex; align-items: stretch; border: 1px solid var(--line); border-bottom: none; transition: all 0.25s ease; }
+.levelRow:last-child { border-bottom: 1px solid var(--line); }
+.levelRow:hover { border-color: var(--jade-border); z-index: 2; transform: scale(1.015); }
+.levelTarget { border-color: var(--jade-border); background: var(--jade-dim); }
+.levelTarget:hover { background: var(--jade-dim); border-color: var(--jade); }
+.levelBar { display: flex; align-items: center; gap: 0.75rem; padding: 0.85rem 1rem; min-width: 55%; background: var(--bg-inner); border-right: 1px solid var(--line); }
+.levelTarget .levelBar { background: var(--jade-dim); border-right-color: var(--jade-border); }
+.levelNum { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); min-width: 1.8rem; }
+.levelTarget .levelNum { color: var(--jade); font-weight: 700; }
+.levelName { font-size: 0.82rem; font-weight: 500; color: var(--silver); }
+.levelDesc { display: flex; align-items: center; padding: 0.85rem 1rem; font-size: 0.76rem; color: var(--muted); line-height: 1.4; }
+.levelTarget .levelDesc { color: var(--jade); font-weight: 500; }
+.levelArrow { font-family: var(--font-mono); font-size: 0.65rem; color: var(--jade); margin-left: auto; white-space: nowrap; padding-right: 1rem; display: flex; align-items: center; }

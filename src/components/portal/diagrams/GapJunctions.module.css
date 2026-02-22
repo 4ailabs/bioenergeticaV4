@@ -1,0 +1,8 @@
+.gapDiagram { margin: 1.5rem 0; padding: 1.5rem; background: var(--bg-inner); border: 1px solid var(--line); position: relative; z-index: 1; }
+.gapDiagramTitle { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--jade); margin-bottom: 1rem; text-align: center; }
+.gapCells { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; padding: 0.5rem 0; }
+.gapCell { width: 72px; height: 72px; border-radius: 50%; border: 2px solid var(--jade-border); display: flex; flex-direction: column; align-items: center; justify-content: center; background: var(--jade-dim); transition: all 0.3s; }
+.gapCell:hover { border-color: var(--jade); box-shadow: 0 0 16px rgba(0, 201, 160, 0.2); transform: scale(1.08); }
+.gapCellV { font-family: var(--font-mono); font-size: 0.6rem; font-weight: 700; color: var(--jade); }
+.gapCellLabel { font-size: 0.48rem; color: var(--muted); margin-top: 1px; }
+.gapJunction { width: 28px; height: 2px; background: repeating-linear-gradient(90deg, var(--jade-border) 0, var(--jade-border) 4px, transparent 4px, transparent 8px); }

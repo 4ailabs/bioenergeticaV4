@@ -3,6 +3,11 @@
 .AppleDouble
 .LSOverride
 
+# Next.js
+.next/
+node_modules/
+next-env.d.ts
+
 # Vercel
 .vercel
 
@@ -11,3 +16,14 @@ content.txt
 Contenido
 programa_bioenergetica_v4_final.docx
 bioenergetica_hero.png
+Modulo\ 1/
+
+# Marketing images (no son parte del sitio web)
+alumni_update_v4.png
+alumni_update_v4_final.png
+biov4_accesible.png
+curso_biov4_final.png
+curso_biov4_sabado.png
+curso_biov4_v2.png
+webinar_biov4_hoynoche.png
+webinar_biov4_v2.png

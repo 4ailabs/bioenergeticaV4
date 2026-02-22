@@ -1,0 +1,68 @@
+.faqSection {
+  padding: 4rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.faqList {
+  margin-top: 2.5rem;
+  border: 1px solid var(--line);
+}
+
+.faqItem {
+  border-bottom: 1px solid var(--line);
+}
+
+.faqItem:last-child {
+  border-bottom: none;
+}
+
+.faqQ {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.4rem 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--silver);
+  text-align: left;
+  transition: background 0.2s;
+}
+
+.faqQ:hover {
+  background: var(--bg-alt);
+}
+
+.faqIcon {
+  flex-shrink: 0;
+  color: var(--jade);
+  transition: transform 0.3s ease;
+}
+
+.faqIconOpen {
+  transform: rotate(180deg);
+}
+
+.faqA {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+  padding: 0 1.5rem;
+}
+
+.faqAOpen {
+  max-height: 300px;
+  padding: 0 1.5rem 1.4rem;
+}
+
+.faqA p {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.7;
+  border-left: 2px solid var(--jade-border);
+  padding-left: 1rem;
+}

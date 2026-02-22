@@ -1,0 +1,14 @@
+.axisDiagram { margin: 1.5rem 0; padding: 1.5rem; background: var(--bg-inner); border: 1px solid var(--line); position: relative; z-index: 1; }
+.axisDiagramTitle { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--amber); margin-bottom: 1.25rem; text-align: center; }
+.axisTrack { position: relative; height: 4px; background: linear-gradient(90deg, var(--amber) 0%, var(--jade) 50%, var(--violet) 100%); border-radius: 2px; margin: 2.5rem 0 1rem; }
+.axisZone { position: absolute; top: -28px; left: 15%; right: 45%; border: 1px dashed var(--amber-border); border-bottom: none; height: 20px; border-radius: 4px 4px 0 0; }
+.axisZoneLabel { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--amber); background: var(--bg-inner); padding: 0 0.5rem; white-space: nowrap; }
+.axisPoints { display: flex; justify-content: space-between; position: relative; margin-top: -14px; }
+.axisPoint { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+.axisDot { width: 10px; height: 10px; border-radius: 50%; background: var(--bg-card); border: 2px solid var(--muted); transition: all 0.2s; }
+.axisPoint:hover .axisDot { border-color: var(--jade); background: var(--jade); box-shadow: 0 0 8px rgba(0, 201, 160, 0.3); }
+.axisPointLabel { font-size: 0.72rem; font-weight: 500; color: var(--silver); text-align: center; }
+.axisPointSub { font-size: 0.62rem; color: var(--muted); text-align: center; }
+.axisLabels { display: flex; justify-content: space-between; margin-top: 0.5rem; }
+.axisEndLabel { font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+@media (max-width: 600px) { .axisPointSub { display: none; } .axisZone { display: none; } }
