@@ -25,7 +25,7 @@ export const bloques: BloqueData[] = [
     id: 'bloque-tame',
     num: 'TAME',
     title: 'Marco Científico Fundacional',
-    subtitle: 'Technological Approach to Mind Everywhere — Michael Levin, Tufts University',
+    subtitle: 'Technological Approach to Mind Everywhere — Michael L., Tufts University',
     isTame: true,
     iconSvg: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="7" stroke-dasharray="3 2"/><circle cx="12" cy="12" r="11" stroke-dasharray="3 2"/></svg>',
     ideaCentral: {

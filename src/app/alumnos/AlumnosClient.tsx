@@ -220,7 +220,7 @@ export default function AlumnosClient() {
               <ol className="protocolo-steps">
                 {tec.protocolo.map((step, i) => (
                   <li key={i}>
-                    <strong>{step.title}</strong>
+                    <strong>{step.title}</strong>{' '}
                     <span>{step.description}</span>
                   </li>
                 ))}
