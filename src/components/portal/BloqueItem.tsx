@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useEffect, ReactNode } from 'react'
+import { ReactNode } from 'react'
 import styles from './BloqueItem.module.css'
 
 interface BloqueItemProps {
@@ -23,17 +23,6 @@ export default function BloqueItem({
   isCompleted, isOpen,
   onToggle, onToggleProgress, children
 }: BloqueItemProps) {
-  const ref = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    if (isOpen && ref.current) {
-      const t = setTimeout(() => {
-        ref.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      }, 60)
-      return () => clearTimeout(t)
-    }
-  }, [isOpen])
-
   const itemCls = [
     styles.bloqueItem,
     isTame ? styles.tameItem : '',
@@ -42,7 +31,7 @@ export default function BloqueItem({
   ].filter(Boolean).join(' ')
 
   return (
-    <div className={itemCls} id={id} ref={ref}>
+    <div className={itemCls} id={id}>
       <div className={styles.bloqueHeader} onClick={onToggle}>
         <span className={styles.bloqueNum}>{num}</span>
         <div className={styles.bloqueHeaderText}>
@@ -55,16 +44,18 @@ export default function BloqueItem({
         </div>
       </div>
 
-      <div className={`${styles.bloqueContent} ${isOpen ? styles.bloqueContentOpen : ''}`} data-num={num}>
-        {children}
+      <div className={`${styles.bloqueContent} ${isOpen ? styles.bloqueContentOpen : ''}`}>
+        <div className={styles.bloqueContentInner} data-num={num}>
+          {children}
 
-        <div className={styles.bloqueFooter}>
-          <button
-            className={`${styles.bloqueCheck} ${isCompleted ? styles.bloqueCheckDone : ''}`}
-            onClick={(e) => { e.stopPropagation(); onToggleProgress(id) }}
-          >
-            {isCompleted ? '✓ Completado' : 'Marcar como completado'}
-          </button>
+          <div className={styles.bloqueFooter}>
+            <button
+              className={`${styles.bloqueCheck} ${isCompleted ? styles.bloqueCheckDone : ''}`}
+              onClick={(e) => { e.stopPropagation(); onToggleProgress(id) }}
+            >
+              {isCompleted ? '✓ Completado' : 'Marcar como completado'}
+            </button>
+          </div>
         </div>
       </div>
     </div>

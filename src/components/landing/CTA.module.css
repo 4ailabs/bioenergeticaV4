@@ -80,47 +80,6 @@
   display: block;
 }
 
-/* Countdown */
-.countdown {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  margin: 2rem 0 2.5rem;
-}
-
-.countdownUnit {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.3rem;
-  min-width: 64px;
-}
-
-.countdownNum {
-  font-family: var(--font-mono);
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 700;
-  color: var(--jade);
-  line-height: 1;
-  letter-spacing: 0.04em;
-}
-
-.countdownLabel {
-  font-family: var(--font-mono);
-  font-size: 0.55rem;
-  letter-spacing: 0.16em;
-  color: var(--muted);
-  text-transform: uppercase;
-}
-
-.countdownSep {
-  font-family: var(--font-mono);
-  font-size: 2rem;
-  color: var(--line-strong);
-  line-height: 1;
-  margin-bottom: 1.2rem;
-}
 
 .btnLarge {
   font-size: 0.72rem;

@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import Link from 'next/link'
 import { useAuth } from '@/hooks/useAuth'
 import { useProgress } from '@/hooks/useProgress'
 import LoginGate from '@/components/portal/LoginGate'
@@ -10,6 +9,7 @@ import Welcome from '@/components/portal/Welcome'
 import ProgressBar from '@/components/portal/ProgressBar'
 import JornadaSection from '@/components/portal/JornadaSection'
 import BloqueItem from '@/components/portal/BloqueItem'
+import TecnicaItem from '@/components/portal/TecnicaItem'
 import ResourcesSection from '@/components/portal/ResourcesSection'
 import PortalFooter from '@/components/portal/PortalFooter'
 
@@ -24,6 +24,7 @@ import Cartography from '@/components/portal/diagrams/Cartography'
 
 import bloqueStyles from '@/components/portal/BloqueItem.module.css'
 import { bloques } from '@/content/portal-bloques'
+import { tecnicas } from '@/content/portal-tecnicas'
 
 const diagramMap: Record<string, React.ReactNode> = {
   'axis-diagram': <AxisDiagram />,
@@ -48,13 +49,25 @@ export default function AlumnosClient() {
   }
 
   const handleToggle = (id: string) => {
+    const y = window.scrollY
+    // Disable scroll anchoring on the root scroll container for the duration
+    // of the accordion animation so layout shifts don't move the viewport
+    document.documentElement.style.overflowAnchor = 'none'
     setOpenBloqueId(prev => prev === id ? null : id)
+    // Lock scroll for ~420 ms (just past the 380 ms CSS transition)
+    const start = performance.now()
+    const lock = () => {
+      window.scrollTo(0, y)
+      if (performance.now() - start < 420) requestAnimationFrame(lock)
+      else document.documentElement.style.overflowAnchor = ''
+    }
+    requestAnimationFrame(lock)
   }
 
   return (
     <div>
       <PortalHeader onLogout={logout} />
-      <main style={{ maxWidth: 1140, margin: '0 auto', padding: '3rem 3rem 6rem' }}>
+      <main style={{ maxWidth: 1140, margin: '0 auto', padding: '3rem 3rem 6rem', overflowAnchor: 'none' }}>
         <Welcome />
 
         {/* Jornada 01 */}
@@ -185,16 +198,45 @@ export default function AlumnosClient() {
           </div>
         </JornadaSection>
 
-        {/* Link a técnicas */}
-        <Link href="/alumnos/tecnicas" className={bloqueStyles.tecnicasLink}>
-          <div className={bloqueStyles.tecnicasLinkInner}>
-            <span className={bloqueStyles.tecnicasLinkNum}>10</span>
-            <div>
-              <div className={bloqueStyles.tecnicasLinkTitle}>Técnicas de Reestructuración Somato-Emocional</div>
-              <div className={bloqueStyles.tecnicasLinkDesc}>Protocolos, indicaciones y prácticas para casa →</div>
-            </div>
-          </div>
-        </Link>
+        {/* Técnicas */}
+        <JornadaSection id="jornadaTecnicas" title="Técnicas de Reestructuración" date="Somato-Emocional">
+          {tecnicas.map((tec) => (
+            <TecnicaItem key={tec.id} id={tec.id} num={tec.num} title={tec.title} icon={tec.iconSvg}>
+              <div className="tecnica-badges">
+                {tec.badges.map((b, i) => (
+                  <span key={i} className={`tecnica-badge ${b.variant ? `tecnica-badge-${b.variant}` : ''}`}>
+                    {b.label}
+                  </span>
+                ))}
+              </div>
+              <div className="idea-central">
+                <p>{tec.ideaCentral}</p>
+              </div>
+              <div className="indicaciones-tags">
+                {tec.indicaciones.map((ind, i) => (
+                  <span key={i} className="indicacion-tag">{ind}</span>
+                ))}
+              </div>
+              <ol className="protocolo-steps">
+                {tec.protocolo.map((step, i) => (
+                  <li key={i}>
+                    <strong>{step.title}</strong>
+                    <span>{step.description}</span>
+                  </li>
+                ))}
+              </ol>
+              <blockquote className="frase-clave">{tec.fraseClave}</blockquote>
+              <div className="practica-casa">
+                <span className="practica-casa-label">Prácticas para casa</span>
+                <ul>
+                  {tec.practicasCasa.map((p, i) => (
+                    <li key={i}>{p}</li>
+                  ))}
+                </ul>
+              </div>
+            </TecnicaItem>
+          ))}
+        </JornadaSection>
 
         {/* Jornada 02 - locked */}
         <JornadaSection id="jornada02" title="Improntas de Supervivencia" date="7 Mar 2026" locked />

@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
 import { WHATSAPP_URL } from '@/lib/constants'
 import styles from './Hero.module.css'
@@ -85,6 +86,14 @@ export default function Hero() {
             <span className={styles.dateValue}>21 Feb 2026</span>
           </div>
         </div>
+
+        <Link href="/alumnos" className={styles.heroAlumnos}>
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+            <path d="M7 11V7a5 5 0 0110 0v4" />
+          </svg>
+          ¿Ya eres alumno? Acceder al portal
+        </Link>
 
         <div className={styles.cupoBar} ref={cupoRef}>
           <div className={styles.cupoInfo}>

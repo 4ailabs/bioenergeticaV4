@@ -2,6 +2,7 @@
 .bloqueGrid {
   margin-bottom: 3rem;
   border-top: 1px solid var(--line);
+  overflow-anchor: none;
 }
 
 /* Legacy — no-op in editorial layout */
@@ -14,6 +15,7 @@
   background: transparent;
   position: relative;
   transition: background .2s;
+  overflow-anchor: none;
 }
 
 .bloqueItem:hover { background: var(--bg-card); }
@@ -121,24 +123,34 @@
 /* No preview text in editorial accordion */
 .bloquePreview { display: none; }
 
-/* === Expanded content === */
-/* Align with title: header-padding-left + num-col + gap */
+/* === Expanded content (CSS Grid animation — no max-height hack) === */
 .bloqueContent {
-  max-height: 0;
+  display: grid;
+  grid-template-rows: 0fr;
+  overflow: hidden;
+  overflow-anchor: none;
+  transition: grid-template-rows 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.bloqueContentOpen {
+  grid-template-rows: 1fr;
+}
+
+/* Inner wrapper required for grid-template-rows collapse */
+.bloqueContentInner {
+  min-height: 0;
   overflow: hidden;
   padding-left: calc(2rem + 4.5rem + 1.5rem);
   padding-right: 2rem;
+  padding-bottom: 0;
   position: relative;
-  transition: max-height 0.35s cubic-bezier(0.4,0,1,1);
+  transition: padding-bottom 0.3s ease;
 }
-.bloqueContentOpen {
-  max-height: 8000px;
+.bloqueContentOpen .bloqueContentInner {
   padding-bottom: 3.5rem;
-  transition: max-height .7s cubic-bezier(0,0,0.2,1), padding-bottom .3s ease;
 }
 
 /* Ghost number watermark */
-.bloqueContent::after {
+.bloqueContentInner::after {
   content: attr(data-num);
   position: absolute;
   top: 1rem;
@@ -152,7 +164,7 @@
   pointer-events: none;
   user-select: none;
 }
-.tameItem .bloqueContent::after { color: var(--amber); opacity: .04; }
+.tameItem .bloqueContentInner::after { color: var(--amber); opacity: .04; }
 
 /* === Footer: completion === */
 .bloqueFooter { margin-top: 2.5rem; }
@@ -181,12 +193,12 @@
   }
   .bloqueNum { font-size: 1.75rem; }
   .bloqueTitulo { font-size: 1rem; }
-  .bloqueContent {
+  .bloqueContentInner {
     padding-left: calc(1.25rem + 3rem + 1rem);
     padding-right: 1.25rem;
   }
-  .bloqueContentOpen { padding-bottom: 2.5rem; }
-  .bloqueContent::after { font-size: 5rem; right: 1.25rem; }
+  .bloqueContentOpen .bloqueContentInner { padding-bottom: 2.5rem; }
+  .bloqueContentInner::after { font-size: 5rem; right: 1.25rem; }
 }
 
 @media (max-width: 480px) {
@@ -198,60 +210,12 @@
   .bloqueNum { font-size: 1.35rem; }
   .bloqueTitulo { font-size: .95rem; }
   .bloqueSubtitulo { font-size: .72rem; }
-  .bloqueContent {
+  .bloqueContentInner {
     padding-left: calc(1rem + 2.25rem + .75rem);
     padding-right: 1rem;
   }
-  .bloqueContentOpen { padding-bottom: 2rem; }
-  .bloqueContent::after { font-size: 3.5rem; right: 1rem; }
+  .bloqueContentOpen .bloqueContentInner { padding-bottom: 2rem; }
+  .bloqueContentInner::after { font-size: 3.5rem; right: 1rem; }
   .bloqueFooter { margin-top: 2rem; }
   .bloqueCheck { width: 100%; text-align: center; padding: .5rem 1rem; }
-}
-
-/* === Card-link hacia /alumnos/tecnicas === */
-.tecnicasLink {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  margin: 1.5rem 0 2rem;
-  border: 1px solid var(--amber-border);
-  background: var(--bg-card);
-  padding: 1.25rem 1.5rem;
-  transition: border-color .2s, background .2s;
-}
-
-.tecnicasLink:hover {
-  border-color: var(--amber);
-  background: rgba(212, 131, 74, 0.04);
-}
-
-.tecnicasLinkInner {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-}
-
-.tecnicasLinkNum {
-  font-family: var(--font-display);
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--amber);
-  line-height: 1;
-  flex-shrink: 0;
-  opacity: .7;
-}
-
-.tecnicasLinkTitle {
-  font-size: .95rem;
-  font-weight: 500;
-  color: var(--silver);
-  margin-bottom: .25rem;
-}
-
-.tecnicasLinkDesc {
-  font-family: var(--font-mono);
-  font-size: .65rem;
-  letter-spacing: .06em;
-  color: var(--amber);
-  opacity: .8;
 }
