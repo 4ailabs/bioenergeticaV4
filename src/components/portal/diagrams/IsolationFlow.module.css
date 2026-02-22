@@ -1,4 +1,4 @@
-.isolationFlow { margin: 1.5rem 0; padding: 1.5rem; background: var(--bg-inner); border: 1px solid var(--line); position: relative; z-index: 1; }
+.isolationFlow { margin: 1.5rem 0; padding: 1.5rem; background: var(--bg-inner); border: 1px solid var(--line); position: relative; z-index: 1; overflow: hidden; }
 .isolationFlowTitle { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--amber); margin-bottom: 1.25rem; text-align: center; }
 .flowSteps { display: flex; align-items: flex-start; gap: 0; }
 .flowStep { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 0.4rem; padding: 0.5rem; text-align: center; transition: transform 0.25s; }

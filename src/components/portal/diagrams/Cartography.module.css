@@ -1,4 +1,4 @@
-.cartoDiagram { margin: 1.5rem 0; padding: 1.5rem; background: var(--bg-inner); border: 1px solid var(--line); position: relative; z-index: 1; }
+.cartoDiagram { margin: 1.5rem 0; padding: 1.5rem; background: var(--bg-inner); border: 1px solid var(--line); position: relative; z-index: 1; overflow: hidden; }
 .cartoDiagramTitle { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--jade); margin-bottom: 1.25rem; text-align: center; }
 .cartoAxes { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.75rem; }
 .cartoAxis { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; padding: 1.1rem 0.75rem; border: 1px solid var(--line); background: var(--bg-card); transition: all 0.25s; }
