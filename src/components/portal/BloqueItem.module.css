@@ -207,3 +207,51 @@
   .bloqueFooter { margin-top: 2rem; }
   .bloqueCheck { width: 100%; text-align: center; padding: .5rem 1rem; }
 }
+
+/* === Card-link hacia /alumnos/tecnicas === */
+.tecnicasLink {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  margin: 1.5rem 0 2rem;
+  border: 1px solid var(--amber-border);
+  background: var(--bg-card);
+  padding: 1.25rem 1.5rem;
+  transition: border-color .2s, background .2s;
+}
+
+.tecnicasLink:hover {
+  border-color: var(--amber);
+  background: rgba(212, 131, 74, 0.04);
+}
+
+.tecnicasLinkInner {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.tecnicasLinkNum {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--amber);
+  line-height: 1;
+  flex-shrink: 0;
+  opacity: .7;
+}
+
+.tecnicasLinkTitle {
+  font-size: .95rem;
+  font-weight: 500;
+  color: var(--silver);
+  margin-bottom: .25rem;
+}
+
+.tecnicasLinkDesc {
+  font-family: var(--font-mono);
+  font-size: .65rem;
+  letter-spacing: .06em;
+  color: var(--amber);
+  opacity: .8;
+}
