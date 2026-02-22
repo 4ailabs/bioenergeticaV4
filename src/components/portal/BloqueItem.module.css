@@ -194,7 +194,7 @@
   .bloqueNum { font-size: 1.75rem; }
   .bloqueTitulo { font-size: 1rem; }
   .bloqueContentInner {
-    padding-left: calc(1.25rem + 3rem + 1rem);
+    padding-left: 1.5rem;
     padding-right: 1.25rem;
   }
   .bloqueContentOpen .bloqueContentInner { padding-bottom: 2.5rem; }
@@ -211,7 +211,7 @@
   .bloqueTitulo { font-size: .95rem; }
   .bloqueSubtitulo { font-size: .72rem; }
   .bloqueContentInner {
-    padding-left: calc(1rem + 2.25rem + .75rem);
+    padding-left: 1rem;
     padding-right: 1rem;
   }
   .bloqueContentOpen .bloqueContentInner { padding-bottom: 2rem; }

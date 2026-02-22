@@ -1,0 +1,18 @@
+.portalMain {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 3rem 3rem 6rem;
+  overflow-anchor: none;
+}
+
+@media (max-width: 640px) {
+  .portalMain {
+    padding: 2rem 1.25rem 5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .portalMain {
+    padding: 1.5rem 1rem 4rem;
+  }
+}

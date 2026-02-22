@@ -23,6 +23,7 @@ import ThreeChannels from '@/components/portal/diagrams/ThreeChannels'
 import Cartography from '@/components/portal/diagrams/Cartography'
 
 import bloqueStyles from '@/components/portal/BloqueItem.module.css'
+import mainStyles from './AlumnosClient.module.css'
 import { bloques } from '@/content/portal-bloques'
 import { tecnicas } from '@/content/portal-tecnicas'
 
@@ -67,7 +68,7 @@ export default function AlumnosClient() {
   return (
     <div>
       <PortalHeader onLogout={logout} />
-      <main style={{ maxWidth: 1140, margin: '0 auto', padding: '3rem 3rem 6rem', overflowAnchor: 'none' }}>
+      <main className={mainStyles.portalMain}>
         <Welcome />
 
         {/* Jornada 01 */}

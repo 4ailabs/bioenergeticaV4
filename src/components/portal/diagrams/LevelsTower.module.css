@@ -17,3 +17,13 @@
 .levelArrow { font-family: var(--font-mono); font-size: 0.56rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--jade); background: var(--jade-dim); border: 1px solid var(--jade-border); margin-left: auto; white-space: nowrap; padding: 0.25rem 0.65rem; display: flex; align-items: flex-start; flex-shrink: 0; margin-right: 1.25rem; margin-top: 1.25rem; }
 .levelFootnote { font-size: 0.68rem; color: var(--muted); line-height: 1.5; margin: 0; padding: 0.6rem 0.5rem 0; border-top: 1px solid var(--line); }
 .levelFootnote strong { color: var(--silver); font-weight: 600; }
+
+/* === Mobile: stack bar + desc vertically === */
+@media (max-width: 640px) {
+  .levelRow { flex-direction: column; }
+  .levelRow:hover { transform: none; }
+  .levelBar { min-width: unset; width: 100%; border-right: none; border-bottom: 1px solid var(--line); padding: 1rem 1rem 0.85rem; }
+  .levelTarget .levelBar { border-bottom-color: var(--jade-border); }
+  .levelDesc { padding: 0.65rem 1rem; }
+  .levelArrow { margin-left: 1rem; margin-right: 1rem; margin-top: 0; margin-bottom: 0.85rem; align-self: flex-start; }
+}
