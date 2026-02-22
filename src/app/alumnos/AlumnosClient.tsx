@@ -48,24 +48,14 @@ export default function AlumnosClient() {
     return <LoginGate onLogin={login} />
   }
 
-  const openIdx = openBloqueId ? bloques.findIndex(b => b.id === openBloqueId) : -1
-
   const handleToggle = (id: string) => {
     setOpenBloqueId(prev => prev === id ? null : id)
-  }
-
-  const handlePrev = () => {
-    if (openIdx > 0) setOpenBloqueId(bloques[openIdx - 1].id)
-  }
-
-  const handleNext = () => {
-    if (openIdx < bloques.length - 1) setOpenBloqueId(bloques[openIdx + 1].id)
   }
 
   return (
     <div>
       <PortalHeader onLogout={logout} />
-      <main style={{ maxWidth: 900, margin: '0 auto', padding: '3rem 2rem 6rem' }}>
+      <main style={{ maxWidth: 1140, margin: '0 auto', padding: '3rem 3rem 6rem' }}>
         <Welcome />
 
         {/* Jornada 01 */}
@@ -85,13 +75,7 @@ export default function AlumnosClient() {
               preview={bloque.ideaCentral.text}
               isCompleted={completedIds.includes(bloque.id)}
               isOpen={openBloqueId === bloque.id}
-              hasPrev={openBloqueId === bloque.id && bloqueIdx > 0}
-              hasNext={openBloqueId === bloque.id && bloqueIdx < bloques.length - 1}
-              currentIndex={bloqueIdx + 1}
-              totalCount={bloques.length}
               onToggle={() => handleToggle(bloque.id)}
-              onPrev={handlePrev}
-              onNext={handleNext}
               onToggleProgress={toggleProgress}
             >
               {/* Idea central */}

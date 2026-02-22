@@ -13,21 +13,15 @@ interface BloqueItemProps {
   preview: string
   isCompleted: boolean
   isOpen: boolean
-  hasPrev: boolean
-  hasNext: boolean
-  currentIndex: number
-  totalCount: number
   onToggle: () => void
-  onPrev: () => void
-  onNext: () => void
   onToggleProgress: (id: string) => void
   children: ReactNode
 }
 
 export default function BloqueItem({
   id, num, title, subtitle, isTame, icon, preview,
-  isCompleted, isOpen, hasPrev, hasNext, currentIndex, totalCount,
-  onToggle, onPrev, onNext, onToggleProgress, children
+  isCompleted, isOpen,
+  onToggle, onToggleProgress, children
 }: BloqueItemProps) {
   const ref = useRef<HTMLDivElement>(null)
 
@@ -43,29 +37,22 @@ export default function BloqueItem({
   const itemCls = [
     styles.bloqueItem,
     isTame ? styles.tameItem : '',
-    isTame ? styles.bloqueFull : '',
-    isOpen ? styles.open : '',
+    isOpen ? styles.openItem : '',
     isCompleted ? styles.completedItem : '',
   ].filter(Boolean).join(' ')
 
   return (
     <div className={itemCls} id={id} ref={ref}>
       <div className={styles.bloqueHeader} onClick={onToggle}>
-        <div className={styles.bloqueHeaderTop}>
-          <span className={styles.bloqueNum}>{num}</span>
-          <span className={styles.bloqueIcon} dangerouslySetInnerHTML={{ __html: icon }} />
-          <div className={styles.bloqueHeaderText}>
-            <div className={styles.bloqueTitulo}>{title}</div>
-            <div className={styles.bloqueSubtitulo}>{subtitle}</div>
-          </div>
-          <div className={styles.bloqueHeaderRight}>
-            <span className={`${styles.completionDot} ${isCompleted ? styles.completionDotDone : ''}`} />
-            <span className={`${styles.bloqueChevron} ${isOpen ? styles.bloqueChevronOpen : ''}`}>▾</span>
-          </div>
+        <span className={styles.bloqueNum}>{num}</span>
+        <div className={styles.bloqueHeaderText}>
+          <div className={styles.bloqueTitulo}>{title}</div>
+          <div className={styles.bloqueSubtitulo}>{subtitle}</div>
         </div>
-        {!isOpen && (
-          <p className={styles.bloquePreview}>{preview}</p>
-        )}
+        <div className={styles.bloqueHeaderRight}>
+          <span className={`${styles.completionDot} ${isCompleted ? styles.completionDotDone : ''}`} />
+          <span className={`${styles.bloqueChevron} ${isOpen ? styles.bloqueChevronOpen : ''}`}>▾</span>
+        </div>
       </div>
 
       <div className={`${styles.bloqueContent} ${isOpen ? styles.bloqueContentOpen : ''}`} data-num={num}>
@@ -78,24 +65,6 @@ export default function BloqueItem({
           >
             {isCompleted ? '✓ Completado' : 'Marcar como completado'}
           </button>
-
-          <div className={styles.bloqueNav}>
-            <button
-              className={styles.bloqueNavBtn}
-              onClick={onPrev}
-              disabled={!hasPrev}
-            >
-              ← Anterior
-            </button>
-            <span className={styles.bloqueNavPos}>{currentIndex} / {totalCount}</span>
-            <button
-              className={styles.bloqueNavBtn}
-              onClick={onNext}
-              disabled={!hasNext}
-            >
-              Siguiente →
-            </button>
-          </div>
         </div>
       </div>
     </div>
