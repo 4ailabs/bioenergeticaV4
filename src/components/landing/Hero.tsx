@@ -1,35 +1,12 @@
 'use client'
 
 import Link from 'next/link'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import { WHATSAPP_URL } from '@/lib/constants'
 import styles from './Hero.module.css'
 
 export default function Hero() {
-  const cupoRef = useRef<HTMLDivElement>(null)
   const ringsRef = useRef<HTMLDivElement>(null)
-  const [cupoAnimated, setCupoAnimated] = useState(false)
-
-  /* Cupo bar animation on scroll into view */
-  useEffect(() => {
-    const el = cupoRef.current
-    if (!el) return
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setCupoAnimated(true)
-            observer.unobserve(entry.target)
-          }
-        })
-      },
-      { threshold: 0.3 },
-    )
-
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [])
 
   /* Parallax effect on rings */
   useEffect(() => {
@@ -94,21 +71,6 @@ export default function Hero() {
           </svg>
           ¿Ya eres alumno? Acceder al portal
         </Link>
-
-        <div className={styles.cupoBar} ref={cupoRef}>
-          <div className={styles.cupoInfo}>
-            <span className={styles.cupoLabel}>Cupo limitado</span>
-            <span className={styles.cupoCount}>
-              <strong>70%</strong> reservado
-            </span>
-          </div>
-          <div className={styles.cupoTrack}>
-            <div
-              className={styles.cupoFill}
-              style={{ width: cupoAnimated ? '70%' : '0%' }}
-            />
-          </div>
-        </div>
       </div>
 
       <div className={styles.heroScrollHint}>

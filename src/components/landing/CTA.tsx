@@ -27,8 +27,6 @@ export default function CTA() {
             Reservar mi lugar
           </a>
 
-          <p className={styles.ctaUrgencia}>Cupos limitados</p>
-
           <p className={styles.ctaMicrocopy}>
             Escribe por{' '}
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">

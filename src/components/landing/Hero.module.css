@@ -183,55 +183,6 @@
 }
 .heroAlumnos:hover { color: var(--jade); }
 
-/* Cupo Bar */
-.cupoBar {
-  margin-top: 2rem;
-  margin-bottom: 3rem;
-  max-width: 340px;
-}
-
-.cupoInfo {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 0.5rem;
-}
-
-.cupoLabel {
-  font-family: var(--font-mono);
-  font-size: 0.6rem;
-  letter-spacing: 0.16em;
-  color: var(--muted);
-}
-
-.cupoCount {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: var(--silver-dim);
-}
-
-.cupoCount strong {
-  color: var(--amber);
-  font-weight: 700;
-}
-
-.cupoTrack {
-  height: 3px;
-  background: var(--line-strong);
-  position: relative;
-  overflow: hidden;
-}
-
-.cupoFill {
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 0;
-  background: linear-gradient(90deg, var(--jade), var(--amber));
-  transition: width 1.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
 /* Scroll Hint */
 .heroScrollHint {
   position: absolute;
