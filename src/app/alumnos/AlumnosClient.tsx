@@ -11,6 +11,7 @@ import BloqueItem from '@/components/portal/BloqueItem'
 import TecnicaItem from '@/components/portal/TecnicaItem'
 import ResourcesSection from '@/components/portal/ResourcesSection'
 import PortalFooter from '@/components/portal/PortalFooter'
+import bloqueStyles from '@/components/portal/BloqueItem.module.css'
 
 import AxisDiagram from '@/components/portal/diagrams/AxisDiagram'
 import NestedAgents from '@/components/portal/diagrams/NestedAgents'
@@ -55,6 +56,7 @@ export default function AlumnosClient() {
         <JornadaSection id="jornada01" title="El Cuerpo como Sistema" date="21 Feb 2026" defaultOpen>
           <ProgressBar completedCount={progressCount} totalCount={totalCount} />
 
+          <div className={bloqueStyles.bloqueGrid}>
           {bloques.map((bloque) => (
             <BloqueItem
               key={bloque.id}
@@ -64,6 +66,7 @@ export default function AlumnosClient() {
               subtitle={bloque.subtitle}
               isTame={bloque.isTame}
               icon={bloque.iconSvg}
+              preview={bloque.ideaCentral.text}
               isCompleted={completedIds.includes(bloque.id)}
               onToggleProgress={toggleProgress}
             >
@@ -170,6 +173,7 @@ export default function AlumnosClient() {
               )}
             </BloqueItem>
           ))}
+          </div>
         </JornadaSection>
 
         {/* Técnicas */}
