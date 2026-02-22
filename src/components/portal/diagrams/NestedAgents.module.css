@@ -1,4 +1,4 @@
-.nestedDiagram { margin: 1.5rem 0; padding: 1.5rem; background: var(--bg-inner); border: 1px solid var(--line); position: relative; z-index: 1; }
+.nestedDiagram { margin: 1.5rem 0; padding: 1.5rem; background: var(--bg-inner); border: 1px solid var(--line); position: relative; z-index: 1; overflow: hidden; }
 .nestedDiagramTitle { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--amber); margin-bottom: 0.75rem; text-align: center; }
 .nestedRings { display: flex; justify-content: center; align-items: center; padding: 0.5rem 0; }
 .nestedRing { border-radius: 50%; display: flex; align-items: center; justify-content: center; position: relative; transition: all 0.3s; }

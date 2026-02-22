@@ -1,4 +1,4 @@
-.axisDiagram { margin: 1.5rem 0; padding: 1.5rem; background: var(--bg-inner); border: 1px solid var(--line); position: relative; z-index: 1; }
+.axisDiagram { margin: 1.5rem 0; padding: 1.5rem; background: var(--bg-inner); border: 1px solid var(--line); position: relative; z-index: 1; overflow: hidden; }
 .axisDiagramTitle { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--amber); margin-bottom: 1.25rem; text-align: center; }
 .axisTrack { position: relative; height: 4px; background: linear-gradient(90deg, var(--amber) 0%, var(--jade) 50%, var(--violet) 100%); border-radius: 2px; margin: 2.5rem 0 1rem; }
 .axisZone { position: absolute; top: -28px; left: 15%; right: 45%; border: 1px dashed var(--amber-border); border-bottom: none; height: 20px; border-radius: 4px 4px 0 0; }
