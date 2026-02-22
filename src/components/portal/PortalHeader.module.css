@@ -13,4 +13,6 @@
   .headerBadge { display: none; }
   .headerTitle { font-size: 1rem; white-space: nowrap; }
   .themeBtn { padding: .3rem .55rem; font-size: .7rem; }
+  .themeBtnLabel { display: none; }
+  .headerActions { gap: 0.65rem; }
 }

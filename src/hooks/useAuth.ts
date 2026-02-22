@@ -10,13 +10,13 @@ export function useAuth() {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    setIsAuthenticated(sessionStorage.getItem(AUTH_KEY) === 'true')
+    setIsAuthenticated(localStorage.getItem(AUTH_KEY) === 'true')
     setIsLoading(false)
   }, [])
 
   const login = useCallback((password: string): boolean => {
     if (password === ACCESS_PASSWORD) {
-      sessionStorage.setItem(AUTH_KEY, 'true')
+      localStorage.setItem(AUTH_KEY, 'true')
       setIsAuthenticated(true)
       return true
     }
@@ -24,7 +24,7 @@ export function useAuth() {
   }, [])
 
   const logout = useCallback(() => {
-    sessionStorage.removeItem(AUTH_KEY)
+    localStorage.removeItem(AUTH_KEY)
     setIsAuthenticated(false)
   }, [])
 

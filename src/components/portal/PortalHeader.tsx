@@ -18,7 +18,8 @@ export default function PortalHeader({ onLogout }: PortalHeaderProps) {
       </div>
       <div className={styles.headerActions}>
         <button className={styles.themeBtn} onClick={toggleTheme}>
-          {theme === 'light' ? '🌙 Oscuro' : '☀ Claro'}
+          {theme === 'light' ? '🌙' : '☀️'}
+          <span className={styles.themeBtnLabel}>{theme === 'light' ? ' Oscuro' : ' Claro'}</span>
         </button>
         <button className={styles.logoutBtn} onClick={onLogout}>Salir</button>
       </div>
