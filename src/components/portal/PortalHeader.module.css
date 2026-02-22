@@ -7,3 +7,10 @@
 .themeBtn:hover { color: var(--silver); border-color: var(--jade-border); }
 .logoutBtn { background: none; border: none; color: var(--muted); font-size: .75rem; cursor: pointer; font-family: var(--font-mono); text-transform: uppercase; letter-spacing: .08em; }
 .logoutBtn:hover { color: var(--silver); }
+
+@media (max-width: 640px) {
+  .siteHeader { padding: .85rem 1rem; }
+  .headerBadge { display: none; }
+  .headerTitle { font-size: 1rem; white-space: nowrap; }
+  .themeBtn { padding: .3rem .55rem; font-size: .7rem; }
+}

@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import { useAuth } from '@/hooks/useAuth'
 import { useProgress } from '@/hooks/useProgress'
 import LoginGate from '@/components/portal/LoginGate'
@@ -11,7 +12,6 @@ import BloqueItem from '@/components/portal/BloqueItem'
 import TecnicaItem from '@/components/portal/TecnicaItem'
 import ResourcesSection from '@/components/portal/ResourcesSection'
 import PortalFooter from '@/components/portal/PortalFooter'
-import bloqueStyles from '@/components/portal/BloqueItem.module.css'
 
 import AxisDiagram from '@/components/portal/diagrams/AxisDiagram'
 import NestedAgents from '@/components/portal/diagrams/NestedAgents'
@@ -22,6 +22,7 @@ import IsolationFlow from '@/components/portal/diagrams/IsolationFlow'
 import ThreeChannels from '@/components/portal/diagrams/ThreeChannels'
 import Cartography from '@/components/portal/diagrams/Cartography'
 
+import bloqueStyles from '@/components/portal/BloqueItem.module.css'
 import { bloques } from '@/content/portal-bloques'
 import { tecnicas } from '@/content/portal-tecnicas'
 
@@ -39,11 +40,26 @@ const diagramMap: Record<string, React.ReactNode> = {
 export default function AlumnosClient() {
   const { isAuthenticated, isLoading, login, logout } = useAuth()
   const { completedIds, toggleProgress, progressCount, totalCount } = useProgress()
+  const [openBloqueId, setOpenBloqueId] = useState<string | null>(null)
 
   if (isLoading) return null
 
   if (!isAuthenticated) {
     return <LoginGate onLogin={login} />
+  }
+
+  const openIdx = openBloqueId ? bloques.findIndex(b => b.id === openBloqueId) : -1
+
+  const handleToggle = (id: string) => {
+    setOpenBloqueId(prev => prev === id ? null : id)
+  }
+
+  const handlePrev = () => {
+    if (openIdx > 0) setOpenBloqueId(bloques[openIdx - 1].id)
+  }
+
+  const handleNext = () => {
+    if (openIdx < bloques.length - 1) setOpenBloqueId(bloques[openIdx + 1].id)
   }
 
   return (
@@ -57,7 +73,7 @@ export default function AlumnosClient() {
           <ProgressBar completedCount={progressCount} totalCount={totalCount} />
 
           <div className={bloqueStyles.bloqueGrid}>
-          {bloques.map((bloque) => (
+          {bloques.map((bloque, bloqueIdx) => (
             <BloqueItem
               key={bloque.id}
               id={bloque.id}
@@ -68,6 +84,14 @@ export default function AlumnosClient() {
               icon={bloque.iconSvg}
               preview={bloque.ideaCentral.text}
               isCompleted={completedIds.includes(bloque.id)}
+              isOpen={openBloqueId === bloque.id}
+              hasPrev={openBloqueId === bloque.id && bloqueIdx > 0}
+              hasNext={openBloqueId === bloque.id && bloqueIdx < bloques.length - 1}
+              currentIndex={bloqueIdx + 1}
+              totalCount={bloques.length}
+              onToggle={() => handleToggle(bloque.id)}
+              onPrev={handlePrev}
+              onNext={handleNext}
               onToggleProgress={toggleProgress}
             >
               {/* Idea central */}
@@ -94,14 +118,16 @@ export default function AlumnosClient() {
                     <div className="concepto-list">
                       {section.items.map((item, ii) => (
                         <div className="concepto-list-item" key={ii}>
-                          {item.title && <strong>{item.title}</strong>}
-                          <span>{item.text}</span>
+                          <div>
+                            {item.title && <strong>{item.title}</strong>}
+                            <span>{item.text}</span>
+                          </div>
                         </div>
                       ))}
                     </div>
                   )}
                   {section.type === 'pilar-cards' && (
-                    <div>
+                    <div className="pilar-cards-row">
                       {section.items.map((item, ii) => (
                         <div className="pilar-card" key={ii}>
                           <div className="pilar-card-num">{item.subtitle}</div>

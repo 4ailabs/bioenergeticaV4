@@ -1,35 +1,58 @@
-/* === Card base === */
-.bloqueItem {
-  border: 1px solid var(--line);
-  background: var(--bg-card);
-  transition: border-color .2s, box-shadow .2s;
-}
-
-.bloqueItem:hover { border-color: var(--jade-border); }
-.tameItem { border-color: var(--amber-border); }
-.tameItem:hover { border-color: var(--amber); }
-.completedItem { border-color: rgba(0, 201, 160, 0.2); }
-
-/* === Grid layout (applied to wrapper in AlumnosClient) === */
+/* === Grid wrapper (applied in AlumnosClient) === */
 .bloqueGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+  gap: 1.5rem;
   margin-bottom: 2rem;
 }
 
 /* TAME always full width; any open card spans both columns */
 .bloqueFull { grid-column: 1 / -1; }
-.open { grid-column: 1 / -1; }
+.open       { grid-column: 1 / -1; }
 
 @media (max-width: 640px) {
-  .bloqueGrid { grid-template-columns: 1fr; }
+  .bloqueGrid { grid-template-columns: 1fr; gap: 1rem; }
   .bloqueFull, .open { grid-column: unset; }
 }
 
+@media (max-width: 480px) {
+  .bloqueGrid { gap: .75rem; margin-bottom: 1.5rem; }
+}
+
+/* === Card base === */
+.bloqueItem {
+  border: 1px solid var(--line);
+  background: var(--bg-card);
+  position: relative;
+  overflow: hidden;
+  transition: border-color .2s, box-shadow .2s;
+}
+
+/* Top accent bar — appears on hover / when open */
+.bloqueItem::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--jade);
+  opacity: 0;
+  transition: opacity .25s;
+}
+.bloqueItem:hover::before,
+.open::before  { opacity: 1; }
+
+.completedItem::before { opacity: 0.55; }
+
+.bloqueItem:hover { border-color: var(--jade-border); box-shadow: 0 6px 28px rgba(0,0,0,.18); }
+
+.tameItem          { border-color: var(--amber-border); }
+.tameItem::before  { background: var(--amber); }
+.tameItem:hover    { border-color: var(--amber); }
+.completedItem     { border-color: rgba(0,201,160,0.2); }
+
 /* === Header === */
 .bloqueHeader {
-  padding: 1.1rem 1.25rem;
+  padding: 1.5rem 1.75rem 1.25rem;
   cursor: pointer;
   user-select: none;
 }
@@ -52,19 +75,16 @@
   padding: .2rem .45rem;
   flex-shrink: 0;
 }
-
 .tameItem .bloqueNum { color: var(--amber); border-color: var(--amber-border); }
 
 .bloqueIcon {
   color: var(--jade);
   flex-shrink: 0;
-  opacity: 0.35;
+  opacity: 0.3;
   transition: opacity 0.2s;
 }
-
 .bloqueItem:hover .bloqueIcon,
 .open .bloqueIcon { opacity: 0.85; }
-
 .tameItem .bloqueIcon { color: var(--amber); }
 
 .bloqueHeaderText {
@@ -73,16 +93,16 @@
 }
 
 .bloqueTitulo {
-  font-size: .9rem;
+  font-size: 1.05rem;
   font-weight: 500;
   color: var(--silver);
   line-height: 1.3;
 }
 
 .bloqueSubtitulo {
-  font-size: .73rem;
+  font-size: .8rem;
   color: var(--muted);
-  margin-top: .1rem;
+  margin-top: .15rem;
   font-style: italic;
   white-space: nowrap;
   overflow: hidden;
@@ -103,20 +123,18 @@
   border-radius: 50%;
   border: 1px solid var(--line-strong);
   background: transparent;
-  transition: background .25s, border-color .25s;
+  transition: background .25s, border-color .25s, box-shadow .25s;
   flex-shrink: 0;
 }
-
 .completionDotDone {
   background: var(--jade);
   border-color: var(--jade);
-  box-shadow: 0 0 5px rgba(0, 201, 160, 0.4);
+  box-shadow: 0 0 6px rgba(0,201,160,.45);
 }
-
 .tameItem .completionDotDone {
   background: var(--amber);
   border-color: var(--amber);
-  box-shadow: 0 0 5px rgba(212, 131, 74, 0.4);
+  box-shadow: 0 0 6px rgba(212,131,74,.45);
 }
 
 .bloqueChevron {
@@ -124,19 +142,18 @@
   font-size: .85rem;
   transition: transform .3s;
 }
-
 .bloqueChevronOpen { transform: rotate(180deg); }
 
-/* === Preview text (visible when collapsed) === */
+/* === Preview text (3-line clamp, visible when collapsed) === */
 .bloquePreview {
-  font-size: .77rem;
+  font-size: .86rem;
   color: var(--muted);
-  line-height: 1.55;
-  margin-top: .55rem;
-  padding-top: .5rem;
+  line-height: 1.6;
+  margin-top: .7rem;
+  padding-top: .6rem;
   border-top: 1px solid var(--line);
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -145,35 +162,42 @@
 .bloqueContent {
   max-height: 0;
   overflow: hidden;
-  padding: 0 1.25rem;
+  padding: 0 2rem;
   border-top: 1px solid transparent;
   position: relative;
-  transition: max-height 0.35s cubic-bezier(0.4, 0, 1, 1), padding 0.2s ease, border-color 0.2s ease;
+  transition: max-height 0.35s cubic-bezier(0.4,0,1,1), padding .2s ease, border-color .2s ease;
 }
-
 .bloqueContentOpen {
-  max-height: 5000px;
-  padding: 0 1.25rem 1.5rem;
+  max-height: 8000px;
+  padding: 0 2rem 3rem;
   border-top-color: var(--line);
-  transition: max-height 0.6s cubic-bezier(0, 0, 0.2, 1), padding 0.3s ease, border-color 0.3s ease;
+  transition: max-height .7s cubic-bezier(0,0,0.2,1), padding .3s ease, border-color .3s ease;
 }
 
+/* Large ghost number watermark */
 .bloqueContent::after {
   content: attr(data-num);
   position: absolute;
-  top: 0.75rem;
-  right: 1.25rem;
+  top: .75rem;
+  right: 2rem;
   font-family: var(--font-display);
   font-size: 5.5rem;
   font-weight: 700;
   line-height: 1;
   color: var(--jade);
-  opacity: 0.045;
+  opacity: .04;
   pointer-events: none;
   user-select: none;
 }
+.tameItem .bloqueContent::after { color: var(--amber); opacity: .055; }
 
-.tameItem .bloqueContent::after { color: var(--amber); opacity: 0.06; }
+/* === Footer: completion + navigation === */
+.bloqueFooter {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: .85rem;
+}
 
 /* === Completion button === */
 .bloqueCheck {
@@ -181,13 +205,115 @@
   border: 1px solid var(--line-strong);
   color: var(--muted);
   font-family: var(--font-mono);
-  font-size: .6rem;
+  font-size: .62rem;
   letter-spacing: .08em;
-  padding: .3rem .7rem;
+  padding: .45rem .9rem;
   cursor: pointer;
   transition: all .2s;
-  margin-top: 1rem;
+  align-self: flex-start;
 }
-
 .bloqueCheck:hover { border-color: var(--jade-border); color: var(--jade); }
 .bloqueCheckDone { background: var(--jade-dim); border-color: var(--jade-border); color: var(--jade); }
+
+/* === Prev / Next navigation === */
+.bloqueNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.bloqueNavBtn {
+  background: none;
+  border: 1px solid var(--line-strong);
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: .62rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: .45rem 1rem;
+  cursor: pointer;
+  transition: all .2s;
+}
+.bloqueNavBtn:hover:not(:disabled) {
+  border-color: var(--jade-border);
+  color: var(--jade);
+}
+.bloqueNavBtn:disabled {
+  opacity: .25;
+  cursor: default;
+}
+
+.bloqueNavPos {
+  font-family: var(--font-mono);
+  font-size: .58rem;
+  color: var(--muted);
+  letter-spacing: .1em;
+}
+
+/* === Mobile adjustments === */
+@media (max-width: 640px) {
+  .bloqueHeader {
+    padding: 1.25rem 1.25rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .bloqueHeader {
+    padding: 1rem 1.1rem .85rem;
+  }
+  .bloqueHeaderTop {
+    gap: .6rem;
+  }
+  .bloqueNum {
+    min-width: 2.8rem;
+    font-size: .52rem;
+    padding: .18rem .35rem;
+  }
+  .bloqueIcon {
+    display: none;
+  }
+  .bloqueTitulo {
+    font-size: .95rem;
+  }
+  .bloqueSubtitulo {
+    font-size: .72rem;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+  }
+  .bloquePreview {
+    font-size: .8rem;
+  }
+  .bloqueContent {
+    padding: 0 1.25rem;
+  }
+  .bloqueContentOpen {
+    padding: 0 1.25rem 2rem;
+  }
+  .bloqueContent::after {
+    font-size: 3.5rem;
+    right: 1.25rem;
+  }
+  .bloqueFooter {
+    margin-top: 2rem;
+    gap: .7rem;
+  }
+  .bloqueCheck {
+    width: 100%;
+    text-align: center;
+    align-self: stretch;
+    padding: .5rem 1rem;
+  }
+  .bloqueNav {
+    gap: .5rem;
+  }
+  .bloqueNavBtn {
+    font-size: .58rem;
+    padding: .4rem .7rem;
+  }
+}
