@@ -1,0 +1,375 @@
+﻿Context Engineering • Bioenergética V4
+
+
+CONTEXT ENGINEERING
+Sistema de Búsqueda Diagnóstica
+del Inconsciente Biológico
+Protocolo de las 7 Fases — Fundamentación Neurocientífica
+
+
+Bioenergética V4 (BV4)
+Dr. Miguel Ojeda Ríos
+Centro Bioenergética • Instituto de Inteligencia Energética
+Versión 2.0 — Marzo 2026
+________________
+
+
+PARTE I: FUNDAMENTOS NEUROCIENTÍFICOS
+1.1 El Problema Clínico: Síntomas sin Narrativa Consciente
+La práctica clínica revela una paradoja frecuente: consultantes presentan síntomas físicos, emocionales o comportamentales persistentes cuyo origen no pueden identificar conscientemente. Estos síntomas comparten tres características: cronicidad sin causa médica identificable (los estudios diagnósticos no revelan patología orgánica proporcional a la severidad del cuadro), ausencia de memoria narrativa del origen (el consultante no puede localizar temporalmente el inicio), y resistencia a intervenciones puramente sintomáticas (tratamientos dirigidos al síntoma producen alivio temporal pero no resolución duradera).
+Esta configuración clínica sugiere que el síntoma es expresión de información almacenada en sistemas de memoria no accesibles a la evocación consciente. Las aproximaciones terapéuticas que requieren identificación narrativa del evento traumático encuentran aquí su límite.
+1.2 El Inconsciente Biológico: Arquitectura de Almacenamiento
+El sistema nervioso opera con tres sistemas paralelos de archivo de información, cada uno con características neurofisiológicas distintas:
+Sistema de memoria explícita (mediado por hipocampo y corteza prefrontal): Memorias declarativas con contexto temporal, espacial y narrativo. Requieren integridad hipocampal. Accesibles mediante evocación consciente.
+Sistema de memoria implícita (mediado por amígdala, ganglios basales, cerebelo): Memorias procedurales, emocionales y condicionadas sin contexto temporal explícito. Operan automáticamente sin requerir evocación consciente. Incluyen respuestas condicionadas y patrones de activación autonómica (Siegel, 2012).
+Sistema de memoria somática (mediado por sistema nervioso autónomo, fascia, vísceras): Información archivada directamente en tejidos, órganos y sistema nervioso entérico, independientemente de procesamiento cortical consciente. Se forma cuando experiencias son demasiado intensas, demasiado tempranas en el desarrollo (pre-verbales), o demasiado abrumadoras para los sistemas conscientes (Levine, 2010; van der Kolk, 2014). Es no verbal, no temporal, topográficamente específica y activable por claves contextuales.
+El término “inconsciente biológico” se refiere a la totalidad de información archivada en memoria implícita y somática que influye en comportamiento, síntomas y respuestas autonómicas sin estar disponible para evocación consciente. Context Engineering es una metodología sistemática de acceso indirecto a este inconsciente.
+1.3 El Test Muscular como Herramienta de Interfaz
+Si el inconsciente biológico contiene información completa sobre el origen de síntomas pero esta información no es accesible conscientemente, se requiere una herramienta de interfaz que permita formular preguntas binarias al sistema nervioso y recibir respuestas a través de cambios neurofisiológicos medibles en tono muscular.
+Fundamento neurofisiológico: El sistema nervioso central modula continuamente el tono muscular basado en toda la información que procesa, incluyendo información por debajo del umbral consciente. La integración subcortical (tálamo, formación reticular, ganglios basales) tiene proyecciones directas a neuronas motoras espinales. Cuando el sistema procesa información congruente con su archivo interno, mantiene tono muscular normal; cuando procesa información incongruente, reduce transitoriamente la activación de unidades motoras (Hawkins, 2012; Monti et al., 1999).
+Convención BV4: Consultante acostado con pies fuera de camilla. Respuesta SÍ = pierna derecha acorta. Respuesta NO = sin cambio. El terapeuta requiere estado de neutralidad, claridad de pregunta binaria y orientación mental específica para cada fase.
+Postura epistemológica: Context Engineering utiliza el test muscular pragmáticamente: como herramienta heurística que, combinada con protocolo estructurado y validación clínica, facilita la identificación de material relevante para procesamiento. La información obtenida frecuentemente sorprende tanto al terapeuta como al consultante, reduciendo la probabilidad de que sea proyección consciente.
+1.4 El Principio del Contexto Progresivo
+El principio que da nombre a Context Engineering establece: “mientras más contexto específico se proporciona al inconsciente biológico, más precisa es la información que devuelve”.
+Una pregunta vaga activa millones de archivos potencialmente relevantes sin filtro específico. Una pregunta con contexto completo (CUÁNDO, QUÉ PATRÓN, QUÉ SENSACIÓN, QUIÉN, QUÉ PASÓ, QUÉ SIGNIFICÓ, PARA QUÉ SIRVE HOY) activa exactamente el archivo necesario. Context Engineering no es una serie aleatoria de preguntas sino la construcción sistemática de contexto progresivo a través de 7 Fases que proporcionan al inconsciente los filtros necesarios para localizar el archivo exacto del conflicto.
+________________
+
+
+PARTE II: EL ESCENARIO NEUROFISIOLÓGICO
+2.1 Definición y Componentes
+Un escenario neurofisiológico es el mapa completo del conflicto biológico que incluye todas las dimensiones relevantes de la impronta de supervivencia archivada en el sistema nervioso. La práctica clínica demuestra que el reprocesamiento efectivo requiere identificación completa de siete coordenadas:
+1. TEMPORAL: Cuándo se activó el conflicto
+2. PATRÓN: Qué impronta de supervivencia se instaló
+3. SOMÁTICO: Qué sensación visceral se grabó
+4. RELACIONAL: Quién estuvo involucrado
+5. EVENTO: Qué pasó específicamente
+6. SIGNIFICADO: Qué creencia se instaló
+7. FUNCIÓN: Para qué sirve hoy el síntoma
+Las memorias traumáticas se almacenan como redes asociativas distribuidas que incluyen información sensorial, emocional, somática, cognitiva y sistémica. Para que el reprocesamiento sea completo, todas las dimensiones deben ser accedidas y reorganizadas (van der Kolk, 2014).
+2.2 La Frase Terapéutica como Integración
+Una vez identificadas las 7 coordenadas, se construye la frase terapéutica que integra el escenario completo:
+“A los [CUÁNDO], cuando [QUIÉN] hizo [QUÉ PASÓ], mi sistema activó un patrón de [IMPRONTA] y sentí [SENSACIÓN VISCERAL]. La creencia que se grabó fue [SIGNIFICADO]. Hoy este patrón me permite [FUNCIÓN].”
+Esta frase no es narrativa arbitraria sino síntesis precisa del archivo neurofisiológico completo. Constituye el objetivo del reprocesamiento: la repetición de la frase contacta la carga emocional comprimida y facilita la descompresión somática (vagotonia).
+2.3 Secuencia Terapéutica Post-Escenario
+Con el escenario completo, el protocolo BV4 procede en cinco pasos:
+Concientizar: El consultante ve la lógica completa de su síntoma como expresión de un patrón de supervivencia adaptativo.
+Descomprimir: Repetir la frase terapéutica 5-10 veces, permitiendo la emergencia de señales de vagotonia (llanto, suspiros profundos, bostezos, temblores somáticos). Estos son marcadores de activación del complejo ventral del vago que indica transición de estado simpático/dorsal vagal a regulación ventral vagal (Porges, 2011).
+Reprocesar: Aplicar técnicas de reprocesamiento bilateral (TRSB, PONS) ahora que se conoce exactamente qué reprocesar.
+Resignificar: Construir nueva interpretación del evento desde la perspectiva actualizada.
+Actualizar: Informar al sistema nervioso que las condiciones originales ya no están presentes, permitiendo la instalación de una versión actualizada del patrón.
+________________
+
+
+PARTE III: ORIENTACIÓN MENTAL DEL TERAPEUTA
+Cada fase requiere una orientación mental específica del terapeuta: una intención interna que sintoniza la búsqueda con el tipo de información que se persigue. La orientación no es ritual rígido sino sintonización atencional que el terapeuta sostiene internamente antes de iniciar cada fase de test.
+Desde una perspectiva neurocientífica, la orientación mental del terapeuta funciona como filtro atencional (top-down attention, Posner & Petersen, 1990) que modula la precisión del test. Cuando el terapeuta sabe exactamente qué dimensión del archivo busca, las preguntas son más precisas y las respuestas más confiables.
+Fase 1 — Temporal: “Estoy buscando CUÁNDO se activó este conflicto. ¿En qué momento de la historia de este consultante se instaló esta impronta?”
+Fase 2 — Patrón: “Estoy buscando QUÉ TIPO de patrón se instaló. ¿Cuál de las 13 improntas de supervivencia se activó?”
+Fase 3 — Somático: “Estoy buscando QUÉ SENSACIÓN quedó grabada en el cuerpo. ¿Qué programa primitivo se activó en el momento del impacto?”
+Fase 4 — Relacional: “Estoy buscando QUIÉN estuvo involucrado. ¿De quién provino el impacto? ¿Quién estaba presente?”
+Fase 5 — Evento: “Estoy buscando QUÉ PASÓ específicamente. ¿Qué tipo de evento fue?”
+Fase 6 — Significado: “Estoy buscando QUÉ SIGNIFICÓ. ¿Qué creencia se instaló sobre sí mismo, sobre los otros, sobre la vida?”
+Fase 7 — Función: “Estoy buscando PARA QUÉ SIRVE HOY. ¿Qué función cumple este patrón en el sistema actual?”
+________________
+
+
+PARTE IV: LAS 7 FASES DE CONTEXT ENGINEERING
+FASE 1: Contexto Temporal — ¿Cuándo se Activó?
+El tiempo es la primera coordenada del escenario neurofisiológico. Toda impronta de supervivencia se origina en uno o más de cuatro niveles temporales específicos. Identificar el nivel correcto determina dónde y cómo se trabajará el conflicto.
+Los 4 Niveles Temporales
+Nivel 1 — Presente (hoy a 21 días): Respuestas actuales del sistema nervioso ante circunstancias recientes. Síntomas primarios: adaptativos, lógicos, recientes. Si la circunstancia se resuelve, el síntoma desaparece. Indicación: estabilización y contención.
+Nivel 2 — Pasado personal (21 días a concepción): Conflictos originados en la historia personal no procesados completamente. Síntomas secundarios: crónicos, sin lógica con el presente, resistentes a intervención sintomática. Incluye toda la vida: infancia, adolescencia, gestación, nacimiento. Indicación: recesión de edad con test muscular y reprocesamiento.
+Nivel 3 — Transgeneracional: Patrones heredados de ancestros transmitidos mediante mecanismos epigenéticos documentados (Yehuda et al., 2015; Meaney, 2001). Metilación de ADN y modificación de histonas producen alteraciones en expresión génica que afectan la regulación del estrés en descendientes. La persona puede sentir que carga algo que no le pertenece. Indicación: identificar ancestro, evento transgeneracional, y trabajar liberación de lealtad invisible.
+Nivel 4 — Sistema actual (función presente): No busca el origen temporal sino la función que el síntoma cumple hoy en el sistema relacional. Sin abordar esta dimensión, el síntoma puede regresar después de un reprocesamiento exitoso porque sigue siendo útil. NOTA: Este nivel siempre se explora, independientemente de dónde se originó el conflicto.
+Protocolo de Búsqueda Temporal
+Secuencia de test muscular:
+“¿El origen está en el PRESENTE, de hoy a 21 días?” → Si SÍ: refinar días específicos.
+“¿El origen está en tu PASADO PERSONAL, de 21 días hasta tu concepción?” → Si SÍ: recesión de edad por períodos (décadas → años → edad específica). Incluir gestación y nacimiento.
+“¿El origen es TRANSGENERACIONAL?” → Si SÍ: identificar línea (materna/paterna) → generación (padres/abuelos/bisabuelos) → ancestro específico.
+SIEMPRE: “¿El patrón cumple una FUNCIÓN en tu sistema actual?”
+SIEMPRE: “¿Hay otro nivel temporal activo?” (Es frecuente la combinación de niveles.)
+Criterio de completitud: Fase 1 está completa cuando se tiene nivel temporal identificado, momento específico (edad, período gestacional, o ancestro), y verificación de función actual.
+________________
+
+
+FASE 2: Contexto de Patrón — ¿Qué Impronta se Activó?
+Cuando el sistema nervioso experimenta un shock, no responde con “estrés general”. Activa una configuración neurofisiológica específica: un patrón categorizado de respuesta que involucra sistemas específicos y genera adaptaciones particulares. Estos patrones se denominan improntas de supervivencia.
+La identificación de la impronta específica proporciona información crítica sobre qué sistemas corporales están más afectados, qué tipo de conflicto se estableció, qué creencias probablemente se instalaron, y qué síntomas son característicos de ese patrón.
+Las 13 Improntas de Supervivencia — Referencia Rápida
+#
+	PATRÓN
+	MECANISMO
+	EXPRESIÓN
+	I1
+	DESACOPLE
+	Fragmentar experiencia
+	Disociación, vértigo, piloto automático
+	I2
+	ACORAZAMIENTO
+	Blindar zona vulnerable
+	Dolor dorsal, desconfianza crónica
+	I3
+	RETRACCIÓN
+	Retirar exposición
+	Lumbar, autosabotaje, perfeccionismo
+	I4
+	FIJACIÓN EXTERNA
+	Redirigir energía afuera
+	Hígado, victimización, resentimiento
+	I5
+	COMPRESIÓN
+	Cerrar canal expresivo
+	Tiroides, garganta, reflujo
+	I6
+	CAMUFLAJE
+	Activar invisibilidad
+	Piel, aislamiento, vergüenza
+	I7
+	HIBERNACIÓN
+	Reducir actividad al mínimo
+	Autoinmunidad, fatiga, anhedonia
+	I8
+	RESERVA
+	Acumular recursos
+	Obesidad, retención, hiperglucemia
+	I9
+	CONFLUENCIA
+	Fusionarse con otro
+	Arritmias, codependencia
+	I10
+	VINCULACIÓN
+	Fidelidad al síntoma
+	Cronicidad, recaídas, bloqueo
+	I11
+	SUPERPOSICIÓN
+	Vivir dos programas
+	Depresión sin causa, dualidad
+	I12
+	DESARRAIGO
+	Emergencia sin territorio
+	Riñón, retención, nomadismo
+	I13
+	ENCAPSULAMIENTO
+	Aislar dolor cardíaco
+	Takotsubo, arritmias, evitación
+	
+
+Protocolo de Búsqueda de Impronta
+Secuencia de test muscular por cada impronta en orden:
+“¿Hay un patrón de desacople?” → “¿Hay un patrón de acorazamiento?” → ... hasta completar las 13.
+Cuando haya SÍ: “¿Hay OTRO patrón activo?” (Es muy frecuente la activación simultánea de múltiples improntas. Ejemplo: acorazamiento + retraccción + reserva pueden activarse simultáneamente ante una infidelidad.)
+Continuar hasta que la respuesta a “¿Hay otro?” sea NO.
+NOTA: La descripción completa de cada impronta (shock originario, fundamentación neurocientífica, triple expresión y frase terapéutica) se encuentra en el documento complementario: Las 13 Improntas de Supervivencia — Taxonomía y Fundamentación Neurocientífica.
+________________
+
+
+FASE 3: Contexto Somático — ¿Qué Sensación se Grabó?
+La sensación visceral es lo que el cuerpo sintió en el momento del impacto. No es una emoción pensada sino una experiencia somática profunda grabada en el sistema nervioso autónomo, la fascia y las vísceras. Cada sensación tiene tres capas de comprensión: el nombre de la experiencia, la señal primitiva (programa biológico ancestral que se activó) y la experiencia traumática descrita en lenguaje del consultante.
+Desde una perspectiva neurocientífica, las sensaciones viscerales corresponden a patrones de activación interoceptiva (Craig, 2009) procesados por la ínsula anterior y la corteza cingulada anterior. Son señales que el cuerpo emite y que pueden ser rastreadas porque permanecen activas como huellas en el sistema nervioso autónomo.
+Las 20 Sensaciones Viscerales
+SENSACIÓN
+	SEÑAL PRIMITIVA
+	1. Abandono
+	Separación de la manada, retención de recursos
+	2. Agresión
+	Territorio invadido, preparación para lucha
+	3. Vacío
+	Pérdida de cría o pareja, hueco interno
+	4. Soledad
+	Aislamiento del grupo, desaceleración metabólica
+	5. Frustración
+	Bloqueo en la caza, tensión sin descarga
+	6. Impotencia
+	Parálisis de presa, no hay escape posible
+	7. Insatisfacción
+	Hambre que no sacia, búsqueda sin fin
+	8. Vulnerabilidad
+	Sin refugio, expuesto a depredadores
+	9. Hambre
+	Escasez de alimento, movilización de reservas
+	10. Persecución
+	Presa acechada, hipervigilancia crónica
+	11. Amor difícil
+	Vínculo con peligro, apego a lo que daña
+	12. Angustia
+	Amenaza invisible, opresión sin objeto
+	13. Ira
+	Defensa territorial, preparación para lucha
+	14. Infelicidad
+	Territorio estéril, sistema de recompensa apagado
+	15. Desvalorización
+	Posición inferior en jerarquía, encogerse
+	16. Traición
+	Ataque desde dentro de la manada
+	17. Rendición
+	Programa de muerte, apagado de sistemas
+	18. Casi muerte
+	Roce con depredador, hipervigilancia extrema
+	19. Humillación
+	Expulsión de la manada, muerte social
+	20. Desvalorización estética
+	Rechazo de apareamiento, vergüenza corporal
+	
+
+Protocolo de Búsqueda de Sensación
+“Estoy buscando la SENSACIÓN que quedó grabada. ¿Qué sintió el sistema en el momento del impacto?”
+Testar cada sensación hasta encontrar SÍ. Luego siempre: “¿Hay otra sensación asociada?”. Es habitual que haya múltiples sensaciones grabadas en un mismo evento.
+ADVERTENCIA: La sensación 17 (Rendición / Me quiero morir) requiere manejo especializado. Si aparece en el rastreo, evaluar estado actual del consultante antes de continuar.
+________________
+
+
+FASE 4: Contexto Relacional — ¿Quién Estuvo Involucrado?
+Esta fase identifica las personas que participaron en el evento. No solo quién causó el daño sino también quién lo recibió, quién fue testigo, quién no intervino, quién guardó el secreto.
+Categorías de búsqueda relacional
+Figuras parentales: madre, padre, ambos, figura sustituta.
+Familia extendida: abuelos, tíos, hermanos, primos.
+Pareja e hijos: pareja actual, parejas anteriores, hijos.
+Figuras de autoridad: maestros, jefes, médicos, líderes religiosos.
+Relaciones sociales: amigos, compañeros, vecinos.
+Figuras especiales: desconocidos, grupos, instituciones, uno mismo.
+Rol de la persona identificada
+Una vez identificada la persona, rastrear el rol que desempeñó: ¿causó el daño? ¿Recibió el daño? ¿No intervino? ¿Fue testigo? ¿Se fue o abandonó? ¿Murió? ¿Guardó el secreto? El rol relacional es crítico porque determina la dinámica del conflicto y la dirección de la resignificación.
+________________
+
+
+FASE 5: Contexto del Evento — ¿Qué Tipo de Cosa Pasó?
+Identificar la naturaleza del evento. Rastreo por categorías generales primero, luego afinar detalles específicos.
+Categorías principales de eventos
+Muerte o pérdida. Abandono, rechazo o separación. Traición o engaño. Violencia (física, verbal, sexual). Humillación o exclusión. Accidente o enfermedad. Secreto (revelado o guardado). Crisis (económica, laboral, migratoria). Eventos específicos de gestación o nacimiento. Eventos transgeneracionales específicos.
+Características del evento
+Para cada evento identificado, determinar: ¿Fue súbito o gradual? ¿Fue único o repetido? ¿Fue público o privado? ¿Hubo violencia o fue silencioso? ¿Hubo testigos que no ayudaron? ¿Fue negado después? Estas características modulan la forma en que la impronta se instaló y las estrategias necesarias para su actualización.
+________________
+
+
+FASE 6: Contexto de Significado — ¿Qué Creencia se Instaló?
+El trauma no es solo lo que pasó sino lo que significó para el sistema. Dos personas viven el mismo evento y graban creencias completamente diferentes según la interpretación que el sistema nervioso hizo en el momento del impacto. Las creencias instaladas operan como axiomas implícitos que gobiernan comportamiento sin requerir validación consciente.
+Desde una perspectiva neurocientífica, estas creencias se almacenan como patrones de activación en circuitos amigdalinos y ganglios basales que operan por debajo del umbral cortical. Son convicciones somáticas, no cognitivas: el cuerpo las sostiene aunque la mente racional las contradiga.
+Categorías de creencias instaladas
+Sobre sí mismo: “No me quieren”, “No soy suficiente”, “Es mi culpa”, “Estoy solo”, “No debería existir”, “Soy defectuoso”.
+Sobre los otros: “No se puede confiar”, “Me van a dejar”, “Los que amo me dañan”, “La gente es peligrosa”.
+Sobre la vida: “La vida es peligrosa”, “Nunca hay suficiente”, “El amor duele”, “Todo lo bueno se acaba”.
+El rastreo se realiza testando cada categoría y afinando hasta encontrar la formulación precisa que el sistema reconoce como suya.
+________________
+
+
+FASE 7: Contexto de Función — ¿Para Qué Sirve Hoy?
+La fase más importante y frecuentemente ignorada. Un patrón de supervivencia se mantiene activo porque cumple una función en el sistema relacional actual del consultante. Sin abordar esta función, la actualización del patrón es incompleta y el síntoma tiende a recidivar.
+Desde una perspectiva sistémica neurofisiológica, los síntomas no existen en aislamiento: son nodos dentro de una red relacional que incluye ganancias secundarias, equilibrios familiares y lealtades invisibles. El sistema nervioso mantiene un patrón activo porque su costo-beneficio sigue siendo favorable dentro del sistema actual.
+Tres dimensiones funcionales
+Qué permite EVITAR: Intimidad, compromiso, responsabilidad, exposición, fracaso o éxito, rechazo, conflicto, tomar decisiones, crecer, independizarse.
+Qué permite RECIBIR: Atención, cuidado, protección, menos exigencia, apoyo económico, compañía, validación, control sobre otros, permiso de no actuar.
+Qué MANTIENE en el sistema: Equilibrio en pareja o familia, alguien en rol de cuidador, alguien cerca o lejos, lealtad a alguien, un secreto protegido, identidad como persona enferma, una deuda emocional abierta.
+Protocolo de búsqueda funcional
+Testar en qué contexto relacional opera la función: ¿en pareja? ¿en familia? ¿en trabajo? ¿en todas las relaciones? Luego rastrear cada dimensión (evitar, recibir, mantener) hasta completar el mapa funcional.
+NOTA CRÍTICA: Esta fase siempre se explora, independientemente de dónde se originó el conflicto. Un evento de hace 30 años puede mantenerse activo exclusivamente porque la función que cumple hoy sigue siendo útil para el sistema.
+________________
+
+
+PARTE V: INTEGRACIÓN DEL ESCENARIO COMPLETO
+5.1 Construcción de la Frase Terapéutica
+Con las 7 coordenadas identificadas, se construye la frase terapéutica integrando todo el escenario:
+“A los [CUÁNDO — Fase 1], cuando [QUIÉN — Fase 4] hizo [QUÉ PASÓ — Fase 5], mi sistema activó un patrón de [IMPRONTA — Fase 2] y sentí [SENSACIÓN — Fase 3]. La creencia que se grabó fue [SIGNIFICADO — Fase 6]. Hoy este patrón me permite [FUNCIÓN — Fase 7].”
+5.2 Ejemplo Clínico Integrado
+Caso: Dolor de espalda crónico, 15 años de evolución, múltiples tratamientos sin resolución.
+“A los 32 años, cuando mi socio me traicionó y se quedó con mi dinero, mi sistema activó un patrón de acorazamiento y un patrón de retracción. Sentí traición profunda, desvalorización e impotencia. Las creencias que se grabaron fueron: ‘Soy un fracaso’, ‘No sirvo para los negocios’, ‘No se puede confiar en nadie’. Este evento resonó transgeneracionalmente: mi abuelo paterno vivió exactamente lo mismo con un socio y nunca se recuperó. Hoy el dolor de espalda me permite evitar crecer mi negocio, tener socios y tomar riesgos. Me protege de que vuelva a pasar lo mismo.”
+5.3 Secuencia Post-Escenario
+1. Concientizar: El consultante ve la lógica completa de su síntoma.
+2. Descomprimir: Repetir la frase hasta emergencia de señales de vagotonia.
+3. Reprocesar: TRSB, PONS o bilateral con el escenario exacto.
+4. Resignificar: Construir nueva interpretación.
+5. Actualizar: Enviar al sistema la señal de que las condiciones originales ya no están presentes.
+________________
+
+
+PARTE VI: CONSIDERACIONES CLÍNICAS
+6.1 Calibración del Test Muscular
+Factores que afectan la precisión: estado de hidratación (deshidratación produce tests inconsistentes), nivel de fatiga (cansancio extremo reduce precisión), estado emocional del terapeuta (ansiedad o expectativas fuertes contaminan), y claridad de las preguntas (ambigüedad produce respuestas inconsistentes).
+Práctica recomendada: Test de calibración al inicio con preguntas de respuesta conocida. Re-calibrar ante inconsistencias. Descansos si el test se vuelve poco claro. Mantener neutralidad emocional rigurosa.
+6.2 Contraindicaciones
+No utilizar Context Engineering cuando: el consultante presenta patología médica severa que requiere diagnóstico médico inmediato, crisis psicológica aguda (ideación suicida activa, psicosis), o escepticismo extremo que genera resistencia constante al test.
+Precauciones especiales con: niños menores de 12 años (capacidad limitada para test muscular, utilizar con padres), personas con discapacidad física que afecta tono muscular, y trauma complejo severo (puede activar material abrumador sin preparación adecuada).
+6.3 Síntomas Primarios vs. Secundarios
+Esta distinción determina completamente la aproximación terapéutica y es esencial para la correcta aplicación de Context Engineering.
+Síntoma primario: Respuesta adaptativa ante circunstancia actual o reciente. Tiene sentido cuando se conoce el contexto. Es reciente (días a semanas). Desaparece si la circunstancia se resuelve. Búsqueda: Nivel 1.
+Síntoma secundario: Expresión de información del pasado no procesada. No tiene lógica con el presente. Es crónico o recurrente. No desaparece aunque cambien las circunstancias actuales. Búsqueda: Nivel 2 o 3.
+Implicación clínica: Si se confunde un síntoma secundario con primario, se buscará en Nivel 1 cuando se debería buscar en Nivel 2 o 3. Si se confunde un síntoma primario con secundario, se aplicará procesamiento traumático cuando lo que se necesita es estabilización.
+________________
+
+
+PARTE VII: SÍNTESIS
+7.1 Las 7 Fases — Resumen
+Fase 1 — Temporal: ¿Cuándo? (4 niveles temporales)
+Fase 2 — Patrón: ¿Qué impronta? (13 improntas de supervivencia)
+Fase 3 — Somático: ¿Qué sensación? (20 sensaciones viscerales)
+Fase 4 — Relacional: ¿Quién?
+Fase 5 — Evento: ¿Qué pasó?
+Fase 6 — Significado: ¿Qué creencia?
+Fase 7 — Función: ¿Para qué sirve hoy?
+7.2 Integración con el Protocolo BV4 Completo
+Context Engineering se integra dentro del protocolo completo de Bioenergética V4 como el sistema de búsqueda diagnóstica que construye el escenario neurofisiológico necesario para el reprocesamiento efectivo. La secuencia completa es:
+Regulación: Establecer ventana de tolerancia mediante técnicas de regulación autonómica.
+Identificación: Construir escenario completo mediante Context Engineering (7 Fases).
+Descompresión: Liberar energía comprimida mediante frase terapéutica y activación vagal.
+Reprocesamiento: TRSB, PONS o bilateral con escenario específico.
+Actualización: Informar al sistema nervioso que las condiciones originales ya no están presentes.
+
+
+Regulación + Identificación + Descompresión + Reprocesamiento + Actualización = Transformación sostenible.
+________________
+
+
+GLOSARIO DE TÉRMINOS BV4
+TÉRMINO
+	DEFINICIÓN BV4
+	Context Engineering
+	Metodología sistemática de búsqueda diagnóstica que construye contexto progresivo para acceder a información del inconsciente biológico.
+	Descompresión
+	Proceso de liberación de energía somato-emocional almacenada en memoria somática mediante la frase terapéutica y activación vagal.
+	Escenario neurofisiológico
+	Mapa completo del conflicto que integra las 7 coordenadas dimensionales.
+	Frase terapéutica
+	Síntesis verbal del escenario completo utilizada como herramienta de descompresión y reprocesamiento.
+	Impronta de supervivencia
+	Patrón neurofisiológico específico que el sistema nervioso instaló como respuesta adaptativa ante un shock y que continúa operando en el presente.
+	Inconsciente biológico
+	Totalidad de información archivada en memoria implícita y somática que influye en comportamiento y síntomas sin estar disponible para evocación consciente.
+	Memoria somática
+	Información archivada directamente en tejidos, órganos y sistema nervioso autónomo sin procesamiento cortical consciente.
+	Orientación mental
+	Intención interna del terapeuta que sintoniza la búsqueda con el tipo específico de información que persigue en cada fase.
+	Recesión de edad
+	Técnica de búsqueda temporal progresiva mediante test muscular para localizar la edad específica del evento originario.
+	Sensación visceral
+	Experiencia somática profunda grabada en sistema nervioso autónomo en el momento del impacto. Corresponde a patrones de activación interoceptiva.
+	Síntoma primario
+	Respuesta adaptativa del sistema nervioso ante circunstancia actual o reciente.
+	Síntoma secundario
+	Expresión de información del pasado no procesada que se manifiesta en el presente.
+	Test muscular
+	Herramienta de interfaz que permite formular preguntas binarias al inconsciente biológico mediante cambios medibles en tono muscular.
+	Vagotonia
+	Activación del complejo ventral del vago que indica transición del sistema nervioso hacia regulación parasimptática. Marcadores: llanto, suspiros, bostezos, temblores.
+	________________
+
+
+REFERENCIAS
+Bowlby, J. (1969). Attachment and Loss: Vol. 1. Attachment. Basic Books.
+Craig, A. D. (2009). How do you feel—now? The anterior insula and human awareness. Nature Reviews Neuroscience, 10(1), 59–70.
+Damasio, A. (1999). The Feeling of What Happens: Body and Emotion in the Making of Consciousness. Harcourt.
+Eisenberger, N. I., Lieberman, M. D., & Williams, K. D. (2003). Does rejection hurt? An fMRI study of social exclusion. Science, 302(5643), 290–292.
+Hawkins, D. R. (2012). Power vs. Force: The Hidden Determinants of Human Behavior. Hay House.
+Levine, P. A. (2010). In an Unspoken Voice: How the Body Releases Trauma and Restores Goodness. North Atlantic Books.
+McEwen, B. S. (2003). Mood disorders and allostatic load. Biological Psychiatry, 54(3), 200–207.
+Meaney, M. J. (2001). Maternal care, gene expression, and the transmission of individual differences in stress reactivity. Annual Review of Neuroscience, 24(1), 1161–1192.
+Monti, D. A., et al. (1999). Muscle test comparisons of congruent and incongruent self-referential statements. Perceptual and Motor Skills, 88(3), 1019–1028.
+Panksepp, J. (1998). Affective Neuroscience: The Foundations of Human and Animal Emotions. Oxford University Press.
+Porges, S. W. (2011). The Polyvagal Theory. W.W. Norton.
+Posner, M. I., & Petersen, S. E. (1990). The attention system of the human brain. Annual Review of Neuroscience, 13(1), 25–42.
+Rothschild, B. (2000). The Body Remembers: The Psychophysiology of Trauma and Trauma Treatment. W.W. Norton.
+Siegel, D. J. (2012). The Developing Mind (2nd ed.). Guilford Press.
+van der Kolk, B. (2014). The Body Keeps the Score. Viking Press.
+Yehuda, R., et al. (2015). Holocaust exposure induced intergenerational effects on FKBP5 methylation. Biological Psychiatry, 80(5), 372–380.
+
+
+© 2026 Centro Bioenergética • Dr. Miguel Ojeda Ríos • Todos los derechos reservados
+Dr. Miguel Ojeda Ríos • Centro Bioenergética • Página
