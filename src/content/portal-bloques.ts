@@ -340,4 +340,315 @@ export const bloques: BloqueData[] = [
     reflexion: 'Repasa los 8 bloques de hoy. ¿Cuál fue el concepto que más te impactó? ¿Qué cambia en tu forma de ver el trabajo terapéutico después de este día? ¿Qué preguntas te llevas?',
     tarea: 'Durante los próximos 7 días, solo observar. Nota momentos en que aparece una reacción desproporcionada: enojo excesivo, tristeza repentina, tensión sin causa aparente. Para cada momento: ¿dónde lo siento en el cuerpo? ¿Qué forma tiene? No intentar cambiar nada. Solo observar.',
   },
+
+  // ═══════════════════════════════════════════════
+  // JORNADA 02 — Improntas de Supervivencia
+  // ═══════════════════════════════════════════════
+
+  {
+    id: 'bloque-b9',
+    num: 'B09',
+    title: 'La Creencia como Evento Biológico',
+    subtitle: 'Placebo, nocebo y por qué entender no cambia',
+    isTame: false,
+    iconSvg: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l2 2"/></svg>',
+    ideaCentral: {
+      label: 'Idea central',
+      text: 'La creencia no es un pensamiento que desciende al cuerpo \u2014 es un estado distribuido que involucra simultáneamente electricidad celular, química, tensión muscular, memoria implícita y narrativa. La terapia debe intervenir en el nivel donde el patrón está almacenado, no solo donde se piensa.',
+    },
+    sections: [
+      {
+        heading: 'La creencia vive en 4 niveles',
+        type: 'niveles-grid',
+        items: [
+          { title: 'N4 \u2014 Declarativa', text: 'Lo que dices que crees. Modificable con argumentos. Es lo que la psicoterapia verbal trabaja.' },
+          { title: 'N3 \u2014 Implícita (Impronta)', text: 'Lo que tu cuerpo aprendió y no olvida. Resistente al diálogo. Aquí viven los patrones de supervivencia.' },
+          { title: 'N2 \u2014 Homeostática', text: 'Impulsos profundos, tono vagal, respuestas inmunes automáticas. Opera sin consciencia.' },
+          { title: 'N1 \u2014 Celular', text: 'Voltaje de membrana, comunicación eléctrica intercelular. La biología básica.' },
+        ],
+      },
+      {
+        heading: 'Placebo y nocebo: la expectativa como biología',
+        type: 'concepto-cards',
+        items: [
+          { title: 'El placebo no es magia', text: 'La corteza prefrontal genera predicciones que reorganizan la arquitectura neuroquímica. El 35% de pacientes mejoran con placebo abierto \u2014 saben que es placebo y aún así funciona.' },
+          { title: 'El nocebo es una impronta verbal', text: 'Un diagnóstico médico sin acompañamiento adecuado inyecta certeza de deterioro. El acto de diagnosticar puede instalar un segundo conflicto biológico.' },
+        ],
+      },
+      {
+        heading: 'El error clínico más común',
+        type: 'concepto-list',
+        items: [
+          { title: 'Error de nivel', text: 'Intentar modificar un patrón del N3 (inconsciente corporal) con herramientas del N4 (diálogo racional). Es como hablarle en español a alguien que solo habla mandarín.' },
+          { title: 'Por qué \u201Centender\u201D no cambia', text: 'Puedes entender perfectamente por qué tienes miedo a las arañas. Tu N4 lo sabe. Pero cuando ves una araña, tu cuerpo salta. El N3 no responde a argumentos \u2014 responde a experiencia.' },
+        ],
+      },
+    ],
+    fraseClave: '\u201CLa creencia es un estado distribuido. La terapia debe intervenir en el nivel donde el patrón está almacenado y no solo donde se piensa.\u201D',
+  },
+  {
+    id: 'bloque-b10',
+    num: 'B10',
+    title: 'Las 13 Improntas de Supervivencia',
+    subtitle: 'Mapa completo de los patrones de protección del sistema nervioso',
+    isTame: false,
+    iconSvg: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 2L2 12l10 10 10-10L12 2z"/><circle cx="12" cy="12" r="3"/></svg>',
+    ideaCentral: {
+      label: 'Idea central',
+      text: 'Una impronta de supervivencia es un programa que tu cuerpo instaló durante un evento que fue demasiado para procesarlo. Fue la solución perfecta entonces \u2014 pero sigue corriendo hoy, fuera de contexto. Se nombran por el MECANISMO que el sistema activó, no por la herida.',
+    },
+    sections: [
+      {
+        heading: 'Las 13 improntas',
+        type: 'concepto-list',
+        items: [
+          { title: 'I1 \u2014 DESACOPLE', text: 'Fragmentar la experiencia para sobrevivir al impacto. Somática: vértigo, cefalea, bruxismo. Vivencial: piloto automático, fuera del cuerpo.' },
+          { title: 'I2 \u2014 ACORAZAMIENTO', text: 'Blindar la zona vulnerable ante la traición. Somática: dolor dorsal-occipital. Vivencial: cuidar la espalda, no entregarse.' },
+          { title: 'I3 \u2014 RETRACCIÓN', text: 'Retirar la exposición ante el juicio. Somática: dolor lumbar, problemas articulares. Vivencial: no ser suficiente, vergüenza.' },
+          { title: 'I4 \u2014 FIJACIÓN EXTERNA', text: 'Redirigir energía hacia un culpable externo. Somática: disfunción hepatobiliar, inflamación. Vivencial: injusticia, deuda pendiente.' },
+          { title: 'I5 \u2014 COMPRESIÓN', text: 'Cerrar el canal expresivo. Somática: tiroides, garganta, reflujo. Vivencial: mi voz no importa.' },
+          { title: 'I6 \u2014 CAMUFLAJE', text: 'Activar invisibilidad ante la vergüenza. Somática: piel, dermatitis, psoriasis. Vivencial: deseo de desaparecer.' },
+          { title: 'I7 \u2014 HIBERNACIÓN', text: 'Reducir al mínimo vital cuando el dolor supera la capacidad. Somática: autoinmunidad, fatiga crónica. Vivencial: ya no tiene sentido.' },
+          { title: 'I8 \u2014 RESERVA', text: 'Acumular recursos por miedo a la escasez vincular. Somática: obesidad, retención, hiperglucemia. Vivencial: siempre me dejan.' },
+          { title: 'I9 \u2014 CONFLUENCIA', text: 'Fusionarse con el otro para asegurar la existencia. Somática: arritmias, taquicardia. Vivencial: sin ti no existo.' },
+          { title: 'I10 \u2014 VINCULACIÓN', text: 'Mantener el síntoma como forma de pertenecer al sistema. Somática: cronicidad, recaídas. Vivencial: no merezco sanar.' },
+          { title: 'I11 \u2014 SUPERPOSICIÓN', text: 'Operar dos programas biológicos simultáneamente. Somática: depresión sin causa, fatiga. Vivencial: no soy completamente yo.' },
+          { title: 'I12 \u2014 DESARRAIGO', text: 'Emergencia permanente sin territorio seguro. Somática: riñón, retención, edema. Vivencial: no pertenezco a ningún lugar.' },
+          { title: 'I13 \u2014 ENCAPSULAMIENTO', text: 'Aislar el dolor cardíaco en una cápsula protectora. Somática: Takotsubo, arritmias, dolor precordial. Vivencial: mi corazón está cerrado.' },
+        ],
+      },
+      {
+        heading: 'Triple expresión',
+        type: 'concepto-grid',
+        items: [
+          { title: 'Somática', text: 'Dónde vive en el cuerpo: la zona, el dolor, la disfunción. Cada impronta tiene una topografía corporal característica.' },
+          { title: 'Conductual', text: 'Cómo se expresa en la conducta: los patrones relacionales, las decisiones que se repiten, los ciclos.' },
+          { title: 'Vivencial', text: 'Cómo se experimenta por dentro: la narrativa interna, la sensación de vida, lo que \u201Csiempre ha sido así\u201D.' },
+        ],
+      },
+    ],
+    fraseClave: '\u201CNo decimos \u2018abandono\u2019 \u2014 decimos \u2018desacople\u2019. Nombrar la herida centra en el dolor. Nombrar el mecanismo centra en la inteligencia del sistema.\u201D',
+    tarea: 'Durante las próximas 2 semanas, observa reacciones desproporcionadas. Para cada una: ¿dónde en el cuerpo? ¿qué forma/peso/temperatura? NO interpretar \u2014 solo observar y registrar.',
+  },
+  {
+    id: 'bloque-b11',
+    num: 'B11',
+    title: 'Improntas I1 a I5 \u2014 Alta Activación',
+    subtitle: 'El sistema está luchando: fragmentación, blindaje, retiro, fijación, compresión',
+    isTame: false,
+    iconSvg: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>',
+    ideaCentral: {
+      label: 'Idea central',
+      text: 'Las primeras 5 improntas son respuestas de alta activación: el sistema está luchando activamente. Hay energía disponible \u2014 pero está dirigida a la protección, no a la vida.',
+    },
+    sections: [
+      {
+        heading: 'I1 \u2014 DESACOPLE',
+        type: 'concepto-cards',
+        items: [
+          { title: 'Mecanismo', text: 'Fragmentación súbita para sobrevivir al impacto. El evento fue tan repentino que el sistema no tuvo tiempo de procesar \u2014 se fracturó para no colapsar completamente.' },
+          { title: 'Shock originario', text: 'Accidente, muerte súbita, agresión inesperada, diagnóstico devastador. La variable principal es la subitedad.' },
+          { title: 'Frase terapéutica', text: '\u201CTu sistema se desacopló para sobrevivir. Ante el impacto, la única forma de protegerte fue separar lo que sentías de lo que pensabas. Hoy vamos a reconectar esas partes.\u201D' },
+        ],
+      },
+      {
+        heading: 'I2 \u2014 ACORAZAMIENTO',
+        type: 'concepto-cards',
+        items: [
+          { title: 'Mecanismo', text: 'Blindaje permanente ante la traición de una figura de apego. El sistema detectó: \u201Cla persona en quien confío me atacó por la espalda.\u201D La neurocepción se recalibra: personas cercanas = amenaza.' },
+          { title: 'Shock originario', text: 'Traición de pareja, padre, madre, hermano, amigo cercano. Ataque desde la retaguardia \u2014 no lo vio venir.' },
+          { title: 'Frase terapéutica', text: '\u201CTu sistema se acorazó por la espalda. Cuando alguien en quien confiabas atacó desde ahí, la respuesta fue blindar esa zona para siempre. Hoy vamos a descomprimir esa tensión.\u201D' },
+        ],
+      },
+      {
+        heading: 'I3 \u2014 RETRACCIÓN',
+        type: 'concepto-cards',
+        items: [
+          { title: 'Mecanismo', text: 'Retraerse para no exponerse al juicio. La lógica: \u201Csi me expongo, confirmo que soy insuficiente.\u201D El sistema se encoge para no ser visto.' },
+          { title: 'Shock originario', text: 'Fracaso, evaluación negativa, crítica constante, ridículo público, bullying. La devaluación se registra como verdad identitaria.' },
+          { title: 'Frase terapéutica', text: '\u201CTu sistema se retrajo para protegerte del juicio. Cuando exponerte significaba fracasar, la solución fue ya no exponerte más. Hoy vamos a descomprimir esa carga.\u201D' },
+        ],
+      },
+      {
+        heading: 'I4 \u2014 FIJACIÓN EXTERNA',
+        type: 'concepto-cards',
+        items: [
+          { title: 'Mecanismo', text: 'Mantener un culpable identificado. La injusticia fue real, la reparación nunca llegó. El sistema necesita organizar el dolor en algún lugar \u2014 y mantener al responsable cumple esa función.' },
+          { title: 'Shock originario', text: 'Injusticia vivida donde la causa se identifica claramente fuera. Castigo injusto, despojo, guerra, acto involuntario que produce daño real.' },
+          { title: 'Frase terapéutica', text: '\u201CTu sistema fijó la causa afuera cuando la injusticia ocurrió. Mantenerte identificando un responsable fue la forma de sobrevivir. Hoy vamos a descomprimir esa fijación.\u201D' },
+        ],
+      },
+      {
+        heading: 'I5 \u2014 COMPRESIÓN',
+        type: 'concepto-cards',
+        items: [
+          { title: 'Mecanismo', text: 'Clausurar el canal de expresión. La experiencia enseñó que expresarse es inútil o peligroso. \u201CMi expresión no tiene efecto \u2192 es inútil \u2192 me inhibo.\u201D' },
+          { title: 'Shock originario', text: '\u201CNo llores / no grites\u201D, el secreto impuesto, el castigo por expresarse, el mind-planing (invalidación sistemática).' },
+          { title: 'Frase terapéutica', text: '\u201CTu sistema aprendió que expresarse generaba invalidación o castigo. El resultado fue clausurar el canal de salida. Hoy vamos a restaurar esa capacidad expresiva.\u201D' },
+        ],
+      },
+    ],
+    fraseClave: '\u201CLas primeras 5 improntas son de alta activación \u2014 el sistema está luchando. A partir de la I6, la progresión es hacia el colapso.\u201D',
+  },
+  {
+    id: 'bloque-b12',
+    num: 'B12',
+    title: 'Improntas I6 a I9 \u2014 Colapso y Protección',
+    subtitle: 'El sistema se apaga, se esconde, acumula o se fusiona',
+    isTame: false,
+    iconSvg: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M8 12h8"/></svg>',
+    ideaCentral: {
+      label: 'Idea central',
+      text: 'A partir de la I6, el sistema ya no lucha \u2014 colapsa progresivamente. La I7 (Hibernación) es el punto de quiebre: el sistema se rinde. Las improntas I8 y I9 son estrategias de supervivencia desde la rendición.',
+    },
+    sections: [
+      {
+        heading: 'I6 \u2014 CAMUFLAJE',
+        type: 'concepto-cards',
+        items: [
+          { title: 'Mecanismo', text: 'Activar invisibilidad. La vergüenza hizo que ser visto fuera peligroso. La piel \u2014 la frontera con el mundo exterior \u2014 se convierte en el campo de batalla.' },
+          { title: 'Frase terapéutica', text: '\u201CTu sistema activó el camuflaje. Cuando ser visible significaba ser atacado, la solución fue desaparecer. Hoy vamos a descomprimir esa necesidad de ocultarte.\u201D' },
+        ],
+      },
+      {
+        heading: 'I7 \u2014 HIBERNACIÓN',
+        type: 'concepto-cards',
+        items: [
+          { title: 'Mecanismo', text: 'Reducir al mínimo vital. El punto de quiebre: cuando la lucha ya no produce resultado, el sistema se apaga globalmente. No es depresión clínica \u2014 es un programa de ahorro de energía extremo.' },
+          { title: 'Frase terapéutica', text: '\u201CTu sistema entró en hibernación. Cuando el esfuerzo dejó de producir resultado, la solución fue apagarse. Hoy vamos a reactivar lo que se cerró.\u201D' },
+        ],
+      },
+      {
+        heading: 'I8 \u2014 RESERVA',
+        type: 'concepto-cards',
+        items: [
+          { title: 'Mecanismo', text: 'Acumular todo por miedo a la escasez. El sistema aprendió que los recursos (amor, dinero, comida, atención) pueden desaparecer sin aviso. La solución: retener todo, no soltar nada.' },
+          { title: 'Frase terapéutica', text: '\u201CTu sistema entró en modo reserva. Cuando la experiencia le enseñó que los recursos podían desaparecer sin aviso, la solución fue acumular todo. Hoy vamos a descomprimir esa alerta.\u201D' },
+        ],
+      },
+      {
+        heading: 'I9 \u2014 CONFLUENCIA',
+        type: 'concepto-cards',
+        items: [
+          { title: 'Mecanismo', text: 'Fusionarse con el otro para existir. Los límites del Yo no se desarrollaron completamente. La existencia propia dependió de la presencia de otro \u2014 como dos ríos que se funden perdiendo sus cauces.' },
+          { title: 'Frase terapéutica', text: '\u201CTu sistema entró en confluencia con el otro. Cuando tu sentido de ser dependió completamente de alguien, la solución fue fusionarte. Hoy vamos a actualizar tu sistema para que pueda existir por sí mismo.\u201D' },
+        ],
+      },
+    ],
+    fraseClave: '\u201CLa hibernación (I7) es el punto de quiebre. Antes de ella, el sistema lucha. Después, se rinde y busca formas de sobrevivir desde la rendición.\u201D',
+  },
+  {
+    id: 'bloque-b13',
+    num: 'B13',
+    title: 'Improntas I10 a I13 \u2014 Sistémicas y Existenciales',
+    subtitle: 'Lealtad al síntoma, cargas ajenas, pérdida de territorio, corazón sellado',
+    isTame: false,
+    iconSvg: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>',
+    ideaCentral: {
+      label: 'Idea central',
+      text: 'Las últimas 4 improntas son las más profundas. Involucran el sistema familiar (I10, I11), el territorio existencial (I12) y el corazón como centro del ser (I13). Empezamos con el sistema fragmentándose (I1) y terminamos con el corazón encapsulándose (I13).',
+    },
+    sections: [
+      {
+        heading: 'I10 \u2014 VINCULACIÓN',
+        type: 'concepto-cards',
+        items: [
+          { title: 'Mecanismo', text: 'Mantener el síntoma como forma de pertenecer al sistema familiar. El paciente no mejora \u2014 no por resistencia, sino porque sanar equivale a traicionar a alguien del sistema.' },
+          { title: 'Frase terapéutica', text: '\u201CTu sistema se vinculó al síntoma como forma de pertenecer. En algún momento, mantenerte así fue la forma de ser fiel a algo importante. Hoy vamos a actualizar esa lealtad.\u201D' },
+        ],
+      },
+      {
+        heading: 'I11 \u2014 SUPERPOSICIÓN',
+        type: 'concepto-cards',
+        items: [
+          { title: 'Mecanismo', text: 'Operar dos programas biológicos simultáneamente. La persona carga información que no es suya \u2014 de un gemelo perdido, un ancestro, un duelo no resuelto del sistema. La tristeza es real pero la pérdida no fue suya.' },
+          { title: 'Frase terapéutica', text: '\u201CTu sistema está en superposición: vive dos vidas simultáneamente. Parte de tu energía está dedicada a alguien que ya no está. Hoy vamos a distinguir lo que es tuyo de lo que no lo es.\u201D' },
+        ],
+      },
+      {
+        heading: 'I12 \u2014 DESARRAIGO',
+        type: 'concepto-cards',
+        items: [
+          { title: 'Mecanismo', text: 'Emergencia existencial permanente sin territorio. Migración forzada, pérdida del hogar, exclusión del grupo. Sin territorio, el sistema entra en modo de emergencia y nunca sale.' },
+          { title: 'Frase terapéutica', text: '\u201CTu sistema está en desarraigo. Cuando perdiste tu territorio, entró en emergencia existencial y nunca salió de ahí. Hoy vamos a enviarle la señal de que ya encontró un lugar seguro.\u201D' },
+        ],
+      },
+      {
+        heading: 'I13 \u2014 ENCAPSULAMIENTO',
+        type: 'concepto-cards',
+        items: [
+          { title: 'Mecanismo', text: 'El corazón recibió un impacto directo y la solución fue sellarlo. No es separación (I8), ni fusión (I9), ni lealtad (I10) \u2014 es un IMPACTO con cierre posterior. El síndrome de Takotsubo demuestra que se puede morir literalmente de un corazón roto.' },
+          { title: 'Frase terapéutica', text: '\u201CTu sistema encapsuló el dolor del corazón. Cuando el impacto fue demasiado, la solución fue sellar la zona para proteger al resto. Hoy vamos a descomprimir ese dolor para que el corazón pueda volver a abrirse.\u201D' },
+        ],
+      },
+    ],
+    frasesList: [
+      { text: 'I9 se muere por acercarse. I13 se muere por alejarse.' },
+      { text: 'En I10, el síntoma es propio pero lo mantiene por otro. En I11, el síntoma es de otro pero lo expresa la persona.' },
+      { text: 'Las 13 improntas son 13 formas que tiene el sistema de protegerse.' },
+    ],
+  },
+  {
+    id: 'bloque-b14',
+    num: 'B14',
+    title: 'Síntesis, Sensaciones Viscerales y Cierre',
+    subtitle: 'El vocabulario somático, las señales de vagotonia y el puente al Módulo 3',
+    isTame: false,
+    iconSvg: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>',
+    ideaCentral: {
+      label: 'Idea central',
+      text: 'Las 20 sensaciones viscerales son un vocabulario para que el consultante pueda nombrar lo que siente en el cuerpo. Cada sensación tiene una señal primitiva \u2014 la función biológica original de esa sensación en un contexto de supervivencia animal. Las señales de vagotonia indican que el sistema está liberando carga.',
+    },
+    sections: [
+      {
+        heading: 'Las 20 sensaciones viscerales',
+        type: 'concepto-list',
+        items: [
+          { title: 'Abandono', text: 'Señal primitiva: separación de la manada, retención de recursos.' },
+          { title: 'Agresión', text: 'Señal primitiva: territorio invadido, preparación para lucha.' },
+          { title: 'Vacío', text: 'Señal primitiva: pérdida de cría o pareja, hueco interno.' },
+          { title: 'Soledad', text: 'Señal primitiva: aislamiento del grupo, desaceleración metabólica.' },
+          { title: 'Frustración', text: 'Señal primitiva: bloqueo en la caza, tensión sin descarga.' },
+          { title: 'Impotencia', text: 'Señal primitiva: parálisis de presa, no hay escape posible.' },
+          { title: 'Insatisfacción', text: 'Señal primitiva: hambre que no sacia, búsqueda sin fin.' },
+          { title: 'Vulnerabilidad', text: 'Señal primitiva: sin refugio, expuesto a depredadores.' },
+          { title: 'Hambre', text: 'Señal primitiva: escasez de alimento, movilización de reservas.' },
+          { title: 'Persecución', text: 'Señal primitiva: presa acechada, hipervigilancia crónica.' },
+          { title: 'Amor difícil', text: 'Señal primitiva: vínculo con peligro, apego a lo que daña.' },
+          { title: 'Angustia', text: 'Señal primitiva: amenaza invisible, opresión sin objeto.' },
+          { title: 'Ira', text: 'Señal primitiva: defensa territorial, preparación para lucha.' },
+          { title: 'Infelicidad', text: 'Señal primitiva: territorio estéril, sistema de recompensa apagado.' },
+          { title: 'Desvalorización', text: 'Señal primitiva: posición inferior en jerarquía, encogerse.' },
+          { title: 'Traición', text: 'Señal primitiva: ataque desde dentro de la manada.' },
+          { title: 'Rendición / Me quiero morir', text: 'Señal primitiva: programa de muerte, apagado de sistemas.' },
+          { title: 'Casi muerte', text: 'Señal primitiva: roce con depredador, hipervigilancia extrema.' },
+          { title: 'Humillación', text: 'Señal primitiva: expulsión de la manada, muerte social.' },
+          { title: 'Desvalorización estética', text: 'Señal primitiva: rechazo de apareamiento, vergüenza corporal.' },
+        ],
+      },
+      {
+        heading: 'Señales de vagotonia \u2014 indicadores positivos',
+        type: 'concepto-grid',
+        items: [
+          { title: 'Llanto', text: 'Descarga emocional \u2014 no interrumpir.' },
+          { title: 'Suspiros profundos', text: 'Liberación diafragmática \u2014 el sistema se regula.' },
+          { title: 'Bostezos', text: 'Descarga vagal \u2014 reequilibrio parasimpático.' },
+          { title: 'Temblores', text: 'Descarga del SNA \u2014 no interrumpir.' },
+          { title: 'Cambios de temperatura', text: 'Redistribución vascular \u2014 el sistema se reorganiza.' },
+          { title: 'Ruidos intestinales', text: 'Activación parasimpática digestiva \u2014 retorno al equilibrio.' },
+        ],
+      },
+      {
+        heading: 'Regla de oro',
+        type: 'concepto-cards',
+        items: [
+          { title: 'No interrumpir la descarga', text: 'Cuando el sistema está descargando: acompañar, permitir, sostener. El error más común del facilitador novato es interrumpir: pasar el pañuelo, decir \u201Ctranquilo\u201D, preguntar si está bien.' },
+          { title: 'Vagotonia vs. Crisis', text: 'Vagotonia: la persona llora/tiembla pero está PRESENTE y REGULADA \u2014 el sistema procesa. Crisis: la persona pierde el contacto con el aquí y ahora, se disocia, tiene pánico \u2014 el sistema está desbordado. En vagotonia: acompañar. En crisis: intervenir.' },
+        ],
+      },
+    ],
+    fraseClave: '\u201CHoy conocieron las 13 formas que tiene el sistema de protegerse. En el Módulo 3 van a aprender a trabajar con ellas: a identificar el escenario, construir la frase, y acompañar el proceso de actualización. Lo que aprendieron hoy es el QUÉ. Lo que van a aprender es el CÓMO.\u201D',
+    reflexion: 'De las 13 improntas, ¿cuál resonó más contigo? ¿Cuál reconoces en tus pacientes? ¿Cuál te cuesta más diferenciar de otra?',
+    tarea: 'Observar reacciones desproporcionadas durante las próximas 2 semanas. Registrar: dónde en el cuerpo, forma/peso/temperatura. NO interpretar. NO intentar trabajar la impronta. Solo observar y registrar.',
+  },
 ]

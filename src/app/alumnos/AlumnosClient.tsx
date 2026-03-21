@@ -239,8 +239,71 @@ export default function AlumnosClient() {
           ))}
         </JornadaSection>
 
-        {/* Jornada 02 - locked */}
-        <JornadaSection id="jornada02" title="Improntas de Supervivencia" date="7 Mar 2026" locked />
+        {/* Jornada 02 */}
+        <JornadaSection id="jornada02" title="Improntas de Supervivencia" date="7 Mar 2026">
+          <div className={bloqueStyles.bloqueGrid}>
+          {bloques.filter(b => ['bloque-b9','bloque-b10','bloque-b11','bloque-b12','bloque-b13','bloque-b14'].includes(b.id)).map((bloque) => (
+            <BloqueItem
+              key={bloque.id}
+              id={bloque.id}
+              num={bloque.num}
+              title={bloque.title}
+              subtitle={bloque.subtitle}
+              isTame={bloque.isTame}
+              icon={bloque.iconSvg}
+              preview={bloque.ideaCentral.text}
+              isCompleted={completedIds.includes(bloque.id)}
+              isOpen={openBloqueId === bloque.id}
+              onToggle={() => handleToggle(bloque.id)}
+              onToggleProgress={() => toggleProgress(bloque.id)}
+            >
+              <div className={bloqueStyles.bloqueBody}>
+                <div className={bloqueStyles.ideaCentral}>
+                  <span className={bloqueStyles.ideaLabel}>{bloque.ideaCentral.label}</span>
+                  <p>{bloque.ideaCentral.text}</p>
+                </div>
+
+                {bloque.sections.map((sec, si) => (
+                  <div key={si} className={bloqueStyles.bloqueSection}>
+                    <h4>{sec.heading}</h4>
+                    <div className={bloqueStyles[sec.type] ?? bloqueStyles['concepto-grid']}>
+                      {sec.items.map((item, ii) => (
+                        <div key={ii} className={bloqueStyles.conceptoItem}>
+                          {item.title && <strong>{item.title}</strong>}
+                          {item.subtitle && <span className={bloqueStyles.subtitle}>{item.subtitle}</span>}
+                          <p>{item.text}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+
+                {bloque.fraseClave && (
+                  <blockquote className={bloqueStyles.fraseClave}>{bloque.fraseClave}</blockquote>
+                )}
+
+                {bloque.frasesList && bloque.frasesList.map((f, fi) => (
+                  <blockquote key={fi} className={bloqueStyles.fraseClave}>{f.text}</blockquote>
+                ))}
+
+                {bloque.reflexion && (
+                  <div className={bloqueStyles.reflexion}>
+                    <span className={bloqueStyles.reflexionLabel}>Reflexión</span>
+                    <p>{bloque.reflexion}</p>
+                  </div>
+                )}
+
+                {bloque.tarea && (
+                  <div className={bloqueStyles.tarea}>
+                    <span className={bloqueStyles.tareaLabel}>Tarea</span>
+                    <p>{bloque.tarea}</p>
+                  </div>
+                )}
+              </div>
+            </BloqueItem>
+          ))}
+          </div>
+        </JornadaSection>
 
         {/* Jornada 03 - locked */}
         <JornadaSection id="jornada03" title="Protocolo de Sesión" date="21 Mar 2026" locked />
