@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <!--
+    BIOENERGÉTICA V4 — MARK DEFINITIVO
+    Basado en Pro 5, refinado para funcionar sin filtros SVG.
+    3 elementos: diamante exterior + zona N3 amber + punto central.
+    Funciona de 16px a 4096px. Sin gradientes, sin filtros, sin glow.
+    Reproducible en offset, serigrafía, bordado, grabado láser.
+  -->
+
+  <!-- Fondo -->
+  <rect width="512" height="512" rx="90" fill="#0d1520"/>
+
+  <!-- Diamante exterior (Cono de Luz Cognitivo) -->
+  <path d="M 256 56 L 440 256 L 256 456 L 72 256 Z"
+        fill="none" stroke="#00c9a0" stroke-width="10" stroke-linejoin="miter"/>
+
+  <!-- Zona N3 — Inconsciente Corporal (Amber) -->
+  <path d="M 256 152 L 340 256 L 256 360 L 172 256 Z"
+        fill="none" stroke="#d4834a" stroke-width="5" opacity="0.55"/>
+
+  <!-- Línea horizontal del Presente -->
+  <line x1="72" y1="256" x2="440" y2="256" stroke="#00c9a0" stroke-width="3" opacity="0.25"/>
+
+  <!-- Punto central "Ahora" -->
+  <circle cx="256" cy="256" r="14" fill="#00c9a0"/>
+  <circle cx="256" cy="256" r="6" fill="#ffffff" opacity="0.7"/>
+</svg>

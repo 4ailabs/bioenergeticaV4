@@ -28,6 +28,10 @@ export const metadata: Metadata = {
   },
   description:
     'Curso de Bioenergética Holográfica V4.0. Cartografía de los Campos que Organizan tu Experiencia. Presencial y Online.',
+  icons: {
+    icon: '/favicon.svg',
+    apple: '/favicon.svg',
+  },
 }
 
 export default function RootLayout({

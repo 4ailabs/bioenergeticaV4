@@ -39,8 +39,18 @@ export default function Header() {
       <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
         <div className={styles.headerContainer}>
           <Link href="/" className={styles.logo} aria-label="Inicio">
-            <span className={styles.logoPrefix}>Instituto</span>
-            <span className={styles.logoName}>Centrobioenergetica</span>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/mark-inline.svg"
+              alt="Bioenergética V4"
+              width={36}
+              height={36}
+              className={styles.logoMark}
+            />
+            <div className={styles.logoText}>
+              <span className={styles.logoPrefix}>Instituto</span>
+              <span className={styles.logoName}>Centrobioenergetica</span>
+            </div>
           </Link>
 
           <nav className={styles.nav}>
