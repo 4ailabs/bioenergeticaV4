@@ -651,4 +651,233 @@ export const bloques: BloqueData[] = [
     reflexion: 'De las 13 improntas, ¿cuál resonó más contigo? ¿Cuál reconoces en tus pacientes? ¿Cuál te cuesta más diferenciar de otra?',
     tarea: 'Observar reacciones desproporcionadas durante las próximas 2 semanas. Registrar: dónde en el cuerpo, forma/peso/temperatura. NO interpretar. NO intentar trabajar la impronta. Solo observar y registrar.',
   },
+
+  // ═══════════════════════════════════════════════
+  // JORNADA 03 — Protocolo de Sesión e Integración
+  // ═══════════════════════════════════════════════
+
+  {
+    id: 'bloque-b15',
+    num: 'B15',
+    title: 'El Protocolo Clínico Completo',
+    subtitle: 'Estado Cero \u00B7 Protocolo Nuclear \u00B7 Calibración \u00B7 Reglas del Rastreo',
+    isTame: false,
+    iconSvg: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>',
+    ideaCentral: {
+      label: 'Idea central',
+      text: 'Antes de cualquier técnica hay un protocolo invariable: preparar al terapeuta (Estado Cero), calibrar el test muscular, y ejecutar los 3 pasos nucleares. Si solo aprendes estos tres pasos, ya puedes trabajar.',
+    },
+    sections: [
+      {
+        heading: 'Estado Cero \u2014 Preparación del terapeuta',
+        type: 'concepto-list',
+        items: [
+          { title: '1. Pies en la tierra', text: 'Sentir las plantas de los pies en el suelo. Contacto real, no ejercicio mental. Ahora.' },
+          { title: '2. Respiración 4-7-8', text: 'Inhalar 4 tiempos, sostener 7, exhalar 8. Cinco respiraciones son suficientes para activar el vago ventral.' },
+          { title: '3. Intención clara', text: 'Definir en una frase qué se va a buscar: \u201CQuiero ser sensible para buscar las improntas.\u201D Sin intención, el rastreo es adivinación.' },
+        ],
+      },
+      {
+        heading: 'Protocolo Nuclear \u2014 Los 3 pasos invariables',
+        type: 'pilar-cards',
+        items: [
+          { subtitle: 'Paso 1', title: 'Identificar la impronta', text: '\u00BFCuál es el programa que está corriendo? Test muscular con las 13 improntas hasta obtener respuesta positiva.' },
+          { subtitle: 'Paso 2', title: 'Buscar el instante', text: '\u00BFCuándo se instaló? Embudo de recesión de edad: hoy \u2192 20 días \u2192 año \u2192 quinquenios \u2192 gestación \u2192 transgeneracional.' },
+          { subtitle: 'Paso 3', title: 'Conectar con la sensación', text: '\u00BFCómo se siente en el cuerpo? \u201C\u00BFDónde lo sientes? \u00BFQué forma tiene? \u00BFQué temperatura? \u00BFQué peso?\u201D' },
+        ],
+      },
+      {
+        heading: 'Calibración del test muscular',
+        type: 'concepto-cards',
+        items: [
+          { title: 'Convención', text: 'Definir con el sistema: \u00BFqué es un sí? \u00BFqué es un no? El terapeuta establece el código de comunicación antes de empezar.' },
+          { title: 'Test de validación', text: 'Nombre verdadero = sí. Nombre falso = no. Si el sistema dice sí a \u201C\u00BFEres Superman?\u201D \u2014 la calibración falló. Todo lo que se busque después será inválido.' },
+          { title: 'Cuándo recalibrar', text: 'Respuestas ambiguas, cambio de posición del paciente, mucho tiempo transcurrido, sospecha de que el terapeuta se está proyectando.' },
+        ],
+      },
+      {
+        heading: 'Las 5 reglas de oro del rastreo',
+        type: 'concepto-list',
+        items: [
+          { title: '1. Todo en binario', text: 'El cuerpo no puede decir \u201Ces la 3 y la 4 combinadas.\u201D Solo sí o no.' },
+          { title: '2. Una variable por pregunta', text: 'No: \u201C\u00BFcuál es la impronta, la sensación y el instante?\u201D Sí: una cosa a la vez.' },
+          { title: '3. No asumir', text: 'Si la intuición dice \u201Cdos\u201D, igual rastrea desde la uno. La intuición orienta, el test confirma.' },
+          { title: '4. Ante la duda, recalibrar', text: 'Reorientarse y verificar antes de seguir. Mejor perder 30 segundos que perder toda la sesión.' },
+          { title: '5. El test es una puerta, no un diagnóstico', text: 'Es para entrar al fenómeno. Lo que importa es lo que sucede una vez dentro.' },
+        ],
+      },
+    ],
+    frasesList: [
+      { text: 'Un terapeuta con nervio vago presente regula. No necesita ser bueno \u2014 necesita estar presente.' },
+      { text: 'Si en sesiones consecutivas aparece siempre la misma impronta para distintos pacientes, es probable que sea la impronta del propio terapeuta.' },
+    ],
+  },
+  {
+    id: 'bloque-b16',
+    num: 'B16',
+    title: 'Context Engineering \u2014 Las 7 Coordenadas',
+    subtitle: 'El sistema diagnóstico del inconsciente biológico',
+    isTame: false,
+    iconSvg: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>',
+    ideaCentral: {
+      label: 'Principio fundamental',
+      text: 'Mientras más contexto específico se proporciona al inconsciente biológico, más precisa es la información que devuelve. Una pregunta vaga activa millones de archivos. Una pregunta con 7 coordenadas activa exactamente el archivo necesario.',
+    },
+    sections: [
+      {
+        heading: 'Las 7 coordenadas del escenario neurofisiológico',
+        type: 'concepto-list',
+        items: [
+          { title: 'Fase 1 \u2014 TEMPORAL', text: '\u00BFCuándo se activó? Se encuentra con el embudo de recesión de edad: hoy \u2192 20 días \u2192 año \u2192 quinquenios \u2192 gestación \u2192 transgeneracional (línea materna y paterna).' },
+          { title: 'Fase 2 \u2014 PATRÓN', text: '\u00BFQué impronta se instaló? Test muscular recorriendo las 13 improntas hasta obtener respuesta.' },
+          { title: 'Fase 3 \u2014 SOMÁTICO', text: '\u00BFQué sensación se grabó? \u201C\u00BFDónde lo sientes en el cuerpo? \u00BFQué forma, peso, temperatura tiene?\u201D La ínsula anterior mapea el cuerpo desde adentro.' },
+          { title: 'Fase 4 \u2014 RELACIONAL', text: '\u00BFQuién estuvo involucrado? Test: \u00BFmamá? \u00BFpapá? \u00BFpareja? \u00BFhermano? \u00BFotro? Se identifica la figura vincular del evento.' },
+          { title: 'Fase 5 \u2014 EVENTO', text: '\u00BFQué pasó? No revivir \u2014 solo localizar la categoría: \u00BFfue pérdida? \u00BFtraición? \u00BFviolencia? \u00BFabandono? \u00BFinjusticia? \u00BFinvalidación?' },
+          { title: 'Fase 6 \u2014 SIGNIFICADO', text: '\u00BFQué creencia se instaló? \u201C\u00BFQué concluyó el cuerpo?\u201D No lo que piensa hoy \u2014 lo que el N3 decidió en ese momento: \u201Cno soy suficiente\u201D, \u201Cel mundo es peligroso\u201D, \u201Cme van a dejar.\u201D' },
+          { title: 'Fase 7 \u2014 FUNCIÓN', text: '\u00BFPara qué sirve hoy? \u201C\u00BFDe qué te protege este patrón?\u201D El patrón siempre tiene una función adaptativa actual \u2014 si no la tuviera, ya se habría extinguido.' },
+        ],
+      },
+      {
+        heading: 'La frase terapéutica integrativa',
+        type: 'concepto-cards',
+        items: [
+          { title: 'Estructura', text: '\u201CA los [CUÁNDO], cuando [QUIÉN] hizo [QUÉ PASÓ], mi sistema activó un patrón de [IMPRONTA] y sentí [SENSACIÓN]. La creencia que se grabó fue [SIGNIFICADO]. Hoy este patrón me permite [FUNCIÓN].\u201D' },
+          { title: 'Cómo funciona', text: 'Al repetir la frase 5-10 veces, se activan simultáneamente todos los nodos de la red de memoria asociada al conflicto. Emergen señales de vagotonia: llanto, suspiros, bostezos, temblores. Eso indica que el N3 está procesando.' },
+          { title: 'Regla clave', text: 'Cada palabra de la frase fue verificada por test muscular. No se inventa, no se interpreta, no se asume. La frase es síntesis del archivo neurofisiológico, no narrativa del trauma.' },
+        ],
+      },
+    ],
+    fraseClave: '\u201CContext Engineering no diagnostica enfermedades. Localiza archivos. La diferencia es fundamental.\u201D',
+  },
+  {
+    id: 'bloque-b17',
+    num: 'B17',
+    title: 'La Técnica Mínima de Descompresión',
+    subtitle: 'Los 5 pasos: del reconocimiento a la transformación',
+    isTame: false,
+    iconSvg: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 22V8"/><path d="M5 12H2a10 10 0 0 0 20 0h-3"/><path d="M12 2a3 3 0 0 0-3 3v3h6V5a3 3 0 0 0-3-3z"/></svg>',
+    ideaCentral: {
+      label: 'Idea central',
+      text: 'La técnica mínima es el corazón del trabajo con improntas. Identifica la sensación, la externaliza, dialoga con ella y la transforma. Un patrón de supervivencia solo persiste porque no se completó. La técnica inicia ese proceso de completación.',
+    },
+    sections: [
+      {
+        heading: 'Los 5 pasos de la técnica mínima',
+        type: 'concepto-list',
+        items: [
+          { title: 'Paso 0 \u2014 Frase de reconocimiento', text: 'El facilitador lee frases. El participante elige la que el cuerpo reconoce \u2014 no la que suena correcta, sino la que \u201Ccae\u201D en el cuerpo. Se repite 2-3 veces con una mano en la zona de la sensación. Observar: suspiro, cambio de postura, ojos humedecidos = momento de entrada.' },
+          { title: 'Paso 1 \u2014 Localización', text: '\u201CLleva la atención al lugar del cuerpo donde encontramos esa sensación. No la analices. Solo obsérvala como si fueras un testigo externo.\u201D' },
+          { title: 'Paso 2 \u2014 Externalización', text: '\u201CSi esa sensación tuviera una forma, \u00BFqué forma tendría? \u00BFTemperatura? \u00BFColor?\u201D Luego: \u201CPonlo frente a ti, a un brazo de distancia. Que flote ahí.\u201D' },
+          { title: 'Paso 3 \u2014 Reconocimiento sin fusión', text: '\u201CObserva eso que flota. Fue lo que el sistema hizo para sobrevivir ese instante. No falló \u2014 te protegió. Solo ya no necesita estar dentro.\u201D' },
+          { title: 'Paso 4 \u2014 Transformación', text: '\u201CImagina que hay una luz del color que necesite, que envuelve eso que flota. No lo elimina. Lo transforma. Observa qué pasa.\u201D Silencio de 60-90 segundos. Observar señales de descarga.' },
+        ],
+      },
+      {
+        heading: 'Señales de descarga válidas',
+        type: 'concepto-grid',
+        items: [
+          { title: 'Suspiro profundo', text: 'Liberación diafragmática espontánea.' },
+          { title: 'Cambio de temperatura', text: 'Calor o frío en la zona de la sensación.' },
+          { title: 'Tensión que cede', text: 'Los hombros bajan, la mandíbula se afloja.' },
+          { title: 'Ojos humedecidos', text: 'Sin llanto necesariamente \u2014 solo humedad.' },
+          { title: 'Bostezo profundo', text: 'Descarga vagal, reequilibrio parasimpático.' },
+          { title: 'Más espacio', text: 'Sensación de que el pecho o vientre se expande.' },
+        ],
+      },
+    ],
+    fraseClave: '\u201CTiempo mínimo por zona: 90 segundos. Cuando una persona conecta realmente con lo que siente, el cuerpo toma 90 segundos para empezar a procesarlo.\u201D',
+  },
+  {
+    id: 'bloque-b18',
+    num: 'B18',
+    title: 'El Acto de Quiebre Somático',
+    subtitle: 'La pieza que faltaba \u2014 actualización irreversible de la impronta',
+    isTame: false,
+    iconSvg: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>',
+    ideaCentral: {
+      label: 'Idea central',
+      text: 'La técnica mínima descomprime. Pero todo lo que se descomprime es reversible. El Acto de Quiebre produce la actualización irreversible: el cuerpo HACE lo que la impronta dice que no puede hacer \u2014 y sobrevive. Esa información no se borra.',
+    },
+    sections: [
+      {
+        heading: '\u00BFPor qué la descompresión sola no basta?',
+        type: 'concepto-cards',
+        items: [
+          { title: 'El problema', text: 'La técnica mínima externaliza y transforma \u2014 pero todo ocurre en la representación mental. El paciente imagina la luz, visualiza el cambio. Y todo eso puede deshacerse. El N3 necesita una experiencia FÍSICA que contradiga su predicción.' },
+          { title: 'La solución', text: 'Reconsolidación de memoria: cuando una memoria está activa (ya lo está tras los pasos 0-4), una experiencia que contradice su predicción central la actualiza permanentemente. No se borra \u2014 se reescribe.' },
+        ],
+      },
+      {
+        heading: 'Los 13 actos de quiebre',
+        type: 'concepto-list',
+        items: [
+          { title: 'I1 Desacople', text: 'Predicción: \u201CSi lo siento, me destruye.\u201D Acto: sentirlo 90 seg con presencia. Frase: \u201CLo estoy sintiendo y sigo aquí.\u201D' },
+          { title: 'I2 Acorazamiento', text: 'Predicción: \u201CSi me ablando, me atacan.\u201D Acto: soltar la tensión con alguien presente detrás. Frase: \u201CSuelto la guardia. Estoy seguro aquí.\u201D' },
+          { title: 'I3 Retracción', text: 'Predicción: \u201CSi me muestro, me rechazan.\u201D Acto: erguirse, abrir brazos, ocupar espacio. Frase: \u201CEstoy aquí. Ocupo este lugar.\u201D' },
+          { title: 'I4 Fijación Externa', text: 'Predicción: \u201CSi suelto al culpable, no hay explicación.\u201D Acto: abrir los puños lentamente. Frase: \u201CSuelto esto. Mi dolor es real sin necesitar un culpable.\u201D' },
+          { title: 'I5 Compresión', text: 'Predicción: \u201CSi hablo, me castigan.\u201D Acto: decir en voz alta lo no dicho. Frase: \u201CMi voz existe. Alguien la escuchó.\u201D' },
+          { title: 'I6 Camuflaje', text: 'Predicción: \u201CSi me ven, me destruyen.\u201D Acto: contacto visual con el terapeuta 30 seg. Frase: \u201CMe están viendo y estoy bien.\u201D' },
+          { title: 'I7 Hibernación', text: 'Predicción: \u201CNo tengo fuerza.\u201D Acto: empujar la pared con toda la fuerza 15-20 seg. Frase: \u201CMi cuerpo tiene fuerza. Puedo empujar.\u201D' },
+          { title: 'I8 Reserva', text: 'Predicción: \u201CSi suelto, me quedo sin nada.\u201D Acto: abrir las manos, soltar. Frase: \u201CSolté y sigo teniendo. No me quedé vacío.\u201D' },
+          { title: 'I9 Confluencia', text: 'Predicción: \u201CSin el otro no existo.\u201D Acto: sentir los bordes del propio cuerpo. Frase: \u201CExisto sin necesitar a nadie para ser.\u201D' },
+          { title: 'I10 Vinculación', text: 'Predicción: \u201CSi mejoro, traiciono.\u201D Acto: respirar bienestar, permitir una sonrisa. Frase: \u201CEstoy bien en este momento y nadie se muere por eso.\u201D' },
+          { title: 'I11 Superposición', text: 'Predicción: \u201CCargo algo que no es mío.\u201D Acto: sacudir el cuerpo vigorosamente 15-20 seg. Frase: \u201CLo que no es mío, lo devuelvo.\u201D' },
+          { title: 'I12 Desarraigo', text: 'Predicción: \u201CNo tengo territorio.\u201D Acto: pisar fuerte, sentir el piso. Frase: \u201CEste suelo me sostiene. Estoy parado en mi lugar.\u201D' },
+          { title: 'I13 Encapsulamiento', text: 'Predicción: \u201CSi abro el corazón, me destruye.\u201D Acto: mano en pecho, sentir el latido 30 seg en silencio. Frase: \u201CMi corazón sigue latiendo. Puede abrirse un milímetro.\u201D' },
+        ],
+      },
+      {
+        heading: 'Los 6 criterios \u2014 \u00BFfuncionó el acto?',
+        type: 'concepto-grid',
+        items: [
+          { title: '1. Fue ejecutado', text: 'El cuerpo se movió. No fue imaginado.' },
+          { title: '2. Contradijo la predicción', text: 'El cuerpo hizo lo que \u201Cno podía hacer.\u201D' },
+          { title: '3. Fue testificado', text: 'El facilitador lo presenció. No fue en soledad.' },
+          { title: '4. Produjo respuesta', text: 'Suspiro, temblor, calor, lágrimas, cambio postural.' },
+          { title: '5. Fue nombrado', text: 'La frase se dijo DURANTE el acto, no después.' },
+          { title: '6. Dentro de la ventana', text: 'La impronta estaba reactivada en los pasos previos.' },
+        ],
+      },
+    ],
+    fraseClave: '\u201CLo irreversible no es un objeto roto \u2014 es que el cuerpo HIZO lo que \u2018no podía hacer\u2019 y sobrevivió. Esa información no se borra.\u201D',
+  },
+  {
+    id: 'bloque-b19',
+    num: 'B19',
+    title: 'Los 5 Pasos Post-Escenario',
+    subtitle: 'Concientizar \u2192 Descomprimir \u2192 Reprocesar \u2192 Resignificar \u2192 Actualizar',
+    isTame: false,
+    iconSvg: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>',
+    ideaCentral: {
+      label: 'Idea central',
+      text: 'Los 5 pasos post-escenario integran todo lo aprendido en una secuencia clínica completa. Es el flujo que conecta Context Engineering con la Técnica Mínima y el Acto de Quiebre en un solo protocolo.',
+    },
+    sections: [
+      {
+        heading: 'La secuencia completa',
+        type: 'pilar-cards',
+        items: [
+          { subtitle: 'Paso 1', title: 'CONCIENTIZAR', text: 'Hacer consciente lo que el N3 almacena. Herramienta: la frase terapéutica integrativa (7 coordenadas), repetida 5-10 veces hasta vagotonia.' },
+          { subtitle: 'Paso 2', title: 'DESCOMPRIMIR', text: 'Liberar la energía retenida. Herramienta: Técnica Mínima (Pasos 0-4: reconocimiento \u2192 localización \u2192 externalización \u2192 transformación).' },
+          { subtitle: 'Paso 3', title: 'REPROCESAR', text: 'Producir el quiebre irreversible. Herramienta: Acto de Quiebre Somático (60-120 seg). El cuerpo hace lo que \u201Cno podía\u201D y sobrevive.' },
+          { subtitle: 'Paso 4', title: 'RESIGNIFICAR', text: 'Nueva conclusión del sistema. \u201CSi el sistema de entonces hubiera tenido lo que sabes hoy, \u00BFqué conclusión diferente habría sacado?\u201D Construir con las palabras del paciente, no imponer.' },
+          { subtitle: 'Paso 5', title: 'ACTUALIZAR', text: 'Instalar la nueva predicción. Frase de actualización + anclaje somático en la zona del cuerpo que respondió. Verificar con test muscular.' },
+        ],
+      },
+      {
+        heading: 'El flujo completo de sesión',
+        type: 'concepto-list',
+        items: [
+          { title: 'Preparación', text: 'Estado Cero del terapeuta (pies, respiración, intención) \u2192 Calibración del test muscular.' },
+          { title: 'Diagnóstico', text: 'Context Engineering: rastrear las 7 coordenadas del escenario neurofisiológico.' },
+          { title: 'Intervención', text: 'Frase terapéutica (5-10x) \u2192 Técnica Mínima (Pasos 0-4) \u2192 Acto de Quiebre (Paso 4.5) \u2192 Resignificar \u2192 Actualizar.' },
+          { title: 'Verificación', text: 'Test muscular: \u00BFla impronta sigue activa en ese instante? Si sí: buscar otra capa. Si no: cierre.' },
+          { title: 'Cierre', text: 'Mano en pecho, pies en el suelo, 3 respiraciones. \u201CLo que se movió hoy continúa reorganizándose.\u201D' },
+        ],
+      },
+    ],
+    fraseClave: '\u201CEn el Módulo 2 aprendieron el QUÉ \u2014 las 13 formas de protección. Hoy aprendieron el CÓMO \u2014 el protocolo completo para encontrar el archivo, activarlo, descomprimirlo, y producir el quiebre que lo actualiza para siempre.\u201D',
+    reflexion: '\u00BFEn qué paso del protocolo te sientes más seguro? \u00BFEn cuál necesitas más práctica? \u00BFQué fue lo más sorprendente del Acto de Quiebre?',
+    tarea: 'Practicar el protocolo completo con 2-3 personas (familia, amigos, pacientes). Registrar: impronta encontrada, coordenadas, acto de quiebre aplicado, señales de descarga. NO trabajar I13 sin supervisión.',
+  },
 ]

@@ -305,8 +305,71 @@ export default function AlumnosClient() {
           </div>
         </JornadaSection>
 
-        {/* Jornada 03 - locked */}
-        <JornadaSection id="jornada03" title="Protocolo de Sesión" date="21 Mar 2026" locked />
+        {/* Jornada 03 */}
+        <JornadaSection id="jornada03" title="Protocolo de Sesión e Integración" date="21 Mar 2026">
+          <div className={bloqueStyles.bloqueGrid}>
+          {bloques.filter(b => ['bloque-b15','bloque-b16','bloque-b17','bloque-b18','bloque-b19'].includes(b.id)).map((bloque) => (
+            <BloqueItem
+              key={bloque.id}
+              id={bloque.id}
+              num={bloque.num}
+              title={bloque.title}
+              subtitle={bloque.subtitle}
+              isTame={bloque.isTame}
+              icon={bloque.iconSvg}
+              preview={bloque.ideaCentral.text}
+              isCompleted={completedIds.includes(bloque.id)}
+              isOpen={openBloqueId === bloque.id}
+              onToggle={() => handleToggle(bloque.id)}
+              onToggleProgress={() => toggleProgress(bloque.id)}
+            >
+              <div className={bloqueStyles.bloqueBody}>
+                <div className={bloqueStyles.ideaCentral}>
+                  <span className={bloqueStyles.ideaLabel}>{bloque.ideaCentral.label}</span>
+                  <p>{bloque.ideaCentral.text}</p>
+                </div>
+
+                {bloque.sections.map((sec, si) => (
+                  <div key={si} className={bloqueStyles.bloqueSection}>
+                    <h4>{sec.heading}</h4>
+                    <div className={bloqueStyles[sec.type] ?? bloqueStyles['concepto-grid']}>
+                      {sec.items.map((item, ii) => (
+                        <div key={ii} className={bloqueStyles.conceptoItem}>
+                          {item.title && <strong>{item.title}</strong>}
+                          {item.subtitle && <span className={bloqueStyles.subtitle}>{item.subtitle}</span>}
+                          <p>{item.text}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+
+                {bloque.fraseClave && (
+                  <blockquote className={bloqueStyles.fraseClave}>{bloque.fraseClave}</blockquote>
+                )}
+
+                {bloque.frasesList && bloque.frasesList.map((f, fi) => (
+                  <blockquote key={fi} className={bloqueStyles.fraseClave}>{f.text}</blockquote>
+                ))}
+
+                {bloque.reflexion && (
+                  <div className={bloqueStyles.reflexion}>
+                    <span className={bloqueStyles.reflexionLabel}>Reflexión</span>
+                    <p>{bloque.reflexion}</p>
+                  </div>
+                )}
+
+                {bloque.tarea && (
+                  <div className={bloqueStyles.tarea}>
+                    <span className={bloqueStyles.tareaLabel}>Tarea</span>
+                    <p>{bloque.tarea}</p>
+                  </div>
+                )}
+              </div>
+            </BloqueItem>
+          ))}
+          </div>
+        </JornadaSection>
 
         <ResourcesSection />
       </main>
